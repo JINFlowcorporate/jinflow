@@ -139,7 +139,7 @@
                         <footer class="mt-3">
                             <div class="flex items-center space-x-3">
                                 <div class="flex-shrink-0">
-                                    <img class="h-6 w-6 rounded-full" src="https://media-exp1.licdn.com/dms/image/C4D03AQGfHmKFdlMOxw/profile-displayphoto-shrink_200_200/0/1618677968141?e=1631750400&v=beta&t=vkbV-wxapD49TwT3ZbCGe50OBWiQeLY__H1kAGKPkjA" alt="">
+                                    <img class="h-6 w-6 rounded-full" src="https://media-exp1.licdn.com/dms/image/C4D03AQGfHmKFdlMOxw/profile-displayphoto-shrink_800_800/0/1618677968141?e=1637193600&v=beta&t=1pJpzGKKP461g0f-XQ_sovAhsAwvZFybKxU_VhLDLQc" alt="">
                                 </div>
                                 <div class="text-base font-medium text-gray-700">
                                     Quentin Riviere, Co-founder
