@@ -121,7 +121,7 @@ class Users extends Component
      */
     public function read()
     {
-        return User::paginate(5);
+        return User::orderBy('created_at', 'DESC')->paginate(5);
     }
 
     /**

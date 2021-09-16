@@ -172,7 +172,7 @@ class BiensAdmin extends Component
      */
     public function read()
     {
-        return \App\Models\Biens::orderBy('created_at', 'DESC')->paginate(5);
+        return \App\Models\Biens::orderBy('created_at', 'DESC')->paginate(10);
     }
 
     /**
