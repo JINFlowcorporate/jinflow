@@ -16,7 +16,6 @@ class CreateImagesTable extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Biens::class);
-            $table->text('public_id');
             $table->text('image');
             $table->timestamps();
             $table->softDeletes();
