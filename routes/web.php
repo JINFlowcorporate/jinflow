@@ -70,3 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified', 
         return view('admin.biens-admin');
     })->name('admin.biens');
 });
+
+Route::get('/checkout', function () {
+    return view('pages.checkout');
+})->name('checkout');

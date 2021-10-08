@@ -26,8 +26,6 @@ class Biens extends Component
 
     public function render()
     {
-        $cart = Cart::content();
-
-        return view('livewire.biens', compact('cart'));
+        return view('livewire.biens');
     }
 }

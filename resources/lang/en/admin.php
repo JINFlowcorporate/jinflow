@@ -25,6 +25,26 @@ return [
         'cancel' => 'Cancel',
         'close' => 'Close'
     ],
+    'biens' => [
+        'type' => 'Type',
+        'nb_bathroom' => 'Number of bathrooms',
+        'nb_beds' => 'Number of rooms',
+        'square_feet' => 'Square feet',
+        'rent_start_date' => 'Rent start date',
+        'price' => 'Price',
+        'total_tokens' => 'Total token',
+        'tokens_price' => 'Price of token',
+        'expected_yield' => 'Expected Yield',
+        'gross_rent_year' => 'Gross rent per year',
+        'gross_rent_month' => 'Gross rent per month',
+        'property_management' => 'Property management',
+        'jinflow_tax' => 'Jinflow Tax',
+        'property_tax' => 'Tax of property',
+        'insurance' => 'Insurance',
+        'net_rent_year' => 'Net rent per year',
+        'net_rent_month' => 'Net rent per month',
+        'yield_token' => 'Yield token'
+    ],
     'users' => [
         'create-or-update-user' => 'Add or update a user',
         'sure-to-delete-user' => 'Are you sure you want to delete this user?',
@@ -33,7 +53,17 @@ return [
         'city' => 'City',
         'state' => 'State',
         'zipcode' => 'Zipcode',
+        'country' => 'Country',
         'us_citizen' => 'US Citizen',
+    ],
+    'orders' => [
+        'details' => 'Détails of order'
+    ],
+    'checkout' => [
+        'card_name' => 'Card name',
+        'card_number' => 'Card number',
+        'card_date' => 'Expiration date',
+        'cvc' => 'CVC'
     ],
     'errors' => [
         'no-result' => 'No Results Found'

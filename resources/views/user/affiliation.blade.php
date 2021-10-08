@@ -1,4 +1,4 @@
 @extends('user.layout.layout')
 @section('content')
-    <p>affiliation page</p>
+    @livewire('affiliation')
 @endsection

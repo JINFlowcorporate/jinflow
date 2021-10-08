@@ -55,9 +55,7 @@
                                             <div>
                                                 <div class="flex justify-between text-base font-medium text-gray-900">
                                                     <h3>
-                                                        <a href="#">
-                                                            {{ $bien->name }}
-                                                        </a>
+                                                        {{ $bien->name }}
                                                     </h3>
                                                     <p class="ml-4">
                                                         ${{ $bien->price * $bien->qty }}
@@ -91,9 +89,11 @@
                             <p>${{ $total }}</p>
                         </div>
                         <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
-                        <div class="mt-6">
-                            <a href="#" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Checkout</a>
-                        </div>
+                        @if($cartCount > 0)
+                            <div class="mt-6">
+                                <a href="{{ route('checkout') }}" class="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Checkout</a>
+                            </div>
+                        @endif
                         <div class="mt-6 flex justify-center text-sm text-center text-gray-500">
                             <p>
                                 or <button type="button" class="text-indigo-600 font-medium hover:text-indigo-500">Continue Shopping<span aria-hidden="true"> &rarr;</span></button>

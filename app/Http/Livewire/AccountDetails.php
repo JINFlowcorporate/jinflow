@@ -3,13 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class AccountDetails extends Component
 {
+    use WithFileUploads;
+
     public $modelId;
     public $username;
     public $firstname;
@@ -21,6 +25,7 @@ class AccountDetails extends Component
     public $state;
     public $zipcode;
     public $us_citizen;
+    public $profile_photo_path;
 
     /**
      * The validation rules
@@ -38,8 +43,9 @@ class AccountDetails extends Component
             'address' => 'nullable|max:255',
             'city' => 'nullable|max:255',
             'state' => 'nullable|max:255',
-            'zipcode' => 'nullable|max:255',
-            'us_citizen' => 'nullable|boolean'
+            'zipcode' => 'nullable|numeric|max:255',
+            'us_citizen' => 'nullable|boolean',
+            'profile_photo_path' => 'nullable|file'
         ];
     }
 
@@ -56,6 +62,8 @@ class AccountDetails extends Component
 
     public function modelData()
     {
+        $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
+
         return [
             'username' => $this->username,
             'firstname' => $this->firstname,
@@ -66,7 +74,8 @@ class AccountDetails extends Component
             'city' => $this->city,
             'state' => $this->state,
             'zipcode' => $this->zipcode,
-            'us_citizen' => $this->us_citizen
+            'us_citizen' => $this->us_citizen,
+            'profile_photo_path' => $fileUploaded->getSecurePath()
         ];
     }
 
@@ -83,6 +92,7 @@ class AccountDetails extends Component
         $this->state = Auth::user()->state;
         $this->zipcode = Auth::user()->zipcode;
         $this->us_citizen = Auth::user()->us_citizen;
+        $this->profile_photo_path = Auth::user()->profile_photo_path;
     }
 
     public function render()

@@ -2,14 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Image;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Livewire\WithPagination;
 
 class BiensAdmin extends Component
 {
-    use WithPagination;
+    use WithPagination, WithFileUploads;
 
     public $modalFormVisible = false;
     public $modalConfirmDeleteVisible = false;
@@ -38,6 +40,19 @@ class BiensAdmin extends Component
     public $net_rent_year;
     public $net_rent_month;
     public $yield_token;
+
+    public $images_to_upload = [];
+    public $images = [];
+
+    public function uploadImages($id)
+    {
+        foreach ($this->images_to_upload as $key => $value)
+        {
+            $fileUploaded = $value->storeOnCloudinaryAs('properties/' . $this->name);
+            $image = Image::create(['image' => $fileUploaded->getSecurePath(), 'biens_id' => $id, 'public_id' => $fileUploaded->getPublicId()]);
+            $this->images_to_upload[$key] = $image;
+        }
+    }
 
     /**
      * The validation rules
@@ -84,7 +99,6 @@ class BiensAdmin extends Component
     {
         $data = \App\Models\Biens::find($this->modelId);
 
-        $this->modelId = $data->modelId;
         $this->name = $data->name;
         $this->description_fr = $data->translate('fr')->description;
         $this->description_en = $data->translate('en')->description;
@@ -109,6 +123,7 @@ class BiensAdmin extends Component
         $this->net_rent_year = $data->net_rent_year;
         $this->net_rent_month = $data->net_rent_month;
         $this->yield_token = $data->yield_token;
+        $this->images = $data->images;
     }
 
     /**
@@ -148,7 +163,7 @@ class BiensAdmin extends Component
             'insurance' => $this->insurance,
             'net_rent_year' => $this->net_rent_year,
             'net_rent_month' => $this->net_rent_month,
-            'yield_token' => $this->yield_token,
+            'yield_token' => $this->yield_token
         ];
     }
 
@@ -160,7 +175,8 @@ class BiensAdmin extends Component
     public function create()
     {
         $this->validate();
-        \App\Models\Biens::create($this->modelData());
+        $bien = \App\Models\Biens::create($this->modelData());
+        $this->uploadImages($bien->id);
         $this->modalFormVisible = false;
         $this->reset();
     }
@@ -184,6 +200,7 @@ class BiensAdmin extends Component
     {
         $this->validate();
         \App\Models\Biens::find($this->modelId)->update($this->modelData());
+        $this->uploadImages($this->modelId);
         $this->modalFormVisible = false;
     }
 
@@ -194,9 +211,22 @@ class BiensAdmin extends Component
      */
     public function delete()
     {
-        \App\Models\Biens::destroy($this->modelId);
+        $bien = \App\Models\Biens::where('id', $this->modelId)->first();
+        foreach (Image::where('biens_id', $this->modelId)->pluck('public_id') as $value)
+        {
+            cloudinary()->destroy($value);
+        }
+        $bien->delete();
         $this->modalConfirmDeleteVisible = false;
         $this->reset();
+    }
+
+    public function deleteImage($id)
+    {
+        $image = Image::where('id', $id)->first();
+        cloudinary()->destroy($image->public_id);
+        $image->delete();
+        $this->images = Image::where('biens_id', $this->modelId)->get();
     }
 
     /**

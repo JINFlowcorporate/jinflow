@@ -24,6 +24,7 @@ class CreateBiensTranslationsTable extends Migration
             // Actual fields you want to translate
             $table->longText('description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

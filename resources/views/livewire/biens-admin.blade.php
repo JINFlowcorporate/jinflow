@@ -14,7 +14,7 @@
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('admin.words.lastname') }}</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('admin.words.price') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('admin.biens.price') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
                         </thead>
@@ -106,17 +106,17 @@
                 @error('nb_beds') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="zipcode" value="{{ __('admin.biens.zipcode') }}" />
+                <x-jet-label for="zipcode" value="{{ __('admin.users.zipcode') }}" />
                 <x-jet-input wire:model="zipcode" id="zipcode" class="block mt-1 w-full" type="number" inputmode="numeric" />
                 @error('zipcode') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="state" value="{{ __('admin.biens.state') }}" />
+                <x-jet-label for="state" value="{{ __('admin.users.state') }}" />
                 <x-jet-input wire:model="state" id="state" class="block mt-1 w-full" type="text" />
                 @error('state') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="city" value="{{ __('admin.biens.city') }}" />
+                <x-jet-label for="city" value="{{ __('admin.users.city') }}" />
                 <x-jet-input wire:model="city" id="city" class="block mt-1 w-full" type="text" />
                 @error('city') <span class="error">{{ $message }}</span> @enderror
             </div>
@@ -195,6 +195,24 @@
                 <x-jet-input wire:model="yield_token" id="yield_token" class="block mt-1 w-full" type="number" inputmode="numeric" />
                 @error('yield_token') <span class="error">{{ $message }}</span> @enderror
             </div>
+            <div class="mt-4">
+                <x-jet-label for="images_to_upload" value="{{ __('Images') }}" />
+                <x-jet-input wire:model="images_to_upload" id="images_to_upload" class="block mt-1 w-full" type="file" multiple />
+            </div>
+
+            <div class="flex flex-wrap justify-between flex-shrink-1 gap-4 mt-4">
+                @if(!empty($images))
+                    @foreach($images as $image)
+                        <article class="rounded-lg shadow-lg relative" style="width: 48%">
+                            <img alt="Image" class="block h-full w-full object-cover overflow-hidden rounded-lg shadow-lg" src="{{ $image->image }}">
+                            <x-jet-danger-button style="position: absolute; top: 10px; right: 10px;" wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled">
+                                {{ __('admin.buttons.delete') }}
+                            </x-jet-danger-button>
+                        </article>
+                    @endforeach
+                @endif
+            </div>
+
         </x-slot>
 
         <x-slot name="footer">

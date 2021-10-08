@@ -3,18 +3,18 @@
         <!-- Image gallery -->
         <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
             <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="http://www.mafuturemaison.fr/upload/modele-106137358455b2483139e53.jpeg" alt="Two each of gray, white, and black shirts laying flat." class="w-full h-full object-center object-cover">
+                <img src="{{ $item->images[0]->image }}" alt="Two each of gray, white, and black shirts laying flat." class="w-full h-full object-center object-cover">
             </div>
             <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
                 <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                    <img src="https://maison-monde.com/wp-content/uploads/2015/11/maison-traditionnelle-americaine.jpg" alt="Model wearing plain black basic tee." class="w-full h-full object-center object-cover">
+                    <img src="{{ $item->images[1]->image }}" alt="Model wearing plain black basic tee." class="w-full h-full object-center object-cover">
                 </div>
                 <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                    <img src="https://www.pourquoidonc.com/wp-content/uploads/2020/12/Maison-bleue-dans-une-rue-americaine.jpg" alt="Model wearing plain gray basic tee." class="w-full h-full object-center object-cover">
+                    <img src="{{ $item->images[2]->image }}" alt="Model wearing plain gray basic tee." class="w-full h-full object-center object-cover">
                 </div>
             </div>
             <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-                <img src="https://www.construire-tendance.com/wp-content/gallery/14-08-typical-houses/Historic-Cottage-par-David-Russell-and-Jamie-Brownlee-Sullivans-Island-Usa-httpbit.ly1pv7PLM.jpg" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
+                <img src="{{ $item->images[3]->image }}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
             </div>
         </div>
 
@@ -72,7 +72,7 @@
 
                     <div class="mt-4">
                         <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                            <li class="text-gray-400"><span class="text-gray-600">Expected Yield</span><span class="ml-10">{{ $item->excepted_yield }}%</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">Expected Yield</span><span class="ml-10">{{ $item->expected_yield }}%</span></li>
 
                             <li class="text-gray-400"><span class="text-gray-600">Rent start date</span><span class="ml-10">{{ $item->rent_start_date }}</span></li>
 

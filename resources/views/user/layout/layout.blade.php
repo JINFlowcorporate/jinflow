@@ -25,6 +25,7 @@
     @livewireStyles
 
     <script src="{{ mix('js/app.js') }}" defer></script>
+    @cloudinaryJS
 </head>
 <body>
 <div class="relative h-screen flex overflow-hidden bg-gray-100">

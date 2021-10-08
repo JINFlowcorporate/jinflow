@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserBienTable extends Migration
+class CreateOrderProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateUserBienTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_bien', function (Blueprint $table) {
+        Schema::create('order_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class);
+            $table->foreignIdFor(\App\Models\Order::class);
             $table->foreignIdFor(\App\Models\Biens::class);
-            $table->integer('nb_tokens');
-            $table->integer('price_token');
+            $table->integer('quantity');
+            $table->integer('price_per_token');
             $table->integer('total_price');
             $table->timestamps();
             $table->softDeletes();
@@ -32,6 +32,6 @@ class CreateUserBienTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_bien');
+        Schema::dropIfExists('order_products');
     }
 }

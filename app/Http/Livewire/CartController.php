@@ -12,10 +12,11 @@ class CartController extends Component
 
     public function render()
     {
+        $cartCount = Cart::content()->count();
         $biens = Cart::content();
         Cart::setGlobalTax(0);
         $total = Cart::total();
-        return view('livewire.cart-controller', compact(['biens', 'total']));
+        return view('livewire.cart-controller', compact(['biens', 'total', 'cartCount']));
     }
 
     public function toggleM()

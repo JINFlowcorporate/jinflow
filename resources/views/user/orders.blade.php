@@ -1,4 +1,4 @@
 @extends('user.layout.layout')
 @section('content')
-    <p>orders page</p>
+    @livewire('orders')
 @endsection

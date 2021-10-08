@@ -5,7 +5,6 @@ namespace Database\Factories;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 use Laravel\Jetstream\Features;
 
 class UserFactory extends Factory
@@ -25,6 +24,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
+            'profile_photo_path' => 'https://media-exp1.licdn.com/dms/image/C4D03AQHGQri04cs6Pg/profile-displayphoto-shrink_800_800/0/1612973638589?e=1638403200&v=beta&t=Fp41c63CHk9JNEoTLGHqhhMcgxeOsBvRK0Bbvvdf-VA',
             'lastname' => 'Hamrouni',
             'firstname' => 'Charfeddine',
             'phone' => '0764750704',
@@ -42,7 +42,7 @@ class UserFactory extends Factory
             'email' => 'admin@admin.fr',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'remember_token' => '3728193627',
         ];
     }
 
