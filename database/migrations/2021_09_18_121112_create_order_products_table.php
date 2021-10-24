@@ -15,8 +15,8 @@ class CreateOrderProductsTable extends Migration
     {
         Schema::create('order_products', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\Order::class);
-            $table->foreignIdFor(\App\Models\Biens::class);
+            $table->foreignId('order_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('biens_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
             $table->integer('price_per_token');
             $table->integer('total_price');

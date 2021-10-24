@@ -27,7 +27,7 @@
                                     <td class="px-6 py-2">{{ $item->lastname }}</td>
                                     <td class="px-6 py-2">{{ $item->firstname }}</td>
                                     <td class="px-6 py-2">{{ $item->email }}</td>
-                                    <td class="px-6 py-2">{{ $item->is_active ? __('admin.yes') : __('admin.no') }}</td>
+                                    <td class="px-6 py-2" wire:click="toggleUserActive({{ $item->id }})">{{ $item->is_active ? __('admin.yes') : __('admin.no') }}</td>
                                     <td class="px-6 py-2 flex justify-end">
                                         <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                             {{ __('admin.buttons.update') }}

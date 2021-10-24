@@ -56,6 +56,12 @@
                         </tr>
                         </tbody>
                             @endforeach
+                        @else
+                            <tr>
+                                <td class="px-6 py-4 text-sm whitespace-no-wrap" colspan="4">
+                                    {{ __('admin.errors.no-result') }}
+                                </td>
+                            </tr>
                         @endif
                     </table>
                     <!-- Pagination -->

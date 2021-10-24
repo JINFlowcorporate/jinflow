@@ -15,6 +15,11 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, HasProfilePhoto, Notifiable, TwoFactorAuthenticatable, Billable;
 
+    public function biens()
+    {
+        return $this->belongsToMany(Biens::class, UserBien::class, 'biens_id', 'biens_id', 'id', 'id');
+    }
+
     /**
      * The attributes that are mass assignable.
      *

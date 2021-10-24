@@ -15,6 +15,7 @@
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('admin.words.lastname') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('admin.biens.price') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('Tokens') }}</th>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
                         </thead>
@@ -24,6 +25,7 @@
                                 <tr>
                                     <td class="px-6 py-2">{{ $item->name }}</td>
                                     <td class="px-6 py-2">{{ $item->price }}</td>
+                                    <td class="px-6 py-2">{{ $item->total_tokens }}</td>
                                     <td class="px-6 py-2 flex justify-end">
                                         <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                             {{ __('admin.buttons.update') }}
@@ -63,6 +65,30 @@
                 <x-jet-label for="name" value="{{ __('admin.words.lastname') }}" />
                 <x-jet-input wire:model="name" id="name" class="block mt-1 w-full" type="text" />
                 @error('name') <span class="error">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="about_en" value="{{ __('About (EN)') }}" />
+                <div class="rounded-md shadow-sm">
+                    <div class="mt-1 bg-white">
+                        <div class="body-content">
+                            <textarea class="w-full" name="about_en" wire:model="about_en" id="about_en" cols="30" rows="10">{!! $about_en !!}</textarea>
+                        </div>
+                    </div>
+                </div>
+                @error('about_en') <span class="error">{{ $message }}</span> @enderror
+            </div>
+
+            <div class="mt-4">
+                <x-jet-label for="about_fr" value="{{ __('About (FR)') }}" />
+                <div class="rounded-md shadow-sm">
+                    <div class="mt-1 bg-white">
+                        <div class="body-content">
+                            <textarea class="w-full" name="about_fr" wire:model="about_fr" id="about_fr" cols="30" rows="10">{!! $about_fr !!}</textarea>
+                        </div>
+                    </div>
+                </div>
+                @error('about_fr') <span class="error">{{ $message }}</span> @enderror
             </div>
 
             <div class="mt-4">

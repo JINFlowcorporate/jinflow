@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Biens;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\UserBien;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
@@ -22,12 +25,7 @@ class Checkout extends Component
     public $zipcode;
     public $billing_country;
 
-    public $card_name;
-    public $card_number;
-    public $card_date;
-    public $cvc;
     public $payment_method;
-    public $stripe_token;
 
     /**
      * The validation rules
@@ -46,38 +44,14 @@ class Checkout extends Component
             'state' => 'required|max:255',
             'zipcode' => 'required|numeric',
             'billing_country' => 'required|max:255',
-            'card_name' => 'required|max:255',
-            'card_number' => 'required|numeric|max:16',
-            'card_date' => 'required',
-            'cvc' => 'required|numeric'
+            'payment_method' => 'required'
         ];
     }
 
     public function placeOrder()
     {
-        $this->dispatchBrowserEvent('generate-stripe-token');
-
-        dd($this->stripe_token);
-        $cart = Cart::content();
-        $cart_total = Cart::total();
-
-        Auth::user()->charge($cart_total, $this->payment_method);
-
-        $order = new Order;
-        $order_product = new OrderProduct;
-        $order->user_id = $this->modelId;
-        $order->quantity = $cart->count();
-        $order->total = $cart_total;
-        $order->save();
-
-        foreach ($cart as $bien) {
-            $order_product->order_id = $order->id;
-            $order_product->bien_id = $bien->id;
-            $order_product->quantity = $bien->qty;
-            $order_product->price_per_token = $bien->price;
-            $order_product->total_price = $bien->price * $bien->qty;
-            $order_product->save();
-        }
+        $method = $this->payment_method === 'stripe' ? 'stripe' : 'coinbase';
+        return redirect()->route('payment', compact('method'));
     }
 
     public function modelData()

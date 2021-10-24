@@ -36,7 +36,13 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
-            $table->string('profile_photo_path', 2048)->nullable();
+            $table->string('profile_photo_path')->nullable();
+            $table->string('passport_kyc')->nullable();
+            $table->string('driver_kyc')->nullable();
+            $table->string('proof_address_kyc')->nullable();
+            $table->string('public_id_passport_kyc')->nullable();
+            $table->string('public_id_driver_kyc')->nullable();
+            $table->string('public_id_proof_address_kyc')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -188,10 +188,17 @@ class Users extends Component
         $this->modalConfirmDeleteVisible = true;
     }
 
+    public function toggleUserActive($id)
+    {
+        $user = User::where('id', $id)->first();
+        $user->is_active = !$user->is_active;
+        $user->save();
+    }
+
     public function render()
     {
         return view('livewire.users', [
-            'data' => $this->read(),
+            'data' => $this->read()
         ]);
     }
 }

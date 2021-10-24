@@ -4,7 +4,8 @@ return [
     'navigation' => [
         'dashboard' => 'Dashboard',
         'users' => 'Users',
-        'biens' => 'Biens'
+        'biens' => 'Biens',
+        'orders' => 'Orders'
     ],
     'yes' => 'Yes',
     'no' => 'No',

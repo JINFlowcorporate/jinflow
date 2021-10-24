@@ -12,7 +12,7 @@ class NosBiens extends Component
 
     public function render()
     {
-        $biens = Biens::paginate(10);
+        $biens = Biens::paginate(2);
 
         return view('livewire.nos-biens', ['biens' => $biens]);
     }

@@ -17,6 +17,12 @@
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
+        <style>
+            .border-red-600 {
+                --tw-border-opacity: 1;
+                border-color: rgba(220, 38, 38, var(--tw-border-opacity));
+            }
+        </style>
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

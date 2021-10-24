@@ -29,9 +29,9 @@
             <!-- Options -->
             <div class="mt-4 lg:mt-0 lg:row-span-3">
                 <h2 class="sr-only">Product information</h2>
-                <p class="text-3xl text-gray-900">${{ $item->price }}</p>
+                <p class="text-3xl text-gray-900">${{ number_format($item->price, 2, ',', ' ') }}</p>
 
-                <form wire:submit.prevent="addToCart({{ $item->id }})" class="mt-10" method="post">
+                <form @if($item->total_tokens > 0) wire:submit.prevent="addToCart({{ $item->id }}) @endif" class="mt-10" method="post">
                     @csrf
                     <div class="mt-10">
                         <h3 class="text-sm font-medium text-gray-900">Financials</h3>
@@ -47,13 +47,24 @@
                                 <li class="text-gray-400"><span class="text-gray-600">Net Rent / year</span><span class="ml-10">${{ $item->net_rent_year }}</span></li>
                             </ul>
                         </div>
-                        <div class="flex mt-5 items-center justify-between">
-                            <label for="quantity" class="text-sm text-gray-900 font-medium">Quantity</label>
-                            <input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}">
-                        </div>
+                        @if($item->total_tokens > 0)
+                            <div class="flex mt-5 items-center justify-between">
+                                <label for="quantity" class="text-sm text-gray-900 font-medium">Quantity</label>
+                                <input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}">
+                            </div>
+                        @endif
                     </div>
 
-                    <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+                    @if($item->total_tokens > 0)
+                        <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+                    @else
+                        <h2 class="uppercase font-bold text-center text-red-600 text-4xl mt-10 bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">SOLD-OUT</h2>
+                    @endif
+                    @if (session()->has('message'))
+                        <div class="mt-4 bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">{{ session('message') }}</strong>
+                        </div>
+                    @endif
                 </form>
             </div>
 
@@ -104,5 +115,17 @@
         </div>
     </div>
 </div>
+
+<section class="flex justify-between items-center bg-palette-2-dark-blue">
+    <div class="w-1/2 p-6">
+        <h2 class="font-bold text-2xl mb-6 text-white">About the property</h2>
+        <p class="text-white">{{ $item->about }}</p>
+    </div>
+    <div>
+        @php
+            echo $item->map
+        @endphp
+    </div>
+</section>
 
 @include('footer')

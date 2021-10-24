@@ -18,11 +18,12 @@ class CreateBiensTranslationsTable extends Migration
             $table->string('locale')->index();
 
             // Foreign key to the main model
-            $table->unsignedInteger('biens_id')->references('id')->on('biens')->onDelete('cascade');
+            $table->foreignId('biens_id')->constrained()->cascadeOnDelete();
             $table->unique(['biens_id', 'locale']);
 
             // Actual fields you want to translate
             $table->longText('description');
+            $table->longText('about');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -45,7 +45,7 @@
                         </g>
 </svg>
                 </a>
-                <div class="hidden ml-10 space-x-8 lg:block">
+                <div class="hidden ml-10 space-x-8 lg:flex">
                     <a href="{{ route('nos-biens') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
                         Nos biens
                     </a>

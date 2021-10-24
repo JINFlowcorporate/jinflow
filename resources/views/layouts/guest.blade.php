@@ -20,7 +20,9 @@
     </head>
     <body>
             @livewire('cart-controller')
-            {{ $slot }}
+            <main class="min-h-screen flex flex-col justify-between">
+                {{ $slot }}
+            </main>
     </body>
     @livewireScripts
     @yield('javascript')

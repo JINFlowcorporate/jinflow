@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BiensTranslation extends Model
+class UserBien extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['description', 'about'];
-    public $timestamps = false;
+    protected $guarded = [];
 }

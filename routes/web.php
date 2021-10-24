@@ -1,5 +1,6 @@
 <?php
 
+use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,22 @@ Route::get('/nos-biens', function () {
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/checkout', function () {
+        $biens = Cart::content();
+        $total = Cart::total();
+        $user = \Illuminate\Support\Facades\Auth::user();
+        return view('payment.checkout', compact('biens', 'total', 'user'));
+    })->name('checkout')
+        ->middleware('EnsureCartIsNotEmpty');
+
+    Route::get('/payment', [\App\Http\Controllers\PayController::class, 'index'])
+        ->name('payment')
+        ->middleware('EnsureCartIsNotEmpty');
+
+    Route::post('/store-payment', [\App\Http\Controllers\PayController::class, 'store'])
+        ->name('store-payment')
+        ->middleware('EnsureCartIsNotEmpty');
+
     Route::get('/dashboard', function () {
         return view('user.dashboard');
     })->name('dashboard');
@@ -69,8 +86,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified', 
     Route::get('/biens', function () {
         return view('admin.biens-admin');
     })->name('admin.biens');
-});
 
-Route::get('/checkout', function () {
-    return view('pages.checkout');
-})->name('checkout');
+    Route::get('/orders', function () {
+        return view('admin.orders-admin');
+    })->name('admin.orders');
+});

@@ -3,7 +3,6 @@
 namespace App\Http\Livewire;
 
 use App\Models\Image;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -17,6 +16,9 @@ class BiensAdmin extends Component
     public $modalConfirmDeleteVisible = false;
     public $modelId;
     public $name;
+    public $about_fr;
+    public $about_en;
+    public $map;
     public $description_fr;
     public $description_en;
     public $nb_beds;
@@ -63,6 +65,9 @@ class BiensAdmin extends Component
     {
         return [
             'name' => 'required|max:255',
+            'about_fr' => 'required',
+            'about_en' => 'required',
+            'map' => 'required',
             'description_fr' => 'required',
             'description_en' => 'required',
             'type' => 'required|max:255',
@@ -100,6 +105,9 @@ class BiensAdmin extends Component
         $data = \App\Models\Biens::find($this->modelId);
 
         $this->name = $data->name;
+        $this->about_fr = $data->translate('fr')->about;
+        $this->about_en = $data->translate('en')->about;
+        $this->map = $data->map;
         $this->description_fr = $data->translate('fr')->description;
         $this->description_en = $data->translate('en')->description;
         $this->nb_beds = $data->nb_beds;
@@ -136,14 +144,17 @@ class BiensAdmin extends Component
     {
         return [
             'name' => $this->name,
+            'map' => $this->map,
             'slug' => Str::slug($this->name),
             'nb_beds' => $this->nb_beds,
             'type' => $this->type,
             'nb_bathroom' => $this->nb_bathroom,
             'fr' => [
+                'about' => $this->about_fr,
                 'description' => $this->description_fr
             ],
             'en' => [
+                'about' => $this->about_en,
                 'description' => $this->description_en
             ],
             'zipcode' => $this->zipcode,
