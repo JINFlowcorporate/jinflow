@@ -23,7 +23,8 @@ return [
         'delete' => 'Supprimer',
         'update' => 'Modifier',
         'cancel' => 'Annuler',
-        'close' => 'Fermer'
+        'close' => 'Fermer',
+        'logout' => 'Déconnection'
     ],
     'biens' => [
         'type' => 'Type',

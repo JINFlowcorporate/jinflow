@@ -34,6 +34,10 @@
                     </div>
                 </div>
                 @error('passport_kyc') <span class="error">{{ $message }}</span> @enderror
+
+                @if(isset($passport_file) && !empty($passport_file))
+                    <a class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download="">Télécharger le document</a>
+                @endif
             </div>
 
             <div class="sm:grid sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 mt-4">

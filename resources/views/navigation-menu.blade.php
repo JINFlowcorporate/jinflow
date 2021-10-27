@@ -65,9 +65,8 @@
                 @if (Route::has('login'))
                     <div class="hidden sm:block">
                         @auth
-
-                            <a href="{{ url(\Illuminate\Support\Facades\Auth::user()->is_admin) ? '/admin/dashboard' : '/dashboard' }}" class="text-base font-medium text-white hover:text-indigo-50">
-                                <img class="rounded-full" width="30px" height="30px" style="width: 40px;" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path }}" alt="">
+                            <a href="{{ route(\Illuminate\Support\Facades\Auth::user()->is_admin === 1 ? 'admin.dashboard' : 'dashboard') }}" class="text-base font-medium text-white hover:text-indigo-50">
+                                <img class="rounded-full" width="30px" height="30px" style="width: 40px;" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Auth::user()->profile_photo_path : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
                             </a>
                         @else
                             <a href="{{ route('login') }}" class="inline-block bg-palette-2-grey py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">Mon compte</a>
