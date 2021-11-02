@@ -32,13 +32,13 @@
                                     </h3>
                                 @endif
                                 @if(isset($bien->total_price) && !empty($bien->total_price))
-                                    <p class="text-sm font-medium text-gray-900">Total: ${{ $bien->total_price }}</p>
+                                    <p class="text-sm mt-2 font-medium text-gray-900">Total: ${{ $bien->total_price }}</p>
                                 @endif
                             </div>
                             @if(isset($bien->quantity) && !empty($bien->quantity))
                                 <div>
                                     <p class="text-sm font-medium text-gray-900">x{{ $bien->quantity }}</p>
-                                    <p class="mt-1 text-sm text-gray-500">${{ $bien->price_per_token }}/u</p>
+                                    <p class="mt-2 text-sm text-gray-500">${{ $bien->price_per_token }}/u</p>
                                 </div>
                             @endif
                         </div>

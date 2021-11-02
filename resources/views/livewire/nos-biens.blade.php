@@ -1,6 +1,6 @@
 <div>
     <div class="max-w-2xl mx-auto lg:max-w-7xl">
-        <h2 class="text-2xl mb-6 font-extrabold tracking-tight text-gray-900">Nos biens</h2>
+        <h2 class="text-2xl mb-6 font-extrabold tracking-tight text-gray-900">{{ __('our-properties.our-properties') }}</h2>
         @if($biens)
         <div>
             @foreach($biens as $key => $bien)

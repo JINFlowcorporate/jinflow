@@ -18,10 +18,10 @@
                         <div class="flex-1 min-w-0">
                             <!-- Profile -->
                             <div class="flex items-center">
-                                <img class="hidden h-16 w-16 rounded-full sm:block" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Auth::user()->profile_photo_path : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
+                                <img class="hidden h-16 w-16 rounded-full sm:block" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Storage::url(\Illuminate\Support\Facades\Auth::user()->profile_photo_path) : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
                                 <div>
                                     <div class="flex items-center">
-                                        <img class="h-16 w-16 rounded-full sm:hidden" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Auth::user()->profile_photo_path : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
+                                        <img class="h-16 w-16 rounded-full sm:hidden" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Storage::url(\Illuminate\Support\Facades\Auth::user()->profile_photo_path) : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
                                         <h1 class="ml-3 text-2xl font-bold leading-7 text-gray-900 sm:leading-9 sm:truncate">
                                             Hello, {{ \Illuminate\Support\Facades\Auth::user()->lastname }} {{ \Illuminate\Support\Facades\Auth::user()->firstname }}
                                         </h1>

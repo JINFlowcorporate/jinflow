@@ -47,15 +47,15 @@
                 </a>
                 <div class="hidden ml-10 space-x-8 lg:flex">
                     <a href="{{ route('nos-biens') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
-                        Nos biens
+                        {{ __('home.pagination.our-biens') }}
                     </a>
 
                     <a href="{{ route('team') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Docs">
-                        Notre équipe
+                        {{ __('home.pagination.our-team') }}
                     </a>
 
                     <a href="{{ route('faq') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
-                        FAQ
+                        {{ __('home.pagination.faq') }}
                     </a>
 
                     @livewire('cart-counter')
@@ -66,12 +66,16 @@
                     <div class="hidden sm:block">
                         @auth
                             <a href="{{ route(\Illuminate\Support\Facades\Auth::user()->is_admin === 1 ? 'admin.dashboard' : 'dashboard') }}" class="text-base font-medium text-white hover:text-indigo-50">
-                                <img class="rounded-full" width="30px" height="30px" style="width: 40px;" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Auth::user()->profile_photo_path : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
+                                <img class="rounded-full" width="30px" height="30px" style="width: 40px;" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Storage::url(\Illuminate\Support\Facades\Auth::user()->profile_photo_path) : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="inline-block bg-palette-2-grey py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">Mon compte</a>
+                            <a href="{{ route('login') }}" class="inline-block bg-palette-2-grey py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">
+                                {{ __('home.pagination.my-account') }}
+                            </a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="inline-block bg-palette-2-dark-blue py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-700 transition-all duration-150 ease-in-out">Créer un compte</a>
+                                <a href="{{ route('register') }}" class="inline-block bg-palette-2-dark-blue py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-700 transition-all duration-150 ease-in-out">
+                                    {{ __('home.pagination.create-account') }}
+                                </a>
                             @endif
                         @endauth
                     </div>
@@ -82,15 +86,15 @@
 
 
             <a href="{{ route('nos-biens') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Pricing">
-                Nos biens
+                {{ __('home.pagination.our-biens') }}
             </a>
 
             <a href="#" class="text-base font-medium text-white hover:text-indigo-50" key="Docs">
-                Notre équipe
+                {{ __('home.pagination.our-team') }}
             </a>
 
             <a href="{{ route('faq') }}" class="text-base font-medium text-white hover:text-indigo-50" key="Company">
-                FAQ
+                {{ __('home.pagination.faq') }}
             </a>
         </div>
     </nav>

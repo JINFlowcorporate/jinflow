@@ -15,6 +15,11 @@
 
         @livewireStyles
 
+        <style>
+            .StripeElement * {
+                color: white!important;
+            }
+        </style>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>

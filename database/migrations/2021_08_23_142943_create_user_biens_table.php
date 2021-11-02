@@ -18,6 +18,8 @@ class CreateUserBiensTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('biens_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
+            $table->integer('price_per_token');
+            $table->integer('total_price');
             $table->timestamps();
             $table->softDeletes();
         });

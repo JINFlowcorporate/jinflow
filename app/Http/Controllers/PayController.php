@@ -34,20 +34,22 @@ class PayController extends Controller
     {
         $cart = Cart::content();
         $total = Cart::total(2, '.', '');
-        $cart_total = intval((int)$total * 100);
+        $cart_total_stripe = intval((int)$total * 100);
+        $cart_total = intval((int)$total);
         $authed_user = Auth::user();
         $authed_user->createOrGetStripeCustomer();
         $authed_user->addPaymentMethod($request->payment_method);
-        $authed_user->charge($cart_total, $request->payment_method);
+        $authed_user->charge($cart_total_stripe, $request->payment_method);
+
 
         $order = new Order;
-        $order_product = new OrderProduct;
         $order->user_id = $authed_user->id;
         $order->quantity = $cart->count();
         $order->total = $cart_total;
         $order->save();
 
         foreach ($cart as $bien) {
+            $order_product = new OrderProduct;
             $order_product->order_id = $order->id;
             $order_product->biens_id = $bien->id;
             $order_product->quantity = $bien->qty;
@@ -57,7 +59,7 @@ class PayController extends Controller
             $bienToUpdate = Biens::where('id', $bien->id)->first();
             $bienToUpdate->total_tokens = $bienToUpdate->total_tokens - $bien->qty;
             $bienToUpdate->save();
-            UserBien::create(['user_id' => $authed_user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty]);
+            UserBien::create(['user_id' => $authed_user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
         }
 
         Cart::destroy();

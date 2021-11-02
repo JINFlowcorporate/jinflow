@@ -20,14 +20,14 @@
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
                         </thead>
-                        <tbody class="bg-white divide-y divide-gray-200">
                         @if ($data->count())
                             @foreach ($data as $item)
+                        <tbody class="bg-white">
                                 <tr>
                                     <td class="px-6 py-2">{{ $item->lastname }}</td>
                                     <td class="px-6 py-2">{{ $item->firstname }}</td>
                                     <td class="px-6 py-2">{{ $item->email }}</td>
-                                    <td class="px-6 py-2" wire:click="toggleUserActive({{ $item->id }})">{{ $item->is_active ? __('admin.yes') : __('admin.no') }}</td>
+                                    <td class="px-6 py-2" wire:click="toggleUserActive({{ $item->id }})"><x-jet-button>{{ $item->is_active ? __('admin.yes') : __('admin.no') }}</x-jet-button></td>
                                     <td class="px-6 py-2 flex justify-end">
                                         <x-jet-button wire:click="updateShowModal({{ $item->id }})">
                                             {{ __('admin.buttons.update') }}
@@ -37,6 +37,33 @@
                                         </x-jet-danger-button>
                                     </td>
                                 </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="px-6 py-2">
+                                    <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Passport</p>
+                                        @if($item->passport_kyc)
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->passport_kyc }}" download>Download</a>
+                                        @else
+                                            {{ __('admin.no') }}
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-2">
+                                    <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Driver</p>
+                                        @if($item->driver_kyc)
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->driver_kyc }}" download>Download</a>
+                                        @else
+                                            {{ __('admin.no') }}
+                                        @endif
+                                    </td>
+                                    <td class="px-6 py-2">
+                                    <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Proof</p>
+                                @if($item->proof_address_kyc)
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->proof_address_kyc }}" download>Download</a>
+                                        @else
+                                            {{ __('admin.no') }}
+                                        @endif
+                                    </td>
+                                </tr>
+                        </tbody>
                             @endforeach
                         @else
                             <tr>
@@ -45,7 +72,6 @@
                                 </td>
                             </tr>
                         @endif
-                        </tbody>
                     </table>
                 </div>
             </div>

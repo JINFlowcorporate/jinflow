@@ -25,21 +25,18 @@
                             <div class="flex text-sm text-gray-600">
                                 <label for="profile_photo_path" class="mx-auto relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                                     <span class="text-center">Upload a file</span>
-                                    <input id="profile_photo_path" name="profile_photo_path" wire:model="profile_photo_path" type="file">
+                                    <input id="profile_photo_path" name="profile_photo_path" wire:model="profile_photo_path_tmp" type="file">
                                 </label>
                             </div>
-                            <p class="text-xs text-gray-500">
-                                PNG, JPG, GIF up to 10MB
-                            </p>
                         </div>
                     </div>
                 </div>
 
-                @if(!empty($profile_photo_path))
+                @if(isset($profile_photo_path) && !empty($profile_photo_path))
                     <img class="h-16 w-16 rounded-full sm:block" src="{{ $profile_photo_path }}" alt="User photo">
                 @endif
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="username" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         Username
                     </label>
@@ -71,7 +68,7 @@
                     </div>
                 </div>--}}
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="firstname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         First name
                     </label>
@@ -82,7 +79,7 @@
                     @error('firstname') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="lastname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         Last name
                     </label>
@@ -104,7 +101,7 @@
                 </div>--}}
 
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         Email address
                     </label>
@@ -115,7 +112,7 @@
                     @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="phone" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         Phone number
                     </label>
@@ -140,7 +137,7 @@
                     </div>
                 </div>--}}
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="address" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         Street address
                     </label>
@@ -151,7 +148,7 @@
                     @error('address') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="city" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         City
                     </label>
@@ -162,7 +159,7 @@
                     @error('city') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="state" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         State / Province
                     </label>
@@ -173,7 +170,7 @@
                     @error('state') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
 
-                <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
+                <div>
                     <label for="zipcode" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                         ZIP / Postal
                     </label>
@@ -201,7 +198,7 @@
         <div class="flex justify-end">
             <button type="submit"
                     class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
+                {{ __('admin.buttons.save') }}
             </button>
         </div>
     </div>

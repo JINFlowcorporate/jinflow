@@ -4,17 +4,17 @@
         <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
             <div class="px-5 py-2">
                 <a href="{{ route('nos-biens') }}" class="text-base text-gray-500 hover:text-gray-900">
-                    Nos biens
+                    {{ __('home.pagination.our-biens') }}
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="{{ route('team') }}" class="text-base text-gray-500 hover:text-gray-900">
-                    L'equipe
+                    {{ __('home.pagination.our-team') }}
                 </a>
             </div>
             <div class="px-5 py-2">
                 <a href="{{ route('faq') }}" class="text-base text-gray-500 hover:text-gray-900">
-                    FAQ
+                    {{ __('home.pagination.faq') }}
                 </a>
             </div>
             <div class="px-5 py-2">

@@ -9,8 +9,8 @@
     </div>
 
     <div>
-        <div class="flex flex-col mt-2">
-            <div class="sm:grid sm:gap-4 sm:pt-5 mt-4">
+        <div class="grid sm:grid-cols-3 gap-4 mt-2">
+            <div class="sm:pt-5 mt-4">
                 <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Passeport
                 </label>
@@ -25,22 +25,18 @@
                                     <span>Upload a file</span>
                                     <input id="passport_kyc" name="passport_kyc" type="file" wire:model="passport_kyc">
                                 </label>
-                                <p class="pl-1">or drag and drop</p>
                             </div>
-                            {{--<p class="text-xs text-gray-500">
-                                PNG, JPG, GIF up to 10MB
-                            </p>--}}
                         </div>
                     </div>
                 </div>
                 @error('passport_kyc') <span class="error">{{ $message }}</span> @enderror
 
                 @if(isset($passport_file) && !empty($passport_file))
-                    <a class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download="">Télécharger le document</a>
+                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download>Télécharger le document</a>
                 @endif
             </div>
 
-            <div class="sm:grid sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 mt-4">
+            <div class="sm:border-t sm:border-gray-200 sm:pt-5 mt-4">
                 <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Permis de conduire
                 </label>
@@ -55,18 +51,18 @@
                                     <span>Upload a file</span>
                                     <input id="driver_kyc" name="driver_kyc" type="file" wire:model="driver_kyc">
                                 </label>
-                                <p class="pl-1">or drag and drop</p>
                             </div>
-                            {{--<p class="text-xs text-gray-500">
-                                PNG, JPG, GIF up to 10MB
-                            </p>--}}
                         </div>
                     </div>
                 </div>
                 @error('driver_kyc') <span class="error">{{ $message }}</span> @enderror
+
+                @if(isset($driver_file) && !empty($driver_file))
+                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $driver_file }}" download>Télécharger le document</a>
+                @endif
             </div>
 
-            <div class="sm:grid sm:gap-4 sm:border-t sm:border-gray-200 sm:pt-5 mt-4">
+            <div class="sm:border-t sm:border-gray-200 sm:pt-5 mt-4">
                 <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
                     Justificatif de domicile
                 </label>
@@ -81,15 +77,15 @@
                                     <span>Upload a file</span>
                                     <input id="proof_address_kyc" name="proof_address_kyc" type="file" wire:model="proof_address_kyc">
                                 </label>
-                                <p class="pl-1">or drag and drop</p>
                             </div>
-                            {{--<p class="text-xs text-gray-500">
-                                PNG, JPG, GIF up to 10MB
-                            </p>--}}
                         </div>
                     </div>
                 </div>
                 @error('proof_address_kyc') <span class="error">{{ $message }}</span> @enderror
+
+                @if(isset($proof_file) && !empty($proof_file))
+                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $proof_file }}" download>Télécharger le document</a>
+                @endif
             </div>
         </div>
     </div>
@@ -98,7 +94,7 @@
         <div class="flex justify-end">
             <button type="submit"
                     class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                Save
+                {{ __('admin.buttons.save') }}
             </button>
         </div>
     </div>

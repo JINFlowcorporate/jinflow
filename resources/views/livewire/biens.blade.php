@@ -28,35 +28,35 @@
 
             <!-- Options -->
             <div class="mt-4 lg:mt-0 lg:row-span-3">
-                <h2 class="sr-only">Product information</h2>
+                <h2 class="sr-only">{{ __('property.product-information.title') }}</h2>
                 <p class="text-3xl text-gray-900">${{ number_format($item->price, 2, ',', ' ') }}</p>
 
                 <form @if($item->total_tokens > 0) wire:submit.prevent="addToCart({{ $item->id }}) @endif" class="mt-10" method="post">
                     @csrf
                     <div class="mt-10">
-                        <h3 class="text-sm font-medium text-gray-900">Financials</h3>
+                        <h3 class="text-sm font-medium text-gray-900">{{ __('property.product-information.financials') }}</h3>
 
                         <div class="mt-4">
                             <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                                <li class="text-gray-400"><span class="text-gray-600">Gross Rent / year</span><span class="ml-10">${{ $item->gross_rent_year }}</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-year') }}</span><span class="ml-10">${{ $item->gross_rent_year }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">Gross Rent / month</span><span class="ml-10">${{ $item->gross_rent_month }}</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-month') }}</span><span class="ml-10">${{ $item->gross_rent_month }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">Net Rent / month</span><span class="ml-10">${{ $item->net_rent_month }}</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-year') }}</span><span class="ml-10">${{ $item->net_rent_month }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">Net Rent / year</span><span class="ml-10">${{ $item->net_rent_year }}</span></li>
+                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-month') }}</span><span class="ml-10">${{ $item->net_rent_year }}</span></li>
                             </ul>
                         </div>
                         @if($item->total_tokens > 0)
                             <div class="flex mt-5 items-center justify-between">
-                                <label for="quantity" class="text-sm text-gray-900 font-medium">Quantity</label>
+                                <label for="quantity" class="text-sm text-gray-900 font-medium">{{ __('property.product-information.quantity') }}</label>
                                 <input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}">
                             </div>
                         @endif
                     </div>
 
                     @if($item->total_tokens > 0)
-                        <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Add to bag</button>
+                        <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">{{ __('property.add-to-cart') }}</button>
                     @else
                         <h2 class="uppercase font-bold text-center text-red-600 text-4xl mt-10 bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">SOLD-OUT</h2>
                     @endif
@@ -79,35 +79,35 @@
                 </div>
 
                 <div class="mt-10">
-                    <h3 class="text-sm font-medium text-gray-900">Property Highlights</h3>
+                    <h3 class="text-sm font-medium text-gray-900">{{ __('property.property-highlights.title') }}</h3>
 
                     <div class="mt-4">
                         <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                            <li class="text-gray-400"><span class="text-gray-600">Expected Yield</span><span class="ml-10">{{ $item->expected_yield }}%</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.expected-yield') }}</span><span class="ml-10">{{ $item->expected_yield }}%</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Rent start date</span><span class="ml-10">{{ $item->rent_start_date }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-start-date') }}</span><span class="ml-10">{{ $item->rent_start_date }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Rent per token</span><span class="ml-10">${{ $item->gross_rent_year }}/Year</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-per-token') }}</span><span class="ml-10">${{ $item->gross_rent_year }}/Year</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Token price</span><span class="ml-10">${{ $item->tokens_price }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.token-price') }}</span><span class="ml-10">${{ $item->tokens_price }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Total Token</span><span class="ml-10">{{ $item->total_tokens }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.total-token') }}</span><span class="ml-10">{{ $item->total_tokens }}</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="mt-10">
-                    <h2 class="text-sm font-medium text-gray-900">Property Type</h2>
+                    <h2 class="text-sm font-medium text-gray-900">{{ __('property.property-type.title') }}</h2>
 
                     <div class="mt-4">
                         <ul role="list" class="pl-4 list-disc text-sm space-y-2">
                             <li class="text-gray-400"><span class="text-gray-600">Type</span><span class="ml-10">{{ $item->type }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Nb beds</span><span class="ml-10">{{ $item->nb_beds }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.beds') }}</span><span class="ml-10">{{ $item->nb_beds }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Nb bathroom</span><span class="ml-10">{{ $item->nb_bathroom }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.bathroom') }}</span><span class="ml-10">{{ $item->nb_bathroom }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">Square feet</span><span class="ml-10">{{ $item->square_feet }}</span></li>
+                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.square-feet') }}</span><span class="ml-10">{{ $item->square_feet }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
 
 <section class="flex justify-between items-center bg-palette-2-dark-blue">
     <div class="w-1/2 p-6">
-        <h2 class="font-bold text-2xl mb-6 text-white">About the property</h2>
+        <h2 class="font-bold text-2xl mb-6 text-white">{{ __('property.about') }}</h2>
         <p class="text-white">{{ $item->about }}</p>
     </div>
     <div>

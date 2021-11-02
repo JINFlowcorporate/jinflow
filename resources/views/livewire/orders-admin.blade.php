@@ -7,16 +7,11 @@
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Transaction
-                            </th>
-                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Amount
-                            </th>
-                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Date
-                            </th>
-                            <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('Transaction') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('Amount') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('E-mail') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">{{ __('Date') }}</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
                         </thead>
                         <tbody class="bg-white divide-y divide-gray-200">
@@ -25,7 +20,7 @@
                                 <tr>
                                     <td class="px-6 py-2">#{{ $item->id }}</td>
                                     <td class="px-6 py-2">${{ $item->total }}</td>
-                                    <td class="px-6 py-2">{{ $item->email }}</td>
+                                    <td class="px-6 py-2">{{ \App\Models\User::where('id', $item->user_id)->first()->email }}</td>
                                     <td class="px-6 py-2">
                                         <time
                                             datetime="{{ $item->created_at }}">{{ \Carbon\Carbon::parse($item->created_at)->format('D M Y') }}</time>
@@ -79,7 +74,7 @@
 
             <p class="font-bold mt-10">Liste des biens</p>
             @if(isset($biens) && !empty($biens))
-                <div class="mt-4 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                <div class="mt-4 grid grid-cols-2 gap-y-10 gap-x-6 xl:gap-x-8">
                     @foreach($biens as $bien)
                         <div class="group relative">
                             @if(isset($bien->images[0]->image) && !empty($bien->images[0]->image))
@@ -102,7 +97,7 @@
                                     @endif
                                     @if(isset($bien->total_price) && !empty($bien->total_price))
                                         <p class="text-sm font-medium text-gray-900">Total:
-                                            ${{ $bien->total_price }}</p>
+                                            ${{ number_format($bien->total_price, 2, ',', ' ') }}</p>
                                     @endif
                                 </div>
                                 @if(isset($bien->quantity) && !empty($bien->quantity))

@@ -24,7 +24,8 @@ return [
         'update' => 'Modifier',
         'cancel' => 'Annuler',
         'close' => 'Fermer',
-        'logout' => 'Déconnection'
+        'logout' => 'Déconnection',
+        'save' => 'Sauvegarder'
     ],
     'biens' => [
         'type' => 'Type',

@@ -32,21 +32,21 @@
                 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                     <div class="sm:text-center lg:text-left">
                         <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block text-palette-2-dark-beige xl:inline">Investir avec JINFlow</span>
-                            <span class="block text-palette-2-medium-blue xl:inline">la nouvelle ère du CashFlow</span>
+                            <span class="block text-palette-2-dark-beige xl:inline">{{ __('home.main.invest-with-jinflow') }}</span>
+                            <span class="block text-palette-2-medium-blue xl:inline">{{ __('home.main.new-area') }}</span>
                         </h1>
                         <p class="mt-3 text-base text-opacity-70 text-palette sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                            Grace aux caracteristiques intrinsèques de la blockchain nous permettons aux investisseurs étrangers d'accéder simplement aux opportunités immobilières du marché américains
+                            {{ __('home.main.text') }}
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
                                 <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                                    J'INVESTIS !
+                                    {{ __('home.main.invest') }}
                                 </a>
                             </div>
                             <div class="mt-3 sm:mt-0 sm:ml-3">
                                 <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-palette-2-light-beige bg-palette-2-dark-blue hover:bg-indigo-700 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
-                                    Comment ça marche?
+                                    {{ __('home.main.how-work') }}
                                 </a>
                             </div>
                         </div>
@@ -63,14 +63,14 @@
     <div class="bg-gradient-to-r from-palette-2-dark-blue to-palette-2-medium-blue">
         <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                <span class="block">Commencer à investir dès €50.</span>
-                <span class="block">Recevoir le loyer chaque lundi</span>
-                <span class="block">Payé en crypto stable </span>
-                <span class="block">Une rentabilité moyenne de 13%</span>
+                <span class="block">{{ __('home.info.block-1') }}</span>
+                <span class="block">{{ __('home.info.block-2') }}</span>
+                <span class="block">{{ __('home.info.block-3') }}</span>
+                <span class="block">{{ __('home.info.block-4') }}</span>
             </h2>
 
             <a href="#" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
-                COMPRENDRE LE FONCTIONNEMENT
+                {{ __('home.info.understand') }}
             </a>
         </div>
     </div>
@@ -91,20 +91,20 @@
                         </div>
                         <div class="mt-6">
                             <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                                Une innovation technologique
+                                {{ __('home.innovation.title') }}
                             </h2>
                             <p class="mt-4 text-lg text-gray-500">
-                                Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                                {!! __('home.innovation.text') !!}
                             </p>
                             <div class="mt-6">
                                 <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-s bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-700 transition-all duration-150 ease-in-out">
-                                    Get started
+                                    {{ __('home.innovation.get-started') }}
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="mt-8 border-t border-gray-200 pt-6">
-                        <blockquote> "Il viendra un jour ou tout ce qu'il y a sur notre planete sera tokenisé"
+                        <blockquote>{{ __('home.innovation.blockquote') }}
                             <div>
                                 <p class="text-base text-gray-500">
                                 </p>
@@ -115,7 +115,7 @@
                                         <img class="h-6 w-6 rounded-full" src="https://media-exp1.licdn.com/dms/image/C4D03AQGfHmKFdlMOxw/profile-displayphoto-shrink_800_800/0/1618677968141?e=1637193600&v=beta&t=1pJpzGKKP461g0f-XQ_sovAhsAwvZFybKxU_VhLDLQc" alt="">
                                     </div>
                                     <div class="text-base font-medium text-gray-700">
-                                        Quentin Riviere, Co-founder
+                                        {{ __('home.innovation.quentin') }}
                                     </div>
                                 </div>
                             </footer>
@@ -144,14 +144,14 @@
                             </div>
                             <div class="mt-6">
                                 <h2 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                                    Pourquoi le marche americain ?
+                                    {{ __('home.innovation.why-american') }}
                                 </h2>
                                 <p class="mt-4 text-lg text-gray-500">
-                                    Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus viverra dui tellus ornare pharetra.
+                                    {!! __('home.innovation.american-text') !!}
                                 </p>
                                 <div class="mt-6">
                                     <a href="{{ route('nos-biens') }}" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-700 transition-all duration-150 ease-in-out">
-                                        Voir nos biens
+                                        {{ __('home.innovation.see-our-properties') }}
                                     </a>
                                 </div>
                             </div>
@@ -180,29 +180,29 @@
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 xl:grid-flow-col-dense xl:gap-x-8">
                 <div class="relative pt-12 pb-64 sm:pt-24 sm:pb-64 xl:col-start-1 xl:pb-24">
                     <h2 class="text-sm font-semibold text-palette-2-dark-beige tracking-wide uppercase">
-                        Notre experience
+                        {{ __('home.experiences.our-experience') }}
                     </h2>
-                    <p class="mt-3 text-3xl font-extrabold text-white">Nous mettons notre expertise a votre disposition pour une serennite absolu </p>
-                    <p class="mt-5 text-lg text-gray-300">Nous sommes implemante sur le marche americain depuis plus de 5 ans, nous avons commence par Detroit avant de tres rapidement conquerir le marche de l'Arizona ainsi que celui de Cleveland </p>
+                    <p class="mt-3 text-3xl font-extrabold text-white">{!! __('home.experiences.text-1') !!}</p>
+                    <p class="mt-5 text-lg text-gray-300">{!! __('home.experiences.text-2') !!}</p>
                     <div class="mt-12 grid grid-cols-1 gap-y-12 gap-x-6 sm:grid-cols-2">
                         <p>
-                            <span class="block text-2xl font-bold text-white">400+</span>
-                            <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Maisons</span> vendus a nos clients.</span>
+                            <span class="block text-2xl font-bold text-white">{{ __('home.experiences.infos-1.number') }}</span>
+                            <span class="mt-1 block text-base text-gray-300">{!! __('home.experiences.infos-1.text') !!}</span>
                         </p>
 
                         <p>
-                            <span class="block text-2xl font-bold text-white">25K+</span>
-                            <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Countries around the globe</span> lacus nibh integer quis.</span>
+                            <span class="block text-2xl font-bold text-white">{{ __('home.experiences.infos-2.number') }}</span>
+                            <span class="mt-1 block text-base text-gray-300">{!! __('home.experiences.infos-2.text') !!}</span>
                         </p>
 
                         <p>
-                            <span class="block text-2xl font-bold text-white">98%</span>
-                            <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Nous recommande</span> La confiance est la satisfaction de nos clients est primordiale pour nous </span>
+                            <span class="block text-2xl font-bold text-white">{{ __('home.experiences.infos-3.number') }}</span>
+                            <span class="mt-1 block text-base text-gray-300">{!! __('home.experiences.infos-3.text') !!}</span>
                         </p>
 
                         <p>
-                            <span class="block text-2xl font-bold text-white">27</span>
-                            <span class="mt-1 block text-base text-gray-300"><span class="font-medium text-white">Collaborateurs</span> Devoues pour la reussite de notre mission.</span>
+                            <span class="block text-2xl font-bold text-white">{{ __('home.experiences.infos-4.number') }}</span>
+                            <span class="mt-1 block text-base text-gray-300">{!! __('home.experiences.infos-4.text') !!}</span>
                         </p>
                     </div>
                 </div>
@@ -215,10 +215,10 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
                     <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                        En quoi JINFlow est different ?
+                        {{ __('home.jinflow.jinflow-different') }}
                     </p>
                     <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-                        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in accusamus quisquam.
+                        {{ __('home.jinflow.text-1') }}
                     </p>
                 </div>
 
@@ -232,10 +232,10 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                                     </svg>
                                 </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">L'investissement fractionne</p>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.investissment') }}</p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                                {{ __('home.jinflow.text-2') }}
                             </dd>
                         </div>
 
@@ -247,10 +247,10 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
                                     </svg>
                                 </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Une reelle possesion</p>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.possession') }}</p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                                {{ __('home.jinflow.text-3') }}
                             </dd>
                         </div>
 
@@ -262,10 +262,10 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                                     </svg>
                                 </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Agree par la SEC</p>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.agree') }}</p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                                {{ __('home.jinflow.text-4') }}
                             </dd>
                         </div>
 
@@ -277,10 +277,10 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                                     </svg>
                                 </div>
-                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">Integrer une communaute </p>
+                                <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.community') }}</p>
                             </dt>
                             <dd class="mt-2 ml-16 text-base text-gray-500">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+                                {{ __('home.jinflow.text-5') }}
                             </dd>
                         </div>
                     </dl>
@@ -292,27 +292,24 @@
             <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center">
                 <div class="lg:w-0 lg:flex-1">
                     <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl" id="newsletter-headline">
-                        Ne rate aucune nouvelle maison
+                        {{ __('home.banner.title') }}
                     </h2>
                     <p class="mt-3 max-w-3xl text-lg leading-6 text-gray-300">
-                        Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui Lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat.
+                        {!! __('home.banner.text') !!}
                     </p>
                 </div>
                 <div class="mt-8 lg:mt-0 lg:ml-8">
                     <form class="sm:flex">
-                        <label for="emailAddress" class="sr-only">Email address</label>
+                        <label for="emailAddress" class="sr-only">{{ __('home.banner.text') }}</label>
                         <input id="emailAddress" name="emailAddress" type="email" autocomplete="email" required class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="Ton meilleur email">
                         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                             <button type="submit" class="w-full flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500 transition-all duration-150 ease-in-out">
-                                Me notifier
+                                {{ __('home.banner.notify-me') }}
                             </button>
                         </div>
                     </form>
                     <p class="mt-3 text-sm text-gray-300">
-                        We care about the protection of your data. Read our
-                        <a href="#" class="text-white font-medium underline">
-                            Privacy Policy.
-                        </a>
+                        {!! __('home.banner.about-data') !!}
                     </p>
                 </div>
             </div>

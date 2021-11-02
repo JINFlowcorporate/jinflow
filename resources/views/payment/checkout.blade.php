@@ -69,7 +69,7 @@
                     @foreach($biens as $bien)
                         <li class="py-6 flex">
                             <div class="flex-shrink-0 border border-gray-200 rounded-md overflow-hidden" style="width: 50px;">
-                                <img width="50" height="50" src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
+                                <img width="50" height="50" src="{{ \App\Models\Biens::find($bien->id)->first()->images[0]->image }}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
                             </div>
 
                             <div class="ml-4 flex-1 flex flex-col">
@@ -83,12 +83,12 @@
                                         </p>
                                     </div>
                                     <p class="mt-1 text-sm text-gray-500">
-                                        Salmon
+                                        {{ $bien->name }}
                                     </p>
                                 </div>
                                 <div class="flex-1 flex items-end justify-between text-sm">
                                     <p class="text-gray-500">
-                                        Qty {{ $bien->qty }}
+                                        {{ __('cart.quantity') }}: {{ $bien->qty }}
                                     </p>
                                 </div>
                             </div>
@@ -110,7 +110,7 @@
             const elements = stripe.elements();
             const cardElement = elements.create('card', {
                 classes: {
-                    base: 'StripeElement bg-white w-1/2 p-2 my-2 rounded-lg'
+                    base: 'StripeElement bg-palette-2-dark-blue w-full p-2 my-2 rounded-lg'
                 }
             });
             cardElement.mount('#card-element');

@@ -25,7 +25,8 @@ return [
         'update' => 'Update',
         'cancel' => 'Cancel',
         'close' => 'Close',
-        'logout' => 'Logout'
+        'logout' => 'Logout',
+        'save' => 'Save'
     ],
     'biens' => [
         'type' => 'Type',

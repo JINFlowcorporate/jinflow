@@ -22,7 +22,7 @@ class OrdersAdmin extends Component
      */
     public function read()
     {
-        return Order::orderBy('created_at', 'DESC')->paginate(5);
+        return Order::orderBy('created_at', 'DESC')->paginate(8);
     }
 
     public function detailsShowModal($id)
@@ -32,6 +32,7 @@ class OrdersAdmin extends Component
         $this->order_product = $this->order->order_product;
         $this->customer = $this->order->user;
         $this->fullname = $this->customer->firstname . ' ' . $this->customer->lastname;
+
         foreach ($this->order_product as $key => $value)
         {
             $bien = \App\Models\Biens::where('id', $value->biens_id)->first();

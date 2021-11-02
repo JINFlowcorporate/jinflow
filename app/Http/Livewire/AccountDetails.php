@@ -6,6 +6,7 @@ use App\Models\User;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -26,6 +27,7 @@ class AccountDetails extends Component
     public $zipcode;
     public $us_citizen;
     public $profile_photo_path;
+    public $profile_photo_path_tmp;
 
     /**
      * The validation rules
@@ -43,9 +45,9 @@ class AccountDetails extends Component
             'address' => 'nullable|max:255',
             'city' => 'nullable|max:255',
             'state' => 'nullable|max:255',
-            'zipcode' => 'nullable|numeric|max:255',
+            'zipcode' => 'nullable|numeric',
             'us_citizen' => 'nullable|boolean',
-            'profile_photo_path' => 'nullable|file'
+            'profile_photo_path_tmp' => 'nullable|image|mimes:jpg,jpeg,png,svg,gif,webp'
         ];
     }
 
@@ -62,7 +64,8 @@ class AccountDetails extends Component
 
     public function modelData()
     {
-        $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
+        //  $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
+        $imageName = Storage::putFile('public/profile', $this->profile_photo_path_tmp);
 
         return [
             'username' => $this->username,
@@ -75,7 +78,7 @@ class AccountDetails extends Component
             'state' => $this->state,
             'zipcode' => $this->zipcode,
             'us_citizen' => $this->us_citizen,
-            'profile_photo_path' => $fileUploaded->getSecurePath()
+            'profile_photo_path' => $imageName
         ];
     }
 
@@ -93,6 +96,10 @@ class AccountDetails extends Component
         $this->zipcode = Auth::user()->zipcode;
         $this->us_citizen = Auth::user()->us_citizen;
         $this->profile_photo_path = Auth::user()->profile_photo_path;
+        if (\Illuminate\Support\Facades\Storage::exists($this->profile_photo_path))
+        {
+            $this->profile_photo_path = Storage::url($this->profile_photo_path);
+        }
     }
 
     public function render()
