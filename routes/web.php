@@ -30,6 +30,8 @@ Route::get('/nos-biens', function () {
     return view('pages.nos-biens');
 })->name('nos-biens');
 
+Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'switchLang'])->name('lang.switch');
+
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {

@@ -59,6 +59,22 @@
                     </a>
 
                     @livewire('cart-counter')
+
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ \Illuminate\Support\Facades\Config::get('languages')[app()->getLocale()] }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        @foreach (\Illuminate\Support\Facades\Config::get('languages') as $lang => $language)
+                            @if ($lang != app()->getLocale())
+                                <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+                            @endif
+                        @endforeach
+                    </div>
+
+                    {{--<div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold {{ request()->routeIs('lang', 'fr') ? 'bg-gray-200 text-black' : 'bg-transparent' }} rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('lang', 'fr') }}">{{ __('FR') }}</a>
+                        <a class="block px-4 py-2 mt-2 text-sm font-semibold {{ request()->routeIs('lang', 'en') ? 'bg-gray-200 text-black' : 'bg-transparent' }} rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="{{ route('lang', 'en') }}">{{ __('EN') }}</a>
+                    </div>--}}
                 </div>
             </div>
             <div class="ml-10 space-x-4">

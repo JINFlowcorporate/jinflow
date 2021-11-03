@@ -1,28 +1,25 @@
 <div class="space-y-8 divide-y divide-gray-200 p-6 overflow-y-scroll w-full">
     <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-            Orders
+            {{ __('orders.title') }}
         </h3>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">
-            This information will be displayed publicly so be careful what you share.
-        </p>
     </div>
 
     <div>
         <div>
-            <div class="flex flex-col mt-2">
+            <div class="flex flex-col mt-10">
                 <div class="align-middle min-w-full overflow-x-auto shadow overflow-hidden sm:rounded-lg">
                     <table class="min-w-full divide-y divide-gray-200">
                         <thead>
                         <tr>
                             <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Transaction
+                                {{ __('orders.transaction') }}
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Amount
+                                {{ __('orders.amount') }}
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Date
+                                {{ __('orders.date') }}
                             </th>
                             <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
                         </tr>
@@ -51,7 +48,7 @@
                                 <time datetime="{{ $item->created_at }}">{{ \Carbon\Carbon::parse($item->created_at)->format('D M Y') }}</time>
                             </td>
                             <td class="px-6 py-4 text-right whitespace-nowrap text-sm text-gray-500">
-                                <x-jet-button wire:click="detailsShowModal({{ $item->id }})">Voir</x-jet-button>
+                                <x-jet-button wire:click="detailsShowModal({{ $item->id }})">{{ __('orders.see-button') }}</x-jet-button>
                             </td>
                         </tr>
                         </tbody>

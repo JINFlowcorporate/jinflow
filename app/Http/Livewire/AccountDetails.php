@@ -52,6 +52,25 @@ class AccountDetails extends Component
     }
 
     /**
+     * Get the error messages for the defined validation rules.
+     *
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'username.unique' => __('account-details.errors.username-unique'),
+            'firstname.required' => __('account-details.errors.firstname-required'),
+            'firstname.max' => __('account-details.errors.firstname-max'),
+            'lastname.required' => __('account-details.errors.lastname-required'),
+            'lastname.max' => __('account-details.errors.lastname-max'),
+            'email.required' => __('account-details.errors.email-required'),
+            'email.email' => __('account-details.errors.email-format'),
+            'email.unique' => __('account-details.errors.email-unique')
+        ];
+    }
+
+    /**
      * The update function
      *
      * @return void
@@ -65,7 +84,12 @@ class AccountDetails extends Component
     public function modelData()
     {
         //  $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
-        $imageName = Storage::putFile('public/profile', $this->profile_photo_path_tmp);
+        $imageName = Storage::putFile('public/profile/' . Auth::id() , $this->profile_photo_path_tmp);
+
+        if (Storage::exists(Auth::user()->profile_photo_path))
+        {
+            Storage::delete(Auth::user()->profile_photo_path);
+        }
 
         return [
             'username' => $this->username,
@@ -95,10 +119,9 @@ class AccountDetails extends Component
         $this->state = Auth::user()->state;
         $this->zipcode = Auth::user()->zipcode;
         $this->us_citizen = Auth::user()->us_citizen;
-        $this->profile_photo_path = Auth::user()->profile_photo_path;
-        if (\Illuminate\Support\Facades\Storage::exists($this->profile_photo_path))
+        if (Storage::exists(Auth::user()->profile_photo_path))
         {
-            $this->profile_photo_path = Storage::url($this->profile_photo_path);
+            $this->profile_photo_path = Storage::url(Auth::user()->profile_photo_path);
         }
     }
 

@@ -3,11 +3,8 @@
         <div>
             <div>
                 <h3 class="text-lg leading-6 font-medium text-gray-900">
-                    Profile
+                    {{ __('account-details.title') }}
                 </h3>
-                <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    This information will be displayed publicly so be careful what you share.
-                </p>
             </div>
         </div>
 
@@ -15,7 +12,7 @@
             <div class="space-y-6 sm:space-y-5">
                 <div class="sm:col-span-6">
                     <label for="cover-photo" class="block text-sm font-medium text-gray-700">
-                        Cover photo
+                        {{ __('account-details.photo') }}
                     </label>
                     <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
                         <div class="space-y-1 text-center">
@@ -38,7 +35,7 @@
 
                 <div>
                     <label for="username" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        Username
+                        {{ __('account-details.username') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="username" value="{{ $username }}" type="text" name="username" id="username" autocomplete="username"
@@ -70,7 +67,7 @@
 
                 <div>
                     <label for="firstname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        First name
+                        {{ __('account-details.firstname') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="firstname" value="{{ $firstname }}" type="text" name="firstname‹" id="firstname" autocomplete="given-name"
@@ -81,7 +78,7 @@
 
                 <div>
                     <label for="lastname" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        Last name
+                        {{ __('account-details.lastname') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="lastname" value="{{ $lastname }}" type="text" name="lastname" id="lastname" autocomplete="family-name"
@@ -103,7 +100,7 @@
 
                 <div>
                     <label for="email" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        Email address
+                        {{ __('account-details.email') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="email" value="{{ $email }}" id="email" name="email" inputmode="email" type="email" autocomplete="email"
@@ -114,7 +111,7 @@
 
                 <div>
                     <label for="phone" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        Phone number
+                        {{ __('account-details.phone') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="phone" value="{{ $phone }}" id="phone" name="phone" inputmode="numeric" type="number" autocomplete="phone"
@@ -139,7 +136,7 @@
 
                 <div>
                     <label for="address" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        Street address
+                        {{ __('account-details.address') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="address" value="{{ $address }}" type="text" name="address" id="address" autocomplete="address"
@@ -150,7 +147,7 @@
 
                 <div>
                     <label for="city" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        City
+                        {{ __('account-details.city') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="city" value="{{ $city }}" type="text" name="city" id="city"
@@ -161,7 +158,7 @@
 
                 <div>
                     <label for="state" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        State / Province
+                        {{ __('account-details.state') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="state" value="{{ $state }}" type="text" name="state" id="state"
@@ -172,7 +169,7 @@
 
                 <div>
                     <label for="zipcode" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
-                        ZIP / Postal
+                        {{ __('account-details.zipcode') }}
                     </label>
                     <div class="mt-1 sm:mt-0 sm:col-span-2">
                         <input wire:model="zipcode" value="{{ $zipcode }}" type="number" name="zipcode" id="zipcode" inputmode="numeric" autocomplete="postal-code"
@@ -186,7 +183,7 @@
                         <input wire:model="us_citizen" value="{{ $us_citizen }}" {{ $us_citizen ? 'checked' : '' }} id="us_citizen" aria-describedby="us_citizen" name="us_citizen" type="checkbox" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded">
                     </div>
                     <div class="ml-3 text-sm">
-                        <label for="us_citizen" class="font-medium text-gray-700">US citizen</label>
+                        <label for="us_citizen" class="font-medium text-gray-700">{{ __('account-details.us-citizen') }}</label>
                     </div>
                     @error('us_citizen') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
