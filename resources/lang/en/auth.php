@@ -21,6 +21,7 @@ return [
         'login' => 'Sign in to your account',
         'remember-me' => 'Remember me',
         'forgot' => 'Forgot your password?',
-        'create-account' => 'Creat an account?'
+        'create-account' => 'Creat an account?',
+        'already' => 'Already registered?'
     ]
 ];

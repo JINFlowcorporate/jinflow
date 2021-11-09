@@ -62,7 +62,7 @@
                                         {{ __('admin.buttons.register') }}
                                     </button>
                                     <a class="underline text-sm text-gray-600 hover:text-gray-900 absolute right-0" style="top: calc(100% + 5px);" href="{{ route('login') }}">
-                                        {{ __('Already registered?') }}
+                                        {{ __('auth.form.already') }}
                                     </a>
                                 </div>
                             </div>

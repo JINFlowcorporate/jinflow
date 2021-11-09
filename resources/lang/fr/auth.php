@@ -21,6 +21,7 @@ return [
         'login' => 'Connectez-vous à votre compte',
         'remember-me' => 'Se souvenir',
         'forgot' => 'Mot de passe oublié ?',
-        'create-account' => 'Créer un compte ?'
+        'create-account' => 'Créer un compte ?',
+        'already' => 'Déjà inscrit ?'
     ]
 ];
