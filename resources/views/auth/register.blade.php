@@ -29,7 +29,7 @@
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <x-jet-label for="username" value="{{ __('account-details.username') }}" />
+                                    <label class="block font-medium text-sm text-gray-700" for="username">{{ __('account-details.username') }}</label>
                                     <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" autofocus autocomplete="username" />
                                 </div>
 
