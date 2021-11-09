@@ -1,6 +1,14 @@
 <?php
 
 return [
+    'routes' => [
+        'home' => 'Accueil',
+        'holdings' => 'Propriétées',
+        'kyc' => 'Documents',
+        'orders' => 'Commandes',
+        'account-details' => 'Details du compte',
+        'affiliation' => 'Affiliation'
+    ],
     'hello' => 'Bonjour',
     'account-verified' => 'Compte vérifié',
     'account-not-verified' => 'Compte non vérifié',
