@@ -1,4 +1,10 @@
 <div class="p-6">
+    <div>
+        <h3 class="text-lg leading-6 font-bold text-gray-900">
+            List of users
+        </h3>
+    </div>
+
     <div class="flex items-center justify-end px-4 py-3 text-right sm:px-6">
         <x-jet-button wire:click="createShowModal">
             {{ __('admin.buttons.create') }}
@@ -79,7 +85,7 @@
     </div>
 
     <div class="mt-5">
-        {{ $data->links() }}
+        {{ $data->links('custom-pagination-links-view') }}
     </div>
 
     {{-- Modal Form --}}
@@ -92,54 +98,54 @@
             <div class="mt-4">
                 <x-jet-label for="username" value="{{ __('admin.words.username') }}" />
                 <x-jet-input wire:model="username" id="username" class="block mt-1 w-full" type="text" />
-                @error('username') <span class="error">{{ $message }}</span> @enderror
+                @error('username') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="firstname" value="{{ __('admin.words.firstname') }}" />
                 <x-jet-input wire:model="firstname" id="firstname" class="block mt-1 w-full" type="text" />
-                @error('firstname') <span class="error">{{ $message }}</span> @enderror
+                @error('firstname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="lastname" value="{{ __('admin.words.lastname') }}" />
                 <x-jet-input wire:model="lastname" id="lastname" class="block mt-1 w-full" type="text" />
-                @error('lastname') <span class="error">{{ $message }}</span> @enderror
+                @error('lastname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('admin.words.email') }}" />
                 <x-jet-input wire:model="email" id="email" class="block mt-1 w-full" type="text" />
-                @error('email') <span class="error">{{ $message }}</span> @enderror
+                @error('email') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('admin.words.password') }}" />
                 <div class="relative">
                     <x-jet-input wire:model="password" id="password" class="block mt-1 w-full" type="password" />
                 </div>
-                @error('password') <span class="error">{{ $message }}</span> @enderror
+                @error('password') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="phone" value="{{ __('admin.users.phone') }}" />
                 <x-jet-input wire:model="phone" id="phone" class="block mt-1 w-full" type="number" inputmode="numeric" />
-                @error('phone') <span class="error">{{ $message }}</span> @enderror
+                @error('phone') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="address" value="{{ __('admin.users.address') }}" />
                 <x-jet-input wire:model="address" id="address" class="block mt-1 w-full" type="text" />
-                @error('address') <span class="error">{{ $message }}</span> @enderror
+                @error('address') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="city" value="{{ __('admin.users.city') }}" />
                 <x-jet-input wire:model="city" id="city" class="block mt-1 w-full" type="text" />
-                @error('city') <span class="error">{{ $message }}</span> @enderror
+                @error('city') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="state" value="{{ __('admin.users.state') }}" />
                 <x-jet-input wire:model="state" id="state" class="block mt-1 w-full" type="text" />
-                @error('state') <span class="error">{{ $message }}</span> @enderror
+                @error('state') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="zipcode" value="{{ __('admin.users.zipcode') }}" />
                 <x-jet-input wire:model="zipcode" id="zipcode" class="block mt-1 w-full" type="number" inputmode="numeric" />
-                @error('zipcode') <span class="error">{{ $message }}</span> @enderror
+                @error('zipcode') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <label>

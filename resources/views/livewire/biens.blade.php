@@ -1,20 +1,30 @@
 <div class="bg-white">
     <div class="pt-6">
         <!-- Image gallery -->
-        <div class="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
-            <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                <img src="{{ $item->images[0]->image }}" alt="Two each of gray, white, and black shirts laying flat." class="w-full h-full object-center object-cover">
-            </div>
-            <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
-                <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                    <img src="{{ $item->images[1]->image }}" alt="Model wearing plain black basic tee." class="w-full h-full object-center object-cover">
+        <div class="mt-6 max-w-2xl mx-auto lg:max-w-7xl sm:px-6 lg:px-8">
+            <div class="w-full lg:grid lg:grid-cols-3 lg:gap-x-8">
+                <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
+                    <img src="{{ $item->images[0]->image }}" alt="Two each of gray, white, and black shirts laying flat." class="w-full h-full object-center object-cover">
                 </div>
-                <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
-                    <img src="{{ $item->images[2]->image }}" alt="Model wearing plain gray basic tee." class="w-full h-full object-center object-cover">
+                <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                    <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+                        <img src="{{ $item->images[1]->image }}" alt="Model wearing plain black basic tee." class="w-full h-full object-center object-cover">
+                    </div>
+                    <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
+                        <img src="{{ $item->images[2]->image }}" alt="Model wearing plain gray basic tee." class="w-full h-full object-center object-cover">
+                    </div>
+                </div>
+                <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
+                    <img src="{{ $item->images[3]->image }}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
                 </div>
             </div>
-            <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
-                <img src="{{ $item->images[3]->image }}" alt="Model wearing plain white basic tee." class="w-full h-full object-center object-cover">
+
+            <div class="hidden-scrollbar grid gap-4 w-full overflow-x-auto overflow-y-hidden mt-6" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory; justify-content: start; grid-auto-flow: column; grid-template-columns: repeat(auto-fit, 200px); -ms-overflow-style: none;">
+                @foreach($item->images as $image)
+                    <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden" style="scroll-snap-align: start;">
+                        <img src="{{ $image->image }}" alt="Image" class="w-full h-full object-center object-cover">
+                    </div>
+                @endforeach
             </div>
         </div>
 
@@ -48,9 +58,9 @@
                             </ul>
                         </div>
                         @if($item->total_tokens > 0)
-                            <div class="flex mt-5 items-center justify-between">
-                                <label for="quantity" class="text-sm text-gray-900 font-medium">{{ __('property.product-information.quantity') }}</label>
-                                <input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}">
+                            <div class="flex mt-5 flex-col items-start">
+                                <label for="quantity" class="text-sm mb-4 text-gray-900 font-medium">{{ __('property.product-information.quantity') }}</label>
+                                <x-jet-input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}"></x-jet-input>
                             </div>
                         @endif
                     </div>

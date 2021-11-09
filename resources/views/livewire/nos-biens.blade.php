@@ -27,7 +27,7 @@
         </div>
 
         <div class="mt-10">
-            {{ $biens->links() }}
+            {{ $biens->links('custom-pagination-links-view') }}
         </div>
         @endif
     </div>

@@ -1,6 +1,12 @@
 <div class="p-6">
+    <div>
+        <h3 class="text-lg leading-6 font-bold text-gray-900">
+            List of orders
+        </h3>
+    </div>
+
     {{-- The data table --}}
-    <div class="flex flex-col">
+    <div class="mt-10 flex flex-col">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                 <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -45,7 +51,7 @@
     </div>
 
     <div class="mt-5">
-        {{ $data->links() }}
+        {{ $data->links('custom-pagination-links-view') }}
     </div>
 
     {{-- Modal Form --}}

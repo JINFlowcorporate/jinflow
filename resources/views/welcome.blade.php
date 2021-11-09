@@ -60,19 +60,24 @@
     </div
 
         <!-- This example requires Tailwind CSS v2.0+ -->
-    <div class="bg-gradient-to-r from-palette-2-dark-blue to-palette-2-medium-blue">
-        <div class="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-extrabold text-white sm:text-4xl">
-                <span class="block">{{ __('home.info.block-1') }}</span>
-                <span class="block">{{ __('home.info.block-2') }}</span>
-                <span class="block">{{ __('home.info.block-3') }}</span>
-                <span class="block">{{ __('home.info.block-4') }}</span>
-            </h2>
-
-            <a href="#" class="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
-                {{ __('home.info.understand') }}
-            </a>
+    <div class="bg-gradient-to-r flex flex-col items-center from-palette-2-dark-blue to-palette-2-medium-blue py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <div class="mx-auto grid gap-4 grid-cols-1 md:grid-cols-3 items-center justify-between text-center">
+            <div>
+                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-1') }}</p>
+                <p class="block text-center text-white mt-2">{{ __('home.info.text-1') }}</p>
+            </div>
+            <div>
+                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-2') }}</p>
+                <p class="block text-center text-white mt-2">{{ __('home.info.text-2') }}</p>
+            </div>
+            <div>
+                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-3') }}</p>
+                <p class="block text-center text-white mt-2">{{ __('home.info.text-3') }}</p>
+            </div>
         </div>
+        <a href="#" class="mt-8 w-full inline-block mx-auto items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
+            {{ __('home.info.understand') }}
+        </a>
     </div>
 
     <!-- This example requires Tailwind CSS v2.0+ -->

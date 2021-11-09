@@ -26,7 +26,9 @@ return [
         'cancel' => 'Cancel',
         'close' => 'Close',
         'logout' => 'Logout',
-        'save' => 'Save'
+        'save' => 'Save',
+        'register' => 'Register',
+        'login' => 'Login'
     ],
     'biens' => [
         'type' => 'Type',
@@ -69,6 +71,6 @@ return [
         'cvc' => 'CVC'
     ],
     'errors' => [
-        'no-result' => 'No Results Found'
+        'no-result' => 'No results found'
     ]
 ];

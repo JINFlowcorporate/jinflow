@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -51,6 +53,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->name('store-payment')
         ->middleware('EnsureCartIsNotEmpty');
 
+    Route::get('/confirmation', function () {
+        Cart::destroy();
+
+        $order = Order::where('user_id', Auth::id())->latest()->first();
+
+        return view('pages.confirmation', compact('order'));
+    })->name('confirmation')->middleware('ConfirmationFromOrder');
+
     Route::get('/dashboard', function () {
         return view('user.dashboard');
     })->name('dashboard');
@@ -77,7 +87,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified', 'authadmin']], function () {
-    Route::get('/dashboard', function () {
+    Route::get('/', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard');
 

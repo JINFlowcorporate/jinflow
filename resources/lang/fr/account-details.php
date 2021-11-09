@@ -13,6 +13,9 @@ return [
     'state' => 'Êtat / Province',
     'zipcode' => 'Code postale',
     'us-citizen' => 'Citoyen américain',
+    'password' => 'Mot de passe',
+    'confirm-password' => 'Confirmez le mot de passe',
+    'referred_by' => 'Referred by',
     'errors' => [
         'username-unique' => 'Le nom d\'utilisateur doit être unique',
         'firstname-required' => 'Le prénom est obligatoire',

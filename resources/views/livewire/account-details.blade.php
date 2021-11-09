@@ -42,7 +42,7 @@
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
 
-                    @error('username') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('username') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 {{--<div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-center sm:border-t sm:border-gray-200 sm:pt-5">
@@ -73,7 +73,7 @@
                         <input wire:model="firstname" value="{{ $firstname }}" type="text" name="firstname‹" id="firstname" autocomplete="given-name"
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('firstname') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('firstname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -84,7 +84,7 @@
                         <input wire:model="lastname" value="{{ $lastname }}" type="text" name="lastname" id="lastname" autocomplete="family-name"
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('lastname') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('lastname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
             {{--    <div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -106,7 +106,7 @@
                         <input wire:model="email" value="{{ $email }}" id="email" name="email" inputmode="email" type="email" autocomplete="email"
                                class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('email') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('email') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -117,7 +117,7 @@
                         <input wire:model="phone" value="{{ $phone }}" id="phone" name="phone" inputmode="numeric" type="number" autocomplete="phone"
                                class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('phone') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('phone') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 {{--<div class="sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:border-t sm:border-gray-200 sm:pt-5">
@@ -142,7 +142,7 @@
                         <input wire:model="address" value="{{ $address }}" type="text" name="address" id="address" autocomplete="address"
                                class="block max-w-lg w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('address') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('address') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -153,7 +153,7 @@
                         <input wire:model="city" value="{{ $city }}" type="text" name="city" id="city"
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('city') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('city') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -164,7 +164,7 @@
                         <input wire:model="state" value="{{ $state }}" type="text" name="state" id="state"
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('state') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('state') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div>
@@ -175,7 +175,7 @@
                         <input wire:model="zipcode" value="{{ $zipcode }}" type="number" name="zipcode" id="zipcode" inputmode="numeric" autocomplete="postal-code"
                                class="max-w-lg block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-xs sm:text-sm border-gray-300 rounded-md">
                     </div>
-                    @error('zipcode') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('zipcode') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
 
                 <div class="relative flex items-start">
@@ -185,7 +185,7 @@
                     <div class="ml-3 text-sm">
                         <label for="us_citizen" class="font-medium text-gray-700">{{ __('account-details.us-citizen') }}</label>
                     </div>
-                    @error('us_citizen') <span class="text-red-500">{{ $message }}</span> @enderror
+                    @error('us_citizen') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                 </div>
             </div>
         </div>

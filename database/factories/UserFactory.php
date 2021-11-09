@@ -24,7 +24,7 @@ class UserFactory extends Factory
     public function definition()
     {
         return [
-            'profile_photo_path' => 'https://media-exp1.licdn.com/dms/image/C4D03AQHGQri04cs6Pg/profile-displayphoto-shrink_800_800/0/1612973638589?e=1638403200&v=beta&t=Fp41c63CHk9JNEoTLGHqhhMcgxeOsBvRK0Bbvvdf-VA',
+            'profile_photo_path' => 'public/profile/1/h3hou1xWbX578JgXx19yumGX37abkArMBJKe31PJ.jpg',
             'lastname' => 'Hamrouni',
             'firstname' => 'Charfeddine',
             'username' => 'Kaneki',

@@ -5,5 +5,9 @@ return [
     'see-button' => 'Voir',
     'transaction' => 'Transaction',
     'amount' => 'Prix',
-    'date' => 'Date'
+    'date' => 'Date',
+    'history' => 'Historique de la commande',
+    'nb-order' => 'Numéro de la commande',
+    'download-invoice' => 'Télécharger la facture',
+    'view' => 'Voir'
 ];

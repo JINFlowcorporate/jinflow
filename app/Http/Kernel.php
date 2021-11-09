@@ -2,8 +2,10 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ConfirmationFromOrder;
 use App\Http\Middleware\EnsureCartIsNotEmpty;
 use App\Http\Middleware\EnsureLangIsValid;
+use App\Http\Middleware\PreventBackHistory;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -68,5 +70,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'authadmin' => \App\Http\Middleware\AuthAdmin::class,
         'EnsureCartIsNotEmpty' => EnsureCartIsNotEmpty::class,
+        'ConfirmationFromOrder' => ConfirmationFromOrder::class,
     ];
 }

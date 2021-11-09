@@ -13,6 +13,9 @@ return [
     'state' => 'State / Province',
     'zipcode' => 'ZIP / Postal code',
     'us-citizen' => 'US Citizen',
+    'password' => 'Password',
+    'confirm-password' => 'Confirm password',
+    'referred_by' => 'Referred by',
     'errors' => [
         'username-unique' => 'The username must be unique',
         'firstname-required' => 'The firstname field is required',

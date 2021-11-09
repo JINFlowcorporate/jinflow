@@ -19,6 +19,10 @@
             .StripeElement * {
                 color: white!important;
             }
+
+            .article:last-child {
+                border-bottom: none!important;
+            }
         </style>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>

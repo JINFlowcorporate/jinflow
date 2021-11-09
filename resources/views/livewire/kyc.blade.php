@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                @error('passport_kyc') <span class="error">{{ $message }}</span> @enderror
+                @error('passport_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($passport_file) && !empty($passport_file))
                     <iframe class="mt-5" src="{{ $passport_file }}" width="100%" height="500px"></iframe>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                 </div>
-                @error('driver_kyc') <span class="error">{{ $message }}</span> @enderror
+                @error('driver_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($driver_file) && !empty($driver_file))
                     <iframe class="mt-5" src="{{ $driver_file }}" width="100%" height="500px"></iframe>
@@ -82,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-                @error('proof_address_kyc') <span class="error">{{ $message }}</span> @enderror
+                @error('proof_address_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($proof_file) && !empty($proof_file))
                     <iframe class="mt-5" src="{{ $proof_file }}" width="100%" height="500px"></iframe>

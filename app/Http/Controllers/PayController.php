@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Biens;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\User;
 use App\Models\UserBien;
 use App\Models\UserProduct;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -48,6 +49,10 @@ class PayController extends Controller
         $order->total = $cart_total;
         $order->save();
 
+        User::where('id', Auth::id())->increment('invested', $cart_total);
+
+        $orders = [];
+
         foreach ($cart as $bien) {
             $order_product = new OrderProduct;
             $order_product->order_id = $order->id;
@@ -59,10 +64,10 @@ class PayController extends Controller
             $bienToUpdate = Biens::where('id', $bien->id)->first();
             $bienToUpdate->total_tokens = $bienToUpdate->total_tokens - $bien->qty;
             $bienToUpdate->save();
+            array_push($orders, $order_product);
             UserBien::create(['user_id' => $authed_user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
         }
 
-        Cart::destroy();
-        return redirect()->back()->withSuccess('Success message');
+        return redirect()->route('confirmation')->withSuccess('Success message');
     }
 }

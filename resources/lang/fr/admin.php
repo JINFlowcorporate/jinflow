@@ -25,7 +25,9 @@ return [
         'cancel' => 'Annuler',
         'close' => 'Fermer',
         'logout' => 'Déconnection',
-        'save' => 'Sauvegarder'
+        'save' => 'Sauvegarder',
+        'register' => 'S\'inscrire',
+        'login' => 'Se connecter'
     ],
     'biens' => [
         'type' => 'Type',

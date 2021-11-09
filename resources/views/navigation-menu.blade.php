@@ -60,15 +60,19 @@
 
                     @livewire('cart-counter')
 
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ \Illuminate\Support\Facades\Config::get('languages')[app()->getLocale()] }}
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        @foreach (\Illuminate\Support\Facades\Config::get('languages') as $lang => $language)
-                            @if ($lang != app()->getLocale())
-                                <a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
-                            @endif
-                        @endforeach
+                    <div x-data="{dropdownMenu: false}" class="relative">
+                        <!-- Dropdown toggle button -->
+                        <div @click.away="dropdownMenu = false" @click="dropdownMenu = !dropdownMenu" class="text-white nav-link flex items-center dropdown-toggle cursor-pointer" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="{{--mr-3--}} mt-1 flag-icon flag-icon-{{\Illuminate\Support\Facades\Config::get('languages')[app()->getLocale()]['flag-icon']}}"></span>{{-- {{ \Illuminate\Support\Facades\Config::get('languages')[app()->getLocale()]['display'] }}--}}
+                        </div>
+                        <!-- Dropdown list -->
+                        <div x-show="dropdownMenu" class="absolute py-2 mt-2 bg-white bg-gray-100 rounded-md shadow-xl w-44 z-50" style="transform: translateX(-50%); left: 50%;">
+                            @foreach (\Illuminate\Support\Facades\Config::get('languages') as $lang => $language)
+                                @if ($lang != app()->getLocale())
+                                    <a class="inline-flex px-4 py-2 text-sm text-gray-300 text-black hover:bg-gray-400 hover:text-gray-700 text-white dropdown-item" href="{{ route('lang.switch', $lang) }}"><span class="{{--mr-3--}} flag-icon flag-icon-{{$language['flag-icon']}}"></span>{{-- {{$language['display']}}--}}</a>
+                                @endif
+                            @endforeach
+                        </div>
                     </div>
 
                     {{--<div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">

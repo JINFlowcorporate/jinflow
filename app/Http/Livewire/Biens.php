@@ -21,7 +21,7 @@ class Biens extends Component
         Cart::add($bien->id, $bien->name, $this->quantity, $bien->price / 100, 550);
 
         $this->emit('cart_updated');
-        session()->flash('message', 'Cart successfully updated.');
+        session()->flash('message', __('cart.added'));
     }
 
 

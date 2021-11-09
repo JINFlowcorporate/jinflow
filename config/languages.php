@@ -1,6 +1,12 @@
 <?php
 
 return [
-    'en' => 'English',
-    'fr' => 'Français'
+    'en' => [
+        'display' => 'English',
+        'flag-icon' => 'us'
+    ],
+    'fr' => [
+        'display' => 'Français',
+        'flag-icon' => 'fr'
+    ]
 ];

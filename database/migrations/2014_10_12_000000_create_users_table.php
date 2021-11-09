@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->boolean('is_admin')->default(0);
             $table->boolean('is_agent')->default(0);
             $table->boolean('is_active')->default(0);
+            $table->string('invested')->default('0');
+            $table->string('rent')->default('0');
+            $table->string('can_recover')->default('0');
             $table->integer('phone')->nullable();
             $table->string('username')->nullable()->unique();
             $table->dateTime('birthdate')->nullable();

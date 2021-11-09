@@ -7,5 +7,6 @@ return [
     'checkout' => 'Checkout',
     'close-panel' => 'Close',
     'empty-cart' => 'You\'re cart are empty',
-    'verify-my-account' => 'Go validate my account'
+    'verify-my-account' => 'Go validate my account',
+    'added' => 'Added to cart'
 ];

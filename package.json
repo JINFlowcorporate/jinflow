@@ -25,6 +25,7 @@
         "tailwindcss": "^2.2.2"
     },
     "dependencies": {
-        "@tailwindcss/aspect-ratio": "^0.2.1"
+        "@tailwindcss/aspect-ratio": "^0.2.1",
+        "flag-icon-css": "^4.1.5"
     }
 }

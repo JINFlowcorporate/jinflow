@@ -17,9 +17,11 @@ return [
     ],
     'info' => [
         'block-1' => 'Start investing with $50',
+        'text-1' => 'Start taking advantage of US real estate opportunities with low capital to diversify or multiply your sources of incomes',
         'block-2' => 'Frictionless, Compliant and Easy Ownership',
+        'text-2' => 'JINFlow takes care of everything regarding maintenance and administration of each and every property. Support is provided to every investor',
         'block-3' => 'Monthly Rent Payments',
-        'block-4' => 'An average profitability of 13%.',
+        'text-3' => 'With an average return of 11% to 13% on your investments, you will be able to see your monthly profits and payments in real-time through a dedicated online portal',
         'understand' => 'UNDERSTAND HOW IT WORKS'
     ],
     'innovation' => [
