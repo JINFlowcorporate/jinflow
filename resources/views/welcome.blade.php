@@ -1,3 +1,5 @@
+@section('title', __('pages.home'))
+
 <x-app-layout>
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative bg-white overflow-hidden">

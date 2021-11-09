@@ -1,3 +1,5 @@
+@section('title', __('pages.confirmation'))
+
 <x-guest-layout>
     @include('navigation-menu')
 

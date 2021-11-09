@@ -1,3 +1,5 @@
+@section('title', __('pages.biens'))
+
 <div class="bg-white">
     <div class="pt-6">
         <!-- Image gallery -->

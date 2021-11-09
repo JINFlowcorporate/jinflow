@@ -1,3 +1,5 @@
+@section('title', __('pages.checkout'))
+
 <x-guest-layout>
     @include('navigation-menu')
 
