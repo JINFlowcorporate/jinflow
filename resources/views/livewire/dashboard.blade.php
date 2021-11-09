@@ -215,7 +215,7 @@
                                                           clip-rule="evenodd"/>
                                                 </svg>
                                                 <p class="text-gray-500 truncate group-hover:text-gray-900">
-                                                    {{ __('dashboard.payment-to') }} Sanders
+                                                    {{ __('dashboard.payment-to') }} {{ \Illuminate\Support\Facades\Auth::user()->firstname }} {{ \Illuminate\Support\Facades\Auth::user()->lastname }}
                                                 </p>
                                             </a>
                                         </div>
@@ -240,9 +240,13 @@
                                     </td>
                                 </tr>
                                 @endforeach
+                                @else
+                                    <tr>
+                                        <td class="px-6 py-4 text-sm whitespace-no-wrap" colspan="4">
+                                            {{ __('admin.errors.no-result') }}
+                                        </td>
+                                    </tr>
                             @endif
-
-                                <!-- More transactions... -->
                                 </tbody>
                             </table>
                             <!-- Pagination -->
