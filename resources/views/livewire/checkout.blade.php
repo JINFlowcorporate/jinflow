@@ -1,7 +1,7 @@
 <div class="flex justify-between">
     <div class="w-full p-6 flex justify-between">
         <div>
-            <p class="text-gray-800 font-medium">Customer information</p>
+            <p class="text-gray-800 font-medium">{{ __('cart.customer') }}</p>
             <div class="mt-4">
                 <label class="block text-sm text-gray-00" for="lastname">{{ __('admin.words.lastname') }}</label>
                 <input class="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:max-w-md sm:text-sm border-gray-300 rounded-md" id="lastname" value="{{ $lastname }}" name="lastname" type="text" wire:model="lastname" placeholder="{{ __('admin.words.lastname') }}" aria-label="{{ __('admin.words.lastname') }}">
@@ -33,7 +33,7 @@
                 </div>
             </div>
             <div class="block mt-4">
-                <span class="text-gray-700">Method payment</span>
+                <span class="text-gray-700">{{ __('cart.method') }}</span>
                 <div>
                     <div class="flex">
                         <div>
@@ -54,7 +54,7 @@
                 @foreach($biens as $bien)
                     <li class="py-6 flex">
                         <div class="flex-shrink-0 border border-gray-200 rounded-md overflow-hidden" style="width: 50px;">
-                            <img width="50" height="50" src="https://tailwindui.com/img/ecommerce-images/shopping-cart-page-04-product-01.jpg" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
+                            <img width="50" height="50" src="{{ \App\Models\Biens::where('id', $bien->id)->first()->images[0]->image }}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
                         </div>
 
                         <div class="ml-4 flex-1 flex flex-col">
@@ -68,12 +68,12 @@
                                     </p>
                                 </div>
                                 <p class="mt-1 text-sm text-gray-500">
-                                    Salmon
+                                    {{ $bien->name }}
                                 </p>
                             </div>
                             <div class="flex-1 flex items-end justify-between text-sm">
                                 <p class="text-gray-500">
-                                    Qty {{ $bien->qty }}
+                                    {{ __('cart.quantity') }}: {{ $bien->qty }}
                                 </p>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
             @endif
 
             <div class="mt-4">
-                <button id="payment-button" type="submit" wire:click="placeOrder" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">Payer ${{ $total }}</button>
+                <button id="payment-button" type="submit" wire:click="placeOrder" class="px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded">{{ __('cart.pay') }} ${{ $total }}</button>
             </div>
         </ul>
     </div>

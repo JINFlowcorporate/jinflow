@@ -8,5 +8,8 @@ return [
     'close-panel' => 'Close',
     'empty-cart' => 'You\'re cart are empty',
     'verify-my-account' => 'Go validate my account',
-    'added' => 'Added to cart'
+    'added' => 'Added to cart',
+    'customer' => 'Customer information',
+    'method' => 'Method payment',
+    'pay' => 'Pay'
 ];
