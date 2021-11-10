@@ -13,7 +13,7 @@ return [
     'checkout' => 'Checkout',
     'biens' => 'Property',
     'confirmation' => 'Confirmation',
-    'nos' => 'Our properties',
+    'nos-biens' => 'Our properties',
     'register' => 'Register',
     'login' => 'Login'
 ];
