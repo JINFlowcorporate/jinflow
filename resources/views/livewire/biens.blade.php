@@ -41,7 +41,7 @@
             <!-- Options -->
             <div class="mt-4 lg:mt-0 lg:row-span-3">
                 <h2 class="sr-only">{{ __('property.product-information.title') }}</h2>
-                <p class="text-3xl text-gray-900">${{ number_format($item->price, 2, ',', ' ') }} USD</p>
+                <p class="text-3xl text-gray-900 font-bold">${{ number_format($item->price, 2, ',', ' ') }} USD</p>
 
                 <form @if($item->total_tokens > 0) wire:submit.prevent="addToCart({{ $item->id }}) @endif" class="mt-10" method="post">
                     @csrf
