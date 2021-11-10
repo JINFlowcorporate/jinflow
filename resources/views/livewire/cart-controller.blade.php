@@ -48,7 +48,7 @@
                                         @foreach($biens as $bien)
                                     <li class="py-6 flex">
                                         <div class="flex-shrink-0 border border-gray-200 rounded-md overflow-hidden" style="width: 50px;">
-                                            <img width="50" height="50" src="{{ \App\Models\Biens::find($bien->id)->first()->images[0]->image }}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
+                                            <img width="50" height="50" src="{{ \App\Models\Biens::where('id', $bien->id)->first()->images[0]->image }}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
                                         </div>
 
                                         <div class="ml-4 flex-1 flex flex-col">
