@@ -58,7 +58,7 @@
                                                         {{ $bien->name }}
                                                     </h3>
                                                     <p class="ml-4">
-                                                        ${{ $bien->price * $bien->qty }}
+                                                        ${{ number_format($bien->price * $bien->qty, 2, ',', ' ') }}
                                                     </p>
                                                 </div>
                                                 <p class="mt-1 text-sm text-gray-500">
