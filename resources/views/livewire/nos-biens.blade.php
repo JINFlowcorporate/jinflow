@@ -21,7 +21,7 @@
                             {{ $bien->description }}
                         </p>
                         <p class="mt-2 text-right text-lg font-bold text-gray-700">
-                            ${{ $bien->price }}
+                            ${{ number_format($bien->price, 2, ',', ' ') }} USD
                         </p>
                     </div>
                 </a>
