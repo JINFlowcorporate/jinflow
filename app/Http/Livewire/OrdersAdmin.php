@@ -32,6 +32,7 @@ class OrdersAdmin extends Component
         $this->order_product = $this->order->order_product;
         $this->customer = $this->order->user;
         $this->fullname = $this->customer->firstname . ' ' . $this->customer->lastname;
+        $this->biens = [];
 
         foreach ($this->order_product as $key => $value)
         {
