@@ -174,7 +174,7 @@
             </div>
 
             <h2 class="max-w-6xl mx-auto mt-8 px-4 text-lg leading-6 font-medium text-gray-900 sm:px-6 lg:px-8">
-                Recent activity
+                {{ __('dashboard.recent-activity') }}
             </h2>
 
             <div>
@@ -226,11 +226,11 @@
                                     </td>
                                     <td class="hidden px-6 py-4 whitespace-nowrap text-sm text-gray-500 md:block">
                                         @if($item->is_validate)
-                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 capitalize">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                                               {{ __('dashboard.success') }}
                                             </span>
                                         @else
-                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800 capitalize">
+                                            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
                                               {{ __('dashboard.pending') }}
                                             </span>
                                         @endif

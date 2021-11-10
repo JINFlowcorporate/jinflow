@@ -2,6 +2,7 @@
 
 return [
     'the-founders' => 'Les fondateurs',
-    'subtitle' => 'Here are our passionate founders who are truly devoted to deliver the best for you.',
-    'co-founder' => 'Co-Fondateur'
+    'subtitle' => 'Voici nos fondateurs passionnés qui sont vraiment dévoués à vous offrir le meilleur.',
+    'co-founder' => 'Co-Fondateur',
+    'lovely-team' => 'Notre belle équipe'
 ];

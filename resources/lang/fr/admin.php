@@ -24,7 +24,7 @@ return [
         'update' => 'Modifier',
         'cancel' => 'Annuler',
         'close' => 'Fermer',
-        'logout' => 'Déconnection',
+        'logout' => 'Déconnexion',
         'save' => 'Sauvegarder',
         'register' => 'S\'inscrire',
         'login' => 'Se connecter'

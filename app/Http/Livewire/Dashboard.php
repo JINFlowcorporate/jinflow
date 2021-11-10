@@ -78,7 +78,7 @@ class Dashboard extends Component
 
     public function read()
     {
-        return RequestRecover::orderBy('created_at', 'DESC')->paginate(3);
+        return RequestRecover::orderBy('created_at', 'DESC')->paginate(5);
     }
 
     public function render()
