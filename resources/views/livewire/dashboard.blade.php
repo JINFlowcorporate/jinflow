@@ -268,7 +268,7 @@
         <x-slot name="content">
             <div class="flex flex-col items-start">
                 <label class="text-xs" for="to_recover">{{ __('dashboard.modal.label') }}</label>
-                <x-jet-input id="to_recover" wire:model="to_recover" type="number" min="0" max="{{ $can_recover }}" class="p-2 text-xs mt-2" placeholder="Ex. : 589"></x-jet-input>
+                <x-jet-input id="to_recover" wire:model="to_recover" type="number" min="1" max="{{ $can_recover }}" class="p-2 text-xs mt-2" placeholder="Ex. : 589"></x-jet-input>
                 @error('to_recover') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
         </x-slot>

@@ -6,7 +6,7 @@ return [
     'questions' => [
         'question-1' => [
             'title' => '1. What would happen in the exceptional case where JINFlow does not find enough investors for a property being sold ?',
-            'text' => 'In this rare case, you will be able to 1. Get your capital back as soon as you want<br>- 2. Invest in another property or project<br>- 3. Wait until this property finds enough investors.'
+            'text' => 'In this rare case, you will be able to<br> - 1. Get your capital back as soon as you want<br>- 2. Invest in another property or project<br>- 3. Wait until this property finds enough investors.'
         ],
         'question-2' => [
             'title' => '2. Comment arrêter mon investissement avec JINFlow ? Quelles sont les conditions ?',

@@ -27,7 +27,7 @@ class Dashboard extends Component
     public function rules()
     {
         return [
-            'to_recover' => 'required|integer'
+            'to_recover' => 'required|integer|min:1'
         ];
     }
 
