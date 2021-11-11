@@ -49,7 +49,7 @@ class PayController extends Controller
         $order->total = $cart_total;
         $order->save();
 
-        User::where('id', Auth::id())->increment('invested', (string)$cart_total);
+        User::where('id', Auth::id())->update(['invested' => $authed_user->invested + $cart_total]);
 
         $orders = [];
 
