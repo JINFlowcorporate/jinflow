@@ -54,10 +54,8 @@
                                         <div class="ml-4 flex-1 flex flex-col">
                                             <div>
                                                 <div class="flex justify-between text-base font-medium text-gray-900">
-                                                    <h3>
-                                                        {{ $bien->name }}
-                                                    </h3>
-                                                    <p class="ml-4">
+                                                    <h3 class="font-bold">{{ $bien->name }}</h3>
+                                                    <p class="ml-4 font-bold">
                                                         ${{ number_format($bien->price * $bien->qty, 2, ',', ' ') }}
                                                     </p>
                                                 </div>
@@ -88,7 +86,7 @@
                     <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
                         <div class="flex justify-between text-base font-medium text-gray-900">
                             <p>Total</p>
-                            <p>${{ $total }}</p>
+                            <p class="font-bold">${{ $total }}</p>
                         </div>
 {{--                        <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>--}}
                         @if($cartCount > 0)
