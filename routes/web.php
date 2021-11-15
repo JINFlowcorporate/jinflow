@@ -4,6 +4,7 @@ use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Shakurov\Coinbase\Facades\Coinbase;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    $charge = Coinbase::createCharge([
+        'name' => 'Name',
+        'description' => 'Description',
+        'local_price' => [
+            'amount' => 100,
+            'currency' => 'USD',
+        ],
+        'pricing_type' => 'fixed_price',
+    ]);
+
+    dd($charge);
     return view('welcome');
 })->name('home');
 
@@ -37,6 +49,8 @@ Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'swi
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::post('coinbase/webhook', [\Shakurov\Coinbase\Http\Controllers\WebhookController::class])->name('coinbase-webhook');
+
     Route::get('/checkout', function () {
         $biens = Cart::content();
         $total = Cart::total();
