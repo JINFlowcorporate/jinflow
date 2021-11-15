@@ -18,6 +18,16 @@ use Shakurov\Coinbase\Facades\Coinbase;
 */
 
 Route::get('/', function () {
+    $charge = Coinbase::createCharge([
+        'name' => 'Name',
+        'description' => 'Description',
+        'local_price' => [
+            'amount' => 100,
+            'currency' => 'USD',
+        ],
+        'pricing_type' => 'fixed_price',
+    ]);
+
     return view('welcome');
 })->name('home');
 
