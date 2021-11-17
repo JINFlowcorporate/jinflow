@@ -32,7 +32,8 @@
             <main class="min-h-screen flex flex-col justify-between">
                 {{ $slot }}
             </main>
+            @livewireScripts
+            @yield('javascript')
+            @jivochat
     </body>
-    @livewireScripts
-    @yield('javascript')
 </html>

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9fa4c605d522d1579bd84e3c73d044d3",
+    "content-hash": "4f2759385b04c3ae2aa637efa24741fe",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -465,6 +465,50 @@
                 "source": "https://github.com/cloudinary/cloudinary_php/tree/2.3.0"
             },
             "time": "2021-07-04T10:52:31+00:00"
+        },
+        {
+            "name": "danielmadu/laravel-jivochat",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielmadu/laravel-jivochat.git",
+                "reference": "bfd0c58941aeb04eacca27ab5189248d959f941d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielmadu/laravel-jivochat/zipball/bfd0c58941aeb04eacca27ab5189248d959f941d",
+                "reference": "bfd0c58941aeb04eacca27ab5189248d959f941d",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DanielMadu\\JivoChat\\JivoChatServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DanielMadu\\JivoChat\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "danielmadu",
+                    "email": "daniel.madureira.batista@gmail.com"
+                }
+            ],
+            "description": "Custom Blade directive for JivoChat",
+            "support": {
+                "issues": "https://github.com/danielmadu/laravel-jivochat/issues",
+                "source": "https://github.com/danielmadu/laravel-jivochat/tree/1.1.1"
+            },
+            "time": "2019-08-07T15:18:00+00:00"
         },
         {
             "name": "dasprid/enum",

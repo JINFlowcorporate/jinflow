@@ -9,6 +9,7 @@
         "astrotomic/laravel-translatable": "^11.9",
         "bumbummen99/shoppingcart": "^4.0",
         "cloudinary-labs/cloudinary-laravel": "^1.0",
+        "danielmadu/laravel-jivochat": "^1.1",
         "fakerphp/faker": "^1.9.1",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
