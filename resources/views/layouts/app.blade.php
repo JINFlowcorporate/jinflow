@@ -49,5 +49,6 @@
         @stack('modals')
 
         @livewireScripts
+        @jivochat
     </body>
 </html>

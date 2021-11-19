@@ -30,7 +30,7 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td class="px-6 py-2">{{ $item->name }}</td>
-                                    <td class="px-6 py-2">{{ $item->price }}</td>
+                                    <td class="px-6 py-2">${{ number_format($item->price, 2, ',', ' ') }}</td>
                                     <td class="px-6 py-2">{{ $item->total_tokens }}</td>
                                     <td class="px-6 py-2 flex justify-end">
                                         <x-jet-button wire:click="updateShowModal({{ $item->id }})">
@@ -120,8 +120,11 @@
                 </div>
                 @error('description_fr') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
-
-
+            <div class="mt-4">
+                <x-jet-label for="map" value="{{ __('admin.biens.map') }}" />
+                <x-jet-input wire:model="map" id="map" class="block mt-1 w-full" type="text" />
+                @error('map') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
+            </div>
             <div class="mt-4">
                 <x-jet-label for="type" value="{{ __('admin.biens.type') }}" />
                 <x-jet-input wire:model="type" id="type" class="block mt-1 w-full" type="text" />
@@ -236,7 +239,7 @@
                 @if(!empty($images))
                     @foreach($images as $image)
                         <article class="rounded-lg shadow-lg relative" style="width: 48%">
-                            <img alt="Image" class="block h-full w-full object-cover overflow-hidden rounded-lg shadow-lg" src="{{ $image->image }}">
+                            <img alt="Image" class="block h-full w-full object-cover overflow-hidden rounded-lg shadow-lg" src="{{ \Illuminate\Support\Facades\Storage::url($image->image) }}">
                             <x-jet-danger-button style="position: absolute; top: 10px; right: 10px;" wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled">
                                 {{ __('admin.buttons.delete') }}
                             </x-jet-danger-button>

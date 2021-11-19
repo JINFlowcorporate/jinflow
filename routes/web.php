@@ -19,15 +19,22 @@ use Shakurov\Coinbase\Facades\Coinbase;
 
 Route::get('/', function () {
     /*$charge = Coinbase::createCharge([
-        'name' => 'Name',
-        'description' => 'Description',
+        'name' => 'JINFlow Test',
+        'description' => 'Description test',
         'local_price' => [
             'amount' => 100,
             'currency' => 'USD',
         ],
+        'metadata' => [
+            'cart_id' => 1,
+            'user_id' => 1
+        ],
         'pricing_type' => 'fixed_price',
-    ]);*/
+        'redirect_url' => back(),
+        'cancel_url' => back()
+    ]);
 
+    return redirect()->away($charge['data']['hosted_url']);*/
     return view('welcome');
 })->name('home');
 
@@ -36,7 +43,13 @@ Route::get('/faq', function () {
 })->name('faq');
 
 Route::get('/our-team', function () {
-    return view('team');
+    $images = [];
+    foreach (\Illuminate\Support\Facades\File::allFiles(public_path('/images/team')) as $image)
+    {
+        $spl = new SplFileInfo($image);
+        array_push($images, $spl);
+    }
+    return view('team', compact('images'));
 })->name('team');
 
 Route::get('/nos-biens', function () {

@@ -42,7 +42,6 @@ class PayController extends Controller
         $authed_user->addPaymentMethod($request->payment_method);
         $authed_user->charge($cart_total_stripe, $request->payment_method);
 
-
         $order = new Order;
         $order->user_id = $authed_user->id;
         $order->quantity = $cart->count();
@@ -53,7 +52,8 @@ class PayController extends Controller
 
         $orders = [];
 
-        foreach ($cart as $bien) {
+        foreach ($cart as $bien)
+        {
             $order_product = new OrderProduct;
             $order_product->order_id = $order->id;
             $order_product->biens_id = $bien->id;
@@ -66,7 +66,13 @@ class PayController extends Controller
             $bienToUpdate->save();
             array_push($orders, $order_product);
             UserBien::create(['user_id' => $authed_user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
+            $bien = Biens::where('id', $bien->id)->first();
+            $authed_user->invoiceFor($bien->name, intval((int)$bien->price * 100), [
+                'quantity' => (int)$bien->qty
+            ]);
         }
+
+        dd($authed_user->invoice());
 
         return redirect()->route('confirmation')->withSuccess('Success message');
     }

@@ -12,7 +12,7 @@
                     <li>
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="https://pbs.twimg.com/media/EkWy7JDXgAAuFgC.jpg" alt="">
+                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Justin.jpg') }}" alt="Justin Fontanelle">
                             </div>
 
                             <div class="space-y-2">
@@ -46,7 +46,7 @@
                     <li>
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="https://images6.alphacoders.com/933/933307.jpg" alt="">
+                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Justin.jpg') }}" alt="Quentin Riviere">
                             </div>
 
                             <div class="space-y-2">
@@ -79,7 +79,7 @@
                     <li>
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="https://wallpaper.dog/large/20399508.jpg" alt="">
+                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Bruno.png') }}" alt="Bruno Gondel">
                             </div>
 
                             <div class="space-y-2">
@@ -112,12 +112,12 @@
                     <li>
                         <div class="space-y-4">
                             <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="https://images5.alphacoders.com/100/1002009.jpg" alt="">
+                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Richard.jpg') }}" alt="Richard Salem">
                             </div>
 
                             <div class="space-y-2">
                                 <div class="text-lg leading-6 font-medium space-y-1">
-                                    <h3>Rich</h3>
+                                    <h3>Richard Salem</h3>
                                     <p class="text-indigo-600">{{ __('our-team.co-founder') }}</p>
                                 </div>
                                 <ul class="flex space-x-5">
@@ -156,17 +156,19 @@
                     <p class="text-xl text-gray-500">{{ __('our-team.subtitle') }}</p>
                 </div>
                 <ul class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
-                    <li>
-                        <div class="space-y-4">
-                            <img class="mx-auto h-20 w-20 rounded-full lg:w-24 lg:h-24" src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=1024&h=1024&q=80" alt="">
-                            <div class="space-y-2">
-                                <div class="text-xs font-medium lg:text-sm">
-                                    <h3>Michael Foster</h3>
-                                    <p class="text-indigo-600">{{ __('our-team.co-founder') }} / CTO</p>
+                    @foreach($images as $image)
+                        <li>
+                            <div class="space-y-4">
+                                <img class="mx-auto h-20 w-20 rounded-full object-cover lg:w-24 lg:h-24" src="{{ asset('images/team/' . $image->getFilename())}}" alt="{{ $image->getFilename() }}">
+                                <div class="space-y-2">
+                                    <div class="text-xs font-medium lg:text-sm">
+                                        <h3 class="capitalize">{{ substr($image->getFilename(), 0, strpos($image->getFilename(), '.')) }}</h3>
+                                        {{--<p class="text-indigo-600">{{ __('our-team.co-founder') }} / CTO</p>--}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

@@ -26,7 +26,6 @@
         </style>
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>
-        <script src="//code-eu1.jivosite.com/widget/WvU1klNgGX" async></script>
     </head>
     <body>
             @livewire('cart-controller')
@@ -35,6 +34,5 @@
             </main>
             @livewireScripts
             @yield('javascript')
-            @jivochat
     </body>
 </html>

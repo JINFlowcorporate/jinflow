@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use App\Models\Image;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -48,11 +50,13 @@ class BiensAdmin extends Component
 
     public function uploadImages($id)
     {
-        foreach ($this->images_to_upload as $key => $value)
+        if (!empty($this->images_to_upload))
         {
-            $fileUploaded = $value->storeOnCloudinaryAs('properties/' . $this->name);
-            $image = Image::create(['image' => $fileUploaded->getSecurePath(), 'biens_id' => $id, 'public_id' => $fileUploaded->getPublicId()]);
-            $this->images_to_upload[$key] = $image;
+            foreach ($this->images_to_upload as $key => $value)
+            {
+                $imageName = Storage::putFile('public/properties/' . $id, $value);
+                Image::create(['image' => $imageName, 'biens_id' => $id]);
+            }
         }
     }
 
@@ -90,7 +94,7 @@ class BiensAdmin extends Component
             'insurance' => 'required|integer',
             'net_rent_year' => 'required|integer',
             'net_rent_month' => 'required|integer',
-            'yield_token' => 'required|integer',
+            'yield_token' => 'required|integer'
         ];
     }
 
@@ -223,10 +227,19 @@ class BiensAdmin extends Component
     public function delete()
     {
         $bien = \App\Models\Biens::where('id', $this->modelId)->first();
-        foreach (Image::where('biens_id', $this->modelId)->pluck('public_id') as $value)
-        {
-            cloudinary()->destroy($value);
+
+        foreach(Cart::content() as $row) {
+            if ($row->name === $bien->name)
+            {
+                Cart::remove($row->rowId);
+            }
         }
+
+        if (Storage::exists('public/properties/' . $this->modelId))
+        {
+            Storage::deleteDirectory('public/properties/' . $this->modelId);
+        }
+
         $bien->delete();
         $this->modalConfirmDeleteVisible = false;
         $this->reset();
@@ -235,7 +248,10 @@ class BiensAdmin extends Component
     public function deleteImage($id)
     {
         $image = Image::where('id', $id)->first();
-        cloudinary()->destroy($image->public_id);
+        if (Storage::exists($image))
+        {
+            Storage::delete($image);
+        }
         $image->delete();
         $this->images = Image::where('biens_id', $this->modelId)->get();
     }

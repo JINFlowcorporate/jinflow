@@ -84,7 +84,7 @@ class AccountDetails extends Component
     public function modelData()
     {
         //  $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
-        $imageName = Storage::putFile('public/profile/' . Auth::id() , $this->profile_photo_path_tmp);
+        $imageName = Storage::putFile('public/profile/' . Auth::id(), $this->profile_photo_path_tmp);
 
         if (Storage::exists(Auth::user()->profile_photo_path))
         {
