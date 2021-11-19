@@ -54,7 +54,7 @@ class BiensAdmin extends Component
         {
             foreach ($this->images_to_upload as $key => $value)
             {
-                $imageName = Storage::putFile('public/properties/' . $id, $value);
+                $imageName = Storage::putFile('properties/' . $id, $value);
                 Image::create(['image' => $imageName, 'biens_id' => $id]);
             }
         }
