@@ -67,12 +67,8 @@ class PayController extends Controller
             array_push($orders, $order_product);
             UserBien::create(['user_id' => $authed_user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
             $bien = Biens::where('id', $bien->id)->first();
-            $authed_user->invoiceFor($bien->name, intval((int)$bien->price * 100), [
-                'quantity' => (int)$bien->qty
-            ]);
+            $authed_user->tab($bien->name, (int)$bien->qty);
         }
-
-        dd($authed_user->invoice());
 
         return redirect()->route('confirmation')->withSuccess('Success message');
     }
