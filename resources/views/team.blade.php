@@ -8,19 +8,17 @@
                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{{ __('our-team.the-founders') }}</h2>
                     <p class="text-xl text-gray-500">{{ __('our-team.subtitle') }}</p>
                 </div>
-                <ul class="space-y-12 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 sm:space-y-0 lg:grid-cols-3 lg:gap-x-8">
+                <ul class="flex items-center flex-wrap justify-center gap-10">
                     <li>
                         <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Justin.jpg') }}" alt="Justin Fontanelle">
-                            </div>
+                            <img class="object-cover shadow-lg rounded-full h-56 w-56" src="{{ asset('images/founders/Justin.jpg') }}" alt="Justin Fontanelle">
 
-                            <div class="space-y-2">
+                            <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
                                     <h3>Justin Fontanelle</h3>
                                     <p class="text-indigo-600">{{ __('our-team.co-founder') }}</p>
                                 </div>
-                                <ul class="flex space-x-5">
+                                <ul class="flex space-x-5 justify-center">
                                     <li>
                                         <a href="#" class="text-gray-400 hover:text-gray-500">
                                             <span class="sr-only">Twitter</span>
@@ -45,16 +43,14 @@
                     <!-- More people... -->
                     <li>
                         <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Justin.jpg') }}" alt="Quentin Riviere">
-                            </div>
+                            <img class="object-cover shadow-lg rounded-full h-56 w-56" src="{{ asset('images/founders/Justin.jpg') }}" alt="Quentin Riviere">
 
-                            <div class="space-y-2">
+                            <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
                                     <h3>Quentin Riviere</h3>
                                     <p class="text-indigo-600">{{ __('our-team.co-founder') }}</p>
                                 </div>
-                                <ul class="flex space-x-5">
+                                <ul class="flex space-x-5 justify-center">
                                     <li>
                                         <a href="#" class="text-gray-400 hover:text-gray-500">
                                             <span class="sr-only">Twitter</span>
@@ -78,16 +74,14 @@
 
                     <li>
                         <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Bruno.png') }}" alt="Bruno Gondel">
-                            </div>
+                            <img class="object-cover shadow-lg rounded-full w-56 h-56" src="{{ asset('images/founders/Bruno.png') }}" alt="Bruno Gondel">
 
-                            <div class="space-y-2">
+                            <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
                                     <h3>Bruno Gondel</h3>
                                     <p class="text-indigo-600">{{ __('our-team.co-founder') }}</p>
                                 </div>
-                                <ul class="flex space-x-5">
+                                <ul class="flex space-x-5 justify-center">
                                     <li>
                                         <a href="#" class="text-gray-400 hover:text-gray-500">
                                             <span class="sr-only">Twitter</span>
@@ -111,16 +105,14 @@
 
                     <li>
                         <div class="space-y-4">
-                            <div class="aspect-w-3 aspect-h-2">
-                                <img class="object-cover shadow-lg rounded-lg" src="{{ asset('images/founders/Richard.jpg') }}" alt="Richard Salem">
-                            </div>
+                            <img class="object-cover shadow-lg rounded-full w-56 h-56" src="{{ asset('images/founders/Richard.jpg') }}" alt="Richard Salem">
 
-                            <div class="space-y-2">
+                            <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
                                     <h3>Richard Salem</h3>
                                     <p class="text-indigo-600">{{ __('our-team.co-founder') }}</p>
                                 </div>
-                                <ul class="flex space-x-5">
+                                <ul class="flex space-x-5 justify-center">
                                     <li>
                                         <a href="#" class="text-gray-400 hover:text-gray-500">
                                             <span class="sr-only">Twitter</span>
@@ -141,7 +133,6 @@
                             </div>
                         </div>
                     </li>
-
                 </ul>
             </div>
         </div>
@@ -155,10 +146,10 @@
                     <h2 class="text-3xl font-extrabold tracking-tight sm:text-4xl">{{ __('our-team.lovely-team') }}</h2>
                     <p class="text-xl text-gray-500">{{ __('our-team.subtitle') }}</p>
                 </div>
-                <ul class="mx-auto grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-4 md:gap-x-6 lg:max-w-5xl lg:gap-x-8 lg:gap-y-12 xl:grid-cols-6">
+                <ul class="mx-auto flex items-center flex-wrap justify-center lg:max-w-5xl">
                     @foreach($images as $image)
                         <li>
-                            <div class="space-y-4">
+                            <div class="space-y-4 m-4">
                                 <img class="mx-auto h-20 w-20 rounded-full object-cover lg:w-24 lg:h-24" src="{{ asset('images/team/' . $image->getFilename())}}" alt="{{ $image->getFilename() }}">
                                 <div class="space-y-2">
                                     <div class="text-xs font-medium lg:text-sm">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DocusignController;
 use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
@@ -16,13 +17,33 @@ use Shakurov\Coinbase\Facades\Coinbase;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('docusign',[DocusignController::class, 'index'])->name('docusign');
+Route::get('connect-docusign',[DocusignController::class, 'connectDocusign'])->name('connect.docusign');
+Route::get('docusign/callback',[DocusignController::class,'callback'])->name('docusign.callback');
+Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');
+
+
+/*Route::post('/coinbase', function () {
+
+    $client = new \GuzzleHttp\Client();
+
+    $response = $client->request('POST', 'https://api.exchange.coinbase.com/orders', [
+        'body' => '{"profile_id":"default profile_id","type":"limit","side":"buy","stp":"dc","stop":"loss","time_in_force":"GTC","cancel_after":"min","post_only":"false"}',
+        'headers' => [
+            'Accept' => 'application/json',
+            'Content-Type' => 'application/json',
+        ],
+    ]);
+
+    dd($response->getBody());
+});*/
 
 Route::get('/', function () {
-    /*$charge = Coinbase::createCharge([
+    $charge = Coinbase::createCharge([
         'name' => 'JINFlow Test',
         'description' => 'Description test',
         'local_price' => [
-            'amount' => 100,
+            'amount' => 1,
             'currency' => 'USD',
         ],
         'metadata' => [
@@ -34,7 +55,7 @@ Route::get('/', function () {
         'cancel_url' => back()
     ]);
 
-    return redirect()->away($charge['data']['hosted_url']);*/
+    return redirect()->away($charge['data']['hosted_url']);
     return view('welcome');
 })->name('home');
 
