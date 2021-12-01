@@ -39,7 +39,7 @@ Route::get('sign-document',[DocusignController::class,'signDocument'])->name('do
 });*/
 
 Route::get('/', function () {
-    $charge = Coinbase::createCharge([
+    /*$charge = Coinbase::createCharge([
         'name' => 'JINFlow Test',
         'description' => 'Description test',
         'local_price' => [
@@ -55,7 +55,7 @@ Route::get('/', function () {
         'cancel_url' => back()
     ]);
 
-    return redirect()->away($charge['data']['hosted_url']);
+    return redirect()->away($charge['data']['hosted_url']);*/
     return view('welcome');
 })->name('home');
 
