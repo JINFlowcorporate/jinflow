@@ -22,6 +22,7 @@ Route::get('connect-docusign',[DocusignController::class, 'connectDocusign'])->n
 Route::get('docusign/callback',[DocusignController::class,'callback'])->name('docusign.callback');
 Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');
 
+Route::post('coinbase/webhook', [\App\Http\Controllers\WebhookController::class])->name('coinbase-webhook');
 
 /*Route::post('/coinbase', function () {
 
@@ -82,8 +83,6 @@ Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'swi
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::post('coinbase/webhook', [\App\Http\Controllers\WebhookController::class])->name('coinbase-webhook');
-
     Route::get('/checkout', function () {
         $biens = Cart::content();
         $total = Cart::total();
