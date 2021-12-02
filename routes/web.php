@@ -38,9 +38,11 @@ Route::post('coinbase/webhook', [\App\Http\Controllers\WebhookController::class]
 
     dd($response->getBody());
 });*/
-
+Route::get('/test', function (\Illuminate\Http\Request $request) {
+    dd($request);
+});
 Route::get('/', function () {
-    /*$charge = Coinbase::createCharge([
+    $charge = Coinbase::createCharge([
         'name' => 'JINFlow Test',
         'description' => 'Description test',
         'local_price' => [
@@ -52,11 +54,11 @@ Route::get('/', function () {
             'user_id' => 1
         ],
         'pricing_type' => 'fixed_price',
-        'redirect_url' => back(),
-        'cancel_url' => back()
+        'redirect_url' => 'https://jinflow-preprod.herokuapp.com/test',
+        'cancel_url' => 'https://jinflow-preprod.herokuapp.com'
     ]);
 
-    return redirect()->away($charge['data']['hosted_url']);*/
+    return redirect()->away($charge['data']['hosted_url']);
     return view('welcome');
 })->name('home');
 
