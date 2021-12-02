@@ -11,7 +11,7 @@
                 <ul class="flex items-center flex-wrap justify-center gap-10">
                     <li>
                         <div class="space-y-4">
-                            <img class="object-cover shadow-lg rounded-full h-56 w-56" src="{{ asset('images/founders/Justin.jpg') }}" alt="Justin Fontanelle">
+                            <img class="object-cover shadow-lg rounded-full h-28 w-28" src="{{ asset('images/founders/Justin.jpg') }}" alt="Justin Fontanelle">
 
                             <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
@@ -43,7 +43,7 @@
                     <!-- More people... -->
                     <li>
                         <div class="space-y-4">
-                            <img class="object-cover shadow-lg rounded-full h-56 w-56" src="{{ asset('images/founders/Justin.jpg') }}" alt="Quentin Riviere">
+                            <img class="object-cover shadow-lg rounded-full h-28 w-28" src="{{ asset('images/founders/Quentin.png') }}" alt="Quentin Riviere">
 
                             <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
@@ -74,7 +74,7 @@
 
                     <li>
                         <div class="space-y-4">
-                            <img class="object-cover shadow-lg rounded-full w-56 h-56" src="{{ asset('images/founders/Bruno.png') }}" alt="Bruno Gondel">
+                            <img class="object-cover shadow-lg rounded-full w-28 h-28" src="{{ asset('images/founders/Bruno.png') }}" alt="Bruno Gondel">
 
                             <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">
@@ -105,7 +105,7 @@
 
                     <li>
                         <div class="space-y-4">
-                            <img class="object-cover shadow-lg rounded-full w-56 h-56" src="{{ asset('images/founders/Richard.jpg') }}" alt="Richard Salem">
+                            <img class="object-cover shadow-lg rounded-full w-28 h-28" src="{{ asset('images/founders/Richard.jpg') }}" alt="Richard Salem">
 
                             <div class="space-y-2 text-center">
                                 <div class="text-lg leading-6 font-medium space-y-1">

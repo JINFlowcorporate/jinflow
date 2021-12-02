@@ -18,7 +18,7 @@ return [
     'info' => [
         'block-1' => 'Start investing with $50',
         'text-1' => 'Start taking advantage of US real estate opportunities with low capital to diversify or multiply your sources of incomes',
-        'block-2' => 'Frictionless, Compliant and Easy Ownership',
+        'block-2' => 'Fractional, Compliant and Easy Ownership',
         'text-2' => 'JINFlow takes care of everything regarding maintenance and administration of each and every property. Support is provided to every investor',
         'block-3' => 'Monthly Rent Payments',
         'text-3' => 'With an average return of 11% to 13% on your investments, you will be able to see your monthly profits and payments in real-time through a dedicated online portal',
@@ -56,7 +56,7 @@ return [
         ]
     ],
     'jinflow' => [
-        'jinflow-different' => 'Why JinFlow is simply different',
+        'jinflow-different' => 'Why JINFlow is simply different',
         'text-1' => 'We allow you to generate real estate cash flow by investing from home with a small amount of capital and without all the responsibilities that real estate involves: maintenance, renovation, property and tenant management.',
         'investissment' => 'Efficiency through Transparency',
         'text-2' => 'The investment contracts are clearly defined and managed by the Blockchain and SmartContract technology, which therefore makes it possible to be fully transparent and viewable at all times from the web. It is also the power of the Blockchain that allows us to collect rent payment every month.',
@@ -72,6 +72,7 @@ return [
         'text' => 'In order to stay abreast of our new investments and developments in JINFlow, the new era of CashFlow,',
         'email' => 'Email address',
         'notify-me' => 'Notify me',
-        'about-data' => 'We care about the protection of your data. Read our <a href="#" class="text-white font-medium underline">Privacy Policy.</a>'
+        'about-data' => 'We care about the protection of your data. Read our <a href="#" class="text-white font-medium underline">Privacy Policy.</a>',
+        'placeholder' => 'Your email'
     ]
 ];

@@ -49,7 +49,7 @@
                                 <img class="rounded-full" width="30px" height="30px" style="width: 40px;" src="{{ \Illuminate\Support\Facades\Auth::user()->profile_photo_path ? \Illuminate\Support\Facades\Storage::url(\Illuminate\Support\Facades\Auth::user()->profile_photo_path) : 'https://cdn-icons-png.flaticon.com/512/149/149071.png' }}" alt="">
                             </a>
                         @else
-                            <a href="{{ route('login') }}" class="inline-block bg-palette-2-grey py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">
+                            <a href="{{ route('login') }}" class="inline-block bg-palette-2-grey py-2 px-4 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">
                                 {{ __('home.pagination.my-account') }}
                             </a>
                             @if (Route::has('register'))

@@ -72,6 +72,7 @@ return [
         'text' => 'Afin de rester tenus au courant de nos nouveaux biens d’investissement et des évolutions de JINFlow, la nouvelle ère du CashFlow,',
         'email' => 'Email address',
         'notify-me' => 'Me notifié',
-        'about-data' => 'We care about the protection of your data. Read our <a href="#" class="text-white font-medium underline">Privacy Policy.</a>'
+        'about-data' => 'We care about the protection of your data. Read our <a href="#" class="text-white font-medium underline">Privacy Policy.</a>',
+        'placeholder' => 'Votre email'
     ]
 ];
