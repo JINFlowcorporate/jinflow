@@ -26,7 +26,7 @@
                 @if($order->order_product)
                     @foreach($order->order_product as $bien)
                         <div class="p-6 border-b border-solid border-gray-200 inline-flex w-full article">
-                            <img class="rounded-md w-20 h-20" src="https://e8rbh6por3n.exactdn.com/sites/uploads/2020/05/villa-la-gi-thumbnail.jpg?strip=all&lossy=1&ssl=1" alt="Maison">
+                            <img class="rounded-md w-20 h-20" src="{{ \Illuminate\Support\Facades\URL::asset('storage/' . \App\Models\Biens::where('id', $bien->biens_id)->first()->images[0]->image) }}" alt="Maison">
                             <div class="w-full relative flex flex-col justify-between pl-4">
                                 <div class="flex justify-between">
                                     <p>{{ \App\Models\Biens::where('id', $bien->biens_id)->pluck('name')->first() }}</p>

@@ -26,6 +26,7 @@ class Checkout extends Component
     public $billing_country;
 
     public $payment_method;
+    public $coinbase;
 
     /**
      * The validation rules
@@ -75,7 +76,7 @@ class Checkout extends Component
         $this->modelId = Auth::check() ? Auth::user()->id : '';
         $this->username = Auth::check() ? Auth::user()->username : '';
         $this->firstname = Auth::check() ? Auth::user()->firstname : '';
-        $this->lastname = Auth::check() ? Auth::user()->lastname : '';
+        $this->lastname = Auth::check() ? Auth::user()->lastname . 'fdshjdsfds' : '';
         $this->email = Auth::check() ? Auth::user()->email : '';
         $this->phone = Auth::check() ? Auth::user()->phone : '';
         $this->address = Auth::check() ? Auth::user()->address : '';
@@ -83,6 +84,7 @@ class Checkout extends Component
         $this->state = Auth::check() ? Auth::user()->state : '';
         $this->zipcode = Auth::check() ? Auth::user()->zipcode : '';
         $this->billing_country = Auth::check() ? Auth::user()->billing_country : '';
+        $this->coinbase = 'stripe';
     }
 
     public function render()

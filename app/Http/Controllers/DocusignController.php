@@ -7,6 +7,8 @@ use DocuSign\eSign\Configuration;
 use DocuSign\eSign\Api\EnvelopesApi;
 use DocuSign\eSign\Client\ApiClient;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use LaravelDocusign\Facades\DocuSign;
 use Session;
 
 class DocusignController extends Controller
@@ -98,6 +100,11 @@ class DocusignController extends Controller
 
         $request->session()->put('docusign_auth_code', $decodedData->access_token);
 
+        if (session('docusign_auth_code') !== null && !empty(session('docusign_auth_code')))
+        {
+            return redirect()->route('docusign.sign');
+        }
+
         return redirect()->route('docusign')->with('success', 'Docusign Succesfully Connected');
     }
 
@@ -130,7 +137,7 @@ class DocusignController extends Controller
                 'client_user_id' => $envelope_args['signer_client_id'],
                 'recipient_id' => '1',
                 'return_url' => $envelope_args['ds_return_url'],
-                'user_name' => 'shaiv', 'email' => 'shaivroy1@gmail.com'
+                'user_name' => 'JINFlow', 'email' => 'hamrouni.pro@outlook.fr'
             ]);
 
             $results = $envelope_api->createRecipientView($args['account_id'], $envelope_id,$recipient_view_request);
@@ -148,7 +155,7 @@ class DocusignController extends Controller
 
         $filename = 'World_Wide_Corp_lorem.pdf';
 
-        $demo_docs_path = asset('doc/'.$filename);
+        $demo_docs_path = public_path('doc/'.$filename);
 
         $arrContextOptions = [
             'ssl' => [
@@ -170,7 +177,7 @@ class DocusignController extends Controller
         ]);
         # Create the signer recipient model
         $signer = new \DocuSign\eSign\Model\Signer([# The signer
-            'email' => 'shaivroy1@gmail.com', 'name' => 'shaiv',
+            'email' => Auth::user()->email, 'name' => Auth::user()->firstname,
             'recipient_id' => "1", 'routing_order' => "1",
             # Setting the client_user_id marks the signer as embedded
             'client_user_id' => $args['signer_client_id'],

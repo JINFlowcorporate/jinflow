@@ -5,6 +5,7 @@ use App\Models\Order;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use LaravelDocusign\Facades\DocuSign;
 use Shakurov\Coinbase\Facades\Coinbase;
 
 /*
@@ -21,8 +22,6 @@ Route::get('docusign',[DocusignController::class, 'index'])->name('docusign');
 Route::get('connect-docusign',[DocusignController::class, 'connectDocusign'])->name('connect.docusign');
 Route::get('docusign/callback',[DocusignController::class,'callback'])->name('docusign.callback');
 Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');
-
-Route::post('coinbase/webhook', [\App\Http\Controllers\WebhookController::class])->name('coinbase-webhook');
 
 /*Route::post('/coinbase', function () {
 
@@ -41,8 +40,9 @@ Route::post('coinbase/webhook', [\App\Http\Controllers\WebhookController::class]
 Route::get('/test', function (\Illuminate\Http\Request $request) {
     dd($request);
 });
+
 Route::get('/', function () {
-    $charge = Coinbase::createCharge([
+    /*$charge = Coinbase::createCharge([
         'name' => 'JINFlow Test',
         'description' => 'Description test',
         'local_price' => [
@@ -54,11 +54,11 @@ Route::get('/', function () {
             'user_id' => 1
         ],
         'pricing_type' => 'fixed_price',
-        'redirect_url' => 'https://jinflow-preprod.herokuapp.com/test',
+        'redirect_url' => 'https://jinflow-preprod.herokuapp.com/confirmation',
         'cancel_url' => 'https://jinflow-preprod.herokuapp.com'
     ]);
 
-    return redirect()->away($charge['data']['hosted_url']);
+    return redirect()->away($charge['data']['hosted_url']);*/
     return view('welcome');
 })->name('home');
 
@@ -89,7 +89,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         $biens = Cart::content();
         $total = Cart::total();
         $user = \Illuminate\Support\Facades\Auth::user();
-        return view('payment.checkout', compact('biens', 'total', 'user'));
+        return view('livewire.checkout', compact('biens', 'total', 'user'));
     })->name('checkout')
         ->middleware('EnsureCartIsNotEmpty');
 
