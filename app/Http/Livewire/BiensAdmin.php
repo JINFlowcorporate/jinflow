@@ -24,7 +24,7 @@ class BiensAdmin extends Component
     public $description_fr;
     public $description_en;
     public $nb_beds;
-    public $type;
+    public $type_id;
     public $nb_bathroom;
     public $zipcode;
     public $state;
@@ -54,7 +54,10 @@ class BiensAdmin extends Component
         {
             foreach ($this->images_to_upload as $key => $value)
             {
-                $imageName = Storage::putFile('properties/' . $id, $value);
+                /*$imageName = str_shuffle(time()).'.'.$value->extension();
+                $value->move(public_path('storage/properties/'. $id),$imageName);*/
+
+                $imageName = Storage::disk('public')->put('properties/' . $id, $value);
                 Image::create(['image' => $imageName, 'biens_id' => $id]);
             }
         }
@@ -74,14 +77,14 @@ class BiensAdmin extends Component
             'map' => 'required',
             'description_fr' => 'required',
             'description_en' => 'required',
-            'type' => 'required|max:255',
+            'type_id' => 'required|integer',
             'nb_beds' => 'required|integer',
             'nb_bathroom' => 'required|integer',
             'zipcode' => 'required|integer',
             'state' => 'required|max:255',
             'city' => 'required|max:255',
             'square_feet' => 'required|max:255',
-            'rent_start_date' => 'required',
+            'rent_start_date' => 'required|date',
             'price' => 'required|integer',
             'total_tokens' => 'required|integer',
             'tokens_price' => 'required|integer',
@@ -115,7 +118,7 @@ class BiensAdmin extends Component
         $this->description_fr = $data->translate('fr')->description;
         $this->description_en = $data->translate('en')->description;
         $this->nb_beds = $data->nb_beds;
-        $this->type = $data->type;
+        $this->type_id = $data->type_id;
         $this->nb_bathroom = $data->nb_bathroom;
         $this->zipcode = $data->zipcode;
         $this->state = $data->state;
@@ -151,7 +154,7 @@ class BiensAdmin extends Component
             'map' => $this->map,
             'slug' => Str::slug($this->name),
             'nb_beds' => $this->nb_beds,
-            'type' => $this->type,
+            'type_id' => $this->type_id,
             'nb_bathroom' => $this->nb_bathroom,
             'fr' => [
                 'about' => $this->about_fr,

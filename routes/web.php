@@ -1,12 +1,16 @@
 <?php
 
 use App\Http\Controllers\DocusignController;
+use App\Models\Biens;
 use App\Models\Order;
+use App\Models\OrderProduct;
+use App\Models\User;
+use App\Models\UserBien;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use LaravelDocusign\Facades\DocuSign;
-use Shakurov\Coinbase\Facades\Coinbase;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,42 +27,7 @@ Route::get('connect-docusign',[DocusignController::class, 'connectDocusign'])->n
 Route::get('docusign/callback',[DocusignController::class,'callback'])->name('docusign.callback');
 Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');
 
-/*Route::post('/coinbase', function () {
-
-    $client = new \GuzzleHttp\Client();
-
-    $response = $client->request('POST', 'https://api.exchange.coinbase.com/orders', [
-        'body' => '{"profile_id":"default profile_id","type":"limit","side":"buy","stp":"dc","stop":"loss","time_in_force":"GTC","cancel_after":"min","post_only":"false"}',
-        'headers' => [
-            'Accept' => 'application/json',
-            'Content-Type' => 'application/json',
-        ],
-    ]);
-
-    dd($response->getBody());
-});*/
-Route::get('/test', function (\Illuminate\Http\Request $request) {
-    dd($request);
-});
-
 Route::get('/', function () {
-    /*$charge = Coinbase::createCharge([
-        'name' => 'JINFlow Test',
-        'description' => 'Description test',
-        'local_price' => [
-            'amount' => 1,
-            'currency' => 'USD',
-        ],
-        'metadata' => [
-            'cart_id' => 1,
-            'user_id' => 1
-        ],
-        'pricing_type' => 'fixed_price',
-        'redirect_url' => 'https://jinflow-preprod.herokuapp.com/confirmation',
-        'cancel_url' => 'https://jinflow-preprod.herokuapp.com'
-    ]);
-
-    return redirect()->away($charge['data']['hosted_url']);*/
     return view('welcome');
 })->name('home');
 
@@ -85,11 +54,18 @@ Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'swi
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/checkout', function () {
+  /*  Route::get('/checkout', function () {
         $biens = Cart::content();
         $total = Cart::total();
         $user = \Illuminate\Support\Facades\Auth::user();
         return view('livewire.checkout', compact('biens', 'total', 'user'));
+    })->name('checkout')
+        ->middleware('EnsureCartIsNotEmpty');*/
+
+    //  Route::get('/checkout', \App\Http\Livewire\Checkout::class)->name('checkout')->middleware('EnsureCartIsNotEmpty');
+
+    Route::get('/checkout', function () {
+        return view('payment.checkout');
     })->name('checkout')
         ->middleware('EnsureCartIsNotEmpty');
 
@@ -102,9 +78,39 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->middleware('EnsureCartIsNotEmpty');
 
     Route::get('/confirmation', function () {
-        Cart::destroy();
+        $total = Cart::total(2, '.', '');
+        $cart = Cart::content();
+        $cart_total = intval((int)$total);
 
-        $order = Order::where('user_id', Auth::id())->latest()->first();
+        $order = new Order;
+        $order->user_id = Auth::id();
+        $order->quantity = $cart->count();
+        $order->total = $cart_total;
+        $order->save();
+
+        User::where('id', Auth::id())->update(['invested' => Auth::user()->invested + $cart_total]);
+
+        $orders = [];
+
+        foreach ($cart as $bien)
+        {
+            $order_product = new OrderProduct;
+            $order_product->order_id = $order->id;
+            $order_product->biens_id = $bien->id;
+            $order_product->quantity = $bien->qty;
+            $order_product->price_per_token = $bien->price;
+            $order_product->total_price = $bien->price * $bien->qty;
+            $order_product->save();
+            $bienToUpdate = Biens::where('id', $bien->id)->first();
+            $bienToUpdate->total_tokens = $bienToUpdate->total_tokens - $bien->qty;
+            $bienToUpdate->save();
+            array_push($orders, $order_product);
+            UserBien::create(['user_id' => Auth::id(), 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
+            //  $bien = Biens::where('id', $bien->id)->first();
+            //  $authed_user->tab($bien->name, (int)$bien->qty);
+        }
+
+        Cart::destroy();
 
         return view('pages.confirmation', compact('order'));
     })->name('confirmation')->middleware('ConfirmationFromOrder');
@@ -146,6 +152,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified', 
     Route::get('/biens', function () {
         return view('admin.biens-admin');
     })->name('admin.biens');
+
+    Route::get('/types', function () {
+        return view('admin.types-admin');
+    })->name('admin.types');
 
     Route::get('/orders', function () {
         return view('admin.orders-admin');

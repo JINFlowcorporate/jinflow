@@ -10,6 +10,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Shakurov\Coinbase\Facades\Coinbase;
 
 class Checkout extends Component
 {
@@ -84,7 +85,38 @@ class Checkout extends Component
         $this->state = Auth::check() ? Auth::user()->state : '';
         $this->zipcode = Auth::check() ? Auth::user()->zipcode : '';
         $this->billing_country = Auth::check() ? Auth::user()->billing_country : '';
-        $this->coinbase = 'stripe';
+        $this->coinbase = 'coinbase';
+    }
+
+    public function coinbaseMethod()
+    {
+        $charge = Coinbase::createCharge([
+        'name' => 'JINFlow Test',
+        'description' => 'Description test',
+        'local_price' => [
+            'amount' => Cart::total(),
+            'currency' => 'USD',
+        ],
+        'metadata' => [
+            //  'cart_id' => 1,
+            'user_id' => Auth::id()
+        ],
+        'pricing_type' => 'fixed_price',
+        'redirect_url' => 'https://jinflow-preprod.herokuapp.com/confirmation',
+        'cancel_url' => 'https://jinflow-preprod.herokuapp.com'
+    ]);
+
+    return redirect()->away($charge['data']['hosted_url']);
+    }
+
+    public function changeCoinbase($method)
+    {
+        $this->coinbase = $method;
+
+        if ($this->coinbase === 'stripe')
+        {
+            $this->dispatchBrowserEvent('methodChanged');
+        }
     }
 
     public function render()

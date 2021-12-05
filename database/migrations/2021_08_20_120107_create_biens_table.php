@@ -19,7 +19,7 @@ class CreateBiensTable extends Migration
             $table->text('map');
             $table->string('slug')->unique();
             $table->integer('nb_beds');
-            $table->string('type');
+            $table->integer('type_id');
             $table->integer('nb_bathroom');
             $table->integer('zipcode');
             $table->boolean('status')->default(1);

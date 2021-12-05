@@ -57,9 +57,9 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.unsplash.com/photo-1505880167668-ec27c3eb9110?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2768&q=80" alt="">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/home/1.png') }}" alt="Home">
         </div>
-    </div
+    </div>
 
         <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-gradient-to-r flex flex-col items-center from-palette-2-dark-blue to-palette-2-medium-blue py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
@@ -77,7 +77,7 @@
                 <p class="block text-center text-white mt-2">{{ __('home.info.text-3') }}</p>
             </div>
         </div>
-        <a href="#" class="mt-8 w-full inline-block mx-auto items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
+        <a href="#" class="text-center mt-8 w-full inline-block mx-auto items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
             {{ __('home.info.understand') }}
         </a>
     </div>
@@ -89,12 +89,12 @@
                 <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
                     <div>
                         <div>
-            <span class="h-12 w-12 flex items-center">
-              <!-- Heroicon name: outline/inbox -->
-              <svg class="h-6 w-6 text-palette-2-dark-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-              </svg>
-            </span>
+                            <span class="h-12 w-12 flex items-center">
+                              <!-- Heroicon name: outline/inbox -->
+                              <svg class="h-6 w-6 text-palette-2-dark-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+                              </svg>
+                            </span>
                         </div>
                         <div>
                             <h2 class="text-3xl font-extrabold tracking-tight text-palette-2-dark-blue">
@@ -113,8 +113,8 @@
                 </div>
                 <div class="mt-12 sm:mt-16 lg:mt-0">
                     <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                        <div class="w-full h-full rounded-xlring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none">
-                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="https://images.unsplash.com/photo-1505880167668-ec27c3eb9110?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2768&q=80" alt="">
+                        <div class="w-full h-full rounded-xlring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full">
+                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full" src="{{ asset('images/home/2.png') }}" alt="Home mock">
                         </div>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                     </div>
                     <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
                         <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="https://images.unsplash.com/photo-1505880167668-ec27c3eb9110?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2768&q=80" alt="Customer profile user interface">
+                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full" src="{{ asset('images/home/3.png') }}" alt="Customer profile user interface">
                         </div>
                     </div>
                 </div>

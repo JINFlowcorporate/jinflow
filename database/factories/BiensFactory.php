@@ -47,7 +47,7 @@ This unit is attractive, tastefully furnished and was built less than a year ago
 For more info, check out our post on Medium!'
             ],
             'nb_beds' => 4,
-            'type' => 'Appartement',
+            'type_id' => 1,
             'nb_bathroom' => 1,
             'zipcode' => 93100,
             'state' => 'Seine-Saint-Denis',

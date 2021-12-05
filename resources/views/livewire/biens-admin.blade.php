@@ -126,9 +126,13 @@
                 @error('map') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
-                <x-jet-label for="type" value="{{ __('admin.biens.type') }}" />
-                <x-jet-input wire:model="type" id="type" class="block mt-1 w-full" type="text" />
-                @error('type') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
+                <x-jet-label for="type_id" value="{{ __('Type') }}" />
+                <select name="type_id" wire:model="type_id" id="type_id" class="block appearance-none w-full bg-gray-100 border border-gray-200 text-gray-700 py-3 px-4 pr-8 round leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+                    @foreach (App\Models\Type::all() as $key => $value)
+                        <option {{ $type_id === $value->id ? 'checked' : '' }} value="{{ $value->id }}">{{ $value->translate('en')->name }}</option>
+                    @endforeach
+                </select>
+                @error('type_id') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
                 <x-jet-label for="nb_bathroom" value="{{ __('admin.biens.nb_bathroom') }}" />
@@ -162,7 +166,7 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="rent_start_date" value="{{ __('admin.biens.rent_start_date') }}" />
-                <x-jet-input wire:model="rent_start_date" id="rent_start_date" class="block mt-1 w-full" type="datetime" />
+                <x-jet-input wire:model="rent_start_date" id="rent_start_date" class="block mt-1 w-full" type="date" />
                 @error('rent_start_date') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">

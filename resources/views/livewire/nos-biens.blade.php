@@ -11,7 +11,7 @@
                         <h2 style="left: 50%; top: 50%; transform: translate(-50%, -50%) rotate(15deg);" class="absolute uppercase font-bold text-center text-red-600 text-4xl bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">SOLD-OUT</h2>
                     @endif
                     <div class="@if($bien->total_tokens === 0) opacity-25 @endif lg:w-1/2 w-full overflow-hidden">
-                        <img src="{{ \Illuminate\Support\Facades\URL::asset('storage/' . $bien->images[0]->image) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
+                        <img src="{{ URL::asset('storage/' . $bien->images[0]->image) }}" alt="Tall slender porcelain bottle with natural clay textured body and cork stopper." class="w-full h-full object-center object-cover group-hover:opacity-75">
                     </div>
                     <div class="@if($bien->total_tokens === 0) opacity-25 @endif lg:w-1/2 w-full p-6 rounded-lg flex flex-col justify-between {{ $key % 2 === 0 ? 'ml-4' : 'mr-4' }}">
                         <h3 class="text-3xl font-bold text-gray-900">
