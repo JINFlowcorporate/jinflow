@@ -1,7 +1,7 @@
 <div class="space-y-8 divide-y divide-gray-200 p-6 overflow-y-scroll w-full">
     <div>
         <h3 class="text-lg leading-6 font-medium text-gray-900">
-            {{ __('Holdings') }}
+            {{ __('holdings.title') }}
         </h3>
     </div>
 
@@ -13,7 +13,7 @@
                         @if(isset($bien->images[0]->image) && !empty($bien->images[0]->image))
                             <div
                                 class="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden group-hover:opacity-75 lg:h-80 lg:aspect-none shadow-md">
-                                <img src="{{ $bien->images[0]->image }}" alt="Product 1"
+                                <img src="{{ URL::asset('storage/' . $bien->images[0]->image) }}" alt="Product 1"
                                      class="w-full h-full object-center object-cover lg:w-full lg:h-full">
                             </div>
                         @endif

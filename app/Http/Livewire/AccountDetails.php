@@ -7,6 +7,7 @@ use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -83,13 +84,14 @@ class AccountDetails extends Component
 
     public function modelData()
     {
-        //  $fileUploaded = $this->profile_photo_path->storeOnCloudinaryAs('Profile');
-        $imageName = Storage::putFile('public/profile/' . Auth::id(), $this->profile_photo_path_tmp);
+        $imageName = Storage::disk('public')->put('profile/' . Auth::id(), $this->profile_photo_path_tmp);
 
-        if (Storage::exists(Auth::user()->profile_photo_path))
+        if (file_exists(public_path('storage/' . Auth::user()->profile_photo_path)))
         {
-            Storage::delete(Auth::user()->profile_photo_path);
+            unlink(public_path('storage/' . Auth::user()->profile_photo_path));
         }
+
+        $this->profile_photo_path = URL::asset('storage/' . $imageName);
 
         return [
             'username' => $this->username,
@@ -119,10 +121,8 @@ class AccountDetails extends Component
         $this->state = Auth::user()->state;
         $this->zipcode = Auth::user()->zipcode;
         $this->us_citizen = Auth::user()->us_citizen;
-        if (Storage::exists(Auth::user()->profile_photo_path))
-        {
-            $this->profile_photo_path = Storage::url(Auth::user()->profile_photo_path);
-        }
+        $this->profile_photo_path = Auth::user()->profile_photo_path && file_exists(public_path('storage/' . Auth::user()->profile_photo_path)) ? URL::asset('storage/' . Auth::user()->profile_photo_path) : '';
+
     }
 
     public function render()

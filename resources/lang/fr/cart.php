@@ -11,5 +11,6 @@ return [
     'added' => 'Ajouté au panier',
     'customer' => 'Information d\'utilisateur',
     'method' => 'Méthode de paiement',
-    'pay' => 'Payer'
+    'pay' => 'Payer',
+    'stock-limit' => 'Stock insuffisant'
 ];

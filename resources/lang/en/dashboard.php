@@ -3,8 +3,8 @@
 return [
     'routes' => [
         'home' => 'Home',
-        'holdings' => 'Holdings',
-        'kyc' => 'KYC Stuff',
+        'holdings' => 'My investment',
+        'kyc' => 'Validate account',
         'orders' => 'Orders',
         'account-details' => 'Account details',
         'affiliation' => 'Affiliation'

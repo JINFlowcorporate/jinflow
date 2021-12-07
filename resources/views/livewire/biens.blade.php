@@ -42,13 +42,13 @@
 
                         <div class="mt-4">
                             <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-year') }}</span><span class="ml-10">${{ $item->gross_rent_year }}</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-year') }}</span><span class="ml-10 text-black">${{ $item->gross_rent_year }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-month') }}</span><span class="ml-10">${{ $item->gross_rent_month }}</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span class="text-gray-600">{{ __('property.product-information.gross-rent-month') }}</span><span class="ml-10 text-black">${{ $item->gross_rent_month }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-year') }}</span><span class="ml-10">${{ $item->net_rent_month }}</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-year') }}</span><span class="ml-10 text-black">${{ $item->net_rent_month }}</span></li>
 
-                                <li class="text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-month') }}</span><span class="ml-10">${{ $item->net_rent_year }}</span></li>
+                                <li class="flex justify-between items-center text-gray-400"><span class="text-gray-600">{{ __('property.product-information.net-rent-month') }}</span><span class="ml-10 text-black">${{ $item->net_rent_year }}</span></li>
                             </ul>
                         </div>
                         @if($item->total_tokens > 0)
@@ -62,11 +62,15 @@
                     @if($item->total_tokens > 0)
                         <button type="submit" class="mt-10 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">{{ __('property.add-to-cart') }}</button>
                     @else
-                        <h2 class="uppercase font-bold text-center text-red-600 text-4xl mt-10 bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">SOLD-OUT</h2>
+                        <h2 class="uppercase font-bold text-center text-red-600 text-3xl mt-10 bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">{{ __('pages.sold-out') }}</h2>
                     @endif
                     @if (session()->has('message'))
-                        <div class="mt-4 bg-green-100 border border-green-400 text-green-800 px-4 py-3 rounded relative" role="alert">
+                        <div class="mt-4 bg-green-100 text-center border border-green-400 text-green-800 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">{{ session('message') }}</strong>
+                        </div>
+                    @elseif(session()->has('stock'))
+                        <div class="mt-4 bg-red-100 text-center border border-red-400 text-red-800 px-4 py-3 rounded relative" role="alert">
+                            <strong class="font-bold">{{ session('stock') }}</strong>
                         </div>
                     @endif
                 </form>
@@ -86,16 +90,16 @@
                     <h3 class="text-sm font-medium text-gray-900">{{ __('property.property-highlights.title') }}</h3>
 
                     <div class="mt-4">
-                        <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.expected-yield') }}</span><span class="ml-10">{{ $item->expected_yield }}%</span></li>
+                        <ul role="list" class="pl-4 max-w-sm list-disc text-sm space-y-2">
+                            <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.expected-yield') }}</span><span class="ml-10 text-black">{{ $item->expected_yield }}%</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-start-date') }}</span><span class="ml-10">{{ $item->rent_start_date }}</span></li>
+                            <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-start-date') }}</span><span class="ml-10 text-black">{{ $item->rent_start_date }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-per-token') }}</span><span class="ml-10">${{ $item->gross_rent_year }}/Year</span></li>
+                            <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-per-token') }}</span><span class="ml-10 text-black">${{ $item->gross_rent_year }}/Year</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.token-price') }}</span><span class="ml-10">${{ $item->tokens_price }}</span></li>
+                            <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.token-price') }}</span><span class="ml-10 text-black">${{ $item->tokens_price }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.total-token') }}</span><span class="ml-10">{{ $item->total_tokens }}</span></li>
+                            <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.total-token') }}</span><span class="ml-10 text-black">{{ $item->total_tokens }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -104,14 +108,14 @@
                     <h2 class="text-sm font-medium text-gray-900">{{ __('property.property-type.title') }}</h2>
 
                     <div class="mt-4">
-                        <ul role="list" class="pl-4 list-disc text-sm space-y-2">
-                            <li class="text-gray-400"><span class="text-gray-600">Type</span><span class="ml-10">{{ $item->type }}</span></li>
+                        <ul role="list" class="pl-4 max-w-sm list-disc text-sm space-y-2">
+                            <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">Type</span><span class="ml-10">{{ $item->type }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.beds') }}</span><span class="ml-10">{{ $item->nb_beds }}</span></li>
+                            <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">{{ __('property.property-type.beds') }}</span><span class="ml-10 text-black">{{ $item->nb_beds }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.bathroom') }}</span><span class="ml-10">{{ $item->nb_bathroom }}</span></li>
+                            <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">{{ __('property.property-type.bathroom') }}</span><span class="ml-10 text-black">{{ $item->nb_bathroom }}</span></li>
 
-                            <li class="text-gray-400"><span class="text-gray-600">{{ __('property.property-type.square-feet') }}</span><span class="ml-10">{{ $item->square_feet }}</span></li>
+                            <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">{{ __('property.property-type.square-feet') }}</span><span class="ml-10 text-black">{{ $item->square_feet }}</span></li>
                         </ul>
                     </div>
                 </div>
@@ -120,12 +124,12 @@
     </div>
 </div>
 
-<section class="flex justify-between items-center bg-palette-2-dark-blue">
-    <div class="w-1/2 p-6">
+<section class="flex flex-col xl:flex-row justify-between items-center bg-palette-2-dark-blue">
+    <div class="w-full xl:w-1/2 p-6">
         <h2 class="font-bold text-2xl mb-6 text-white">{{ __('property.about') }}</h2>
         <p class="text-white">{{ $item->about }}</p>
     </div>
-    <div>
+    <div class="xl:w-1/2 w-full">
         @php
             echo $item->map
         @endphp

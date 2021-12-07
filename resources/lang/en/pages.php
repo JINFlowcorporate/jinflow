@@ -15,5 +15,6 @@ return [
     'confirmation' => 'Confirmation',
     'nos-biens' => 'Our properties',
     'register' => 'Register',
-    'login' => 'Login'
+    'login' => 'Login',
+    'sold-out' => 'SOLD-OUT'
 ];

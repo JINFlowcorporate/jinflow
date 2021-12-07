@@ -11,5 +11,6 @@ return [
     'added' => 'Added to cart',
     'customer' => 'Customer information',
     'method' => 'Method payment',
-    'pay' => 'Pay'
+    'pay' => 'Pay',
+    'stock-limit' => 'Insufficient stock'
 ];

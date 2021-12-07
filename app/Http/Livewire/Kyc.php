@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use function PHPUnit\Framework\exactly;
@@ -38,47 +39,38 @@ class Kyc extends Component
 
         if (!empty($this->passport_kyc))
         {
-            //  cloudinary()->destroy('public_id', User::where('id', Auth::user()->id)->pluck('public_id_passport_kyc')[0]);
-            //  $passport = $this->passport_kyc->storeOnCloudinaryAs('Users/' . Auth::user()->lastname . ' ' . Auth::user()->firstname, 'Passport');
-            $data['passport_kyc'] = Storage::putFile('public/profile/' . Auth::id() . '/passport', $this->passport_kyc);
+            $data['passport_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/passport', $this->passport_kyc);
 
-            if (Storage::exists(Auth::user()->passport_kyc))
+            if (file_exists(public_path('storage/' . Auth::user()->passport_kyc)))
             {
-                Storage::delete(Auth::user()->passport_kyc);
+                unlink(public_path('storage/' . Auth::user()->passport_kyc));
             }
 
-            $this->passport_file = $data['passport_kyc'];
-            //  $data['public_id_passport_kyc'] = $passport->getPublicId();
+            $this->passport_file = URL::asset('storage/' . $data['passport_kyc']);
         }
 
         if (!empty($this->driver_kyc))
         {
-            //  cloudinary()->destroy('public_id', User::where('id', Auth::user()->id)->pluck('public_id_driver_kyc')[0]);
-            //  $driver = $this->driver_kyc->storeOnCloudinaryAs('Users/' . Auth::user()->lastname . ' ' . Auth::user()->firstname, "Driver's license");
-            $data['driver_kyc'] = Storage::putFile('public/profile/' . Auth::id() . '/driver', $this->driver_kyc);
+            $data['driver_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/driver', $this->driver_kyc);
 
-            if (Storage::exists(Auth::user()->driver_kyc))
+            if (file_exists(public_path('storage/' . Auth::user()->driver_kyc)))
             {
-                Storage::delete(Auth::user()->driver_kyc);
+                unlink(public_path('storage/' . Auth::user()->driver_kyc));
             }
 
-            $this->driver_file = $data['driver_kyc'];
-            //  $data['public_id_driver_kyc'] = $driver->getPublicId();
+            $this->driver_file = URL::asset('storage/' . $data['driver_kyc']);
         }
 
         if (!empty($this->proof_address_kyc))
         {
-            //  cloudinary()->destroy('public_id', User::where('id', Auth::user()->id)->pluck('public_id_proof_address_kyc')[0]);
-            //  $proof = $this->proof_address_kyc->storeOnCloudinaryAs('Users/' . Auth::user()->lastname . ' ' . Auth::user()->firstname, "Proof of address");
-            $data['proof_address_kyc'] = Storage::putFile('public/profile/' . Auth::id() . '/proof', $this->proof_address_kyc);
+            $data['proof_address_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/proof', $this->proof_address_kyc);
 
-            if (Storage::exists(Auth::user()->proof_address_kyc))
+            if (file_exists(public_path('storage/' . Auth::user()->proof_address_kyc)))
             {
-                Storage::delete(Auth::user()->proof_address_kyc);
+                unlink(public_path('storage/' . Auth::user()->proof_address_kyc));
             }
 
-            $this->proof_file = $data['proof_address_kyc'];
-            //  $data['public_id_proof_address_kyc'] = $proof->getPublicId();
+            $this->proof_file = URL::asset('storage/' . $data['proof_address_kyc']);
         }
 
         if (!empty($data))
@@ -89,9 +81,9 @@ class Kyc extends Component
 
     public function mount()
     {
-        $this->passport_file = Storage::exists(Auth::user()->passport_kyc) ? Storage::url(Auth::user()->passport_kyc) : '';
-        $this->driver_file = Storage::exists(Auth::user()->driver_kyc) ? Storage::url(Auth::user()->driver_kyc) : '';
-        $this->proof_file = Storage::exists(Auth::user()->proof_address_kyc) ? Storage::url(Auth::user()->proof_address_kyc) : '';
+        $this->passport_file = Auth::user()->passport_kyc && file_exists(public_path('storage/' . Auth::user()->passport_kyc)) ? URL::asset('storage/' . Auth::user()->passport_kyc) : '';
+        $this->driver_file = Auth::user()->driver_kyc && file_exists(public_path('storage/' . Auth::user()->driver_kyc)) ? URL::asset('storage/' . Auth::user()->driver_kyc) : '';
+        $this->proof_file = Auth::user()->proof_address_kyc && file_exists(public_path('storage/' . Auth::user()->proof_address_kyc)) ? URL::asset('storage/' . Auth::user()->proof_address_kyc) : '';
     }
 
     public function deleteFile($file, $kyc)

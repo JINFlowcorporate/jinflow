@@ -54,9 +54,6 @@ class BiensAdmin extends Component
         {
             foreach ($this->images_to_upload as $key => $value)
             {
-                /*$imageName = str_shuffle(time()).'.'.$value->extension();
-                $value->move(public_path('storage/properties/'. $id),$imageName);*/
-
                 $imageName = Storage::disk('public')->put('properties/' . $id, $value);
                 Image::create(['image' => $imageName, 'biens_id' => $id]);
             }

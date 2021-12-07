@@ -18,6 +18,13 @@ class Biens extends Component
     public function addToCart($id)
     {
         $bien = \App\Models\Biens::where('id', $id)->first();
+        foreach (Cart::content() as $value)
+        {
+            if ($value->name === $bien->name && $bien->total_tokens >= $value->qty)
+            {
+                return session()->flash('stock', __('cart.stock-limit'));
+            }
+        }
         Cart::add($bien->id, $bien->name, $this->quantity, $bien->price / 100, 550);
 
         $this->emit('cart_updated');

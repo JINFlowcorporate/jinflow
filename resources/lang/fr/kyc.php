@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'KYC',
+    'title' => 'Valider le compte',
     'download-document' => 'Télécharger',
     'remove-document' => 'Supprimer',
     'passport' => 'Passeport',

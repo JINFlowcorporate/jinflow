@@ -1,7 +1,6 @@
 @section('title', __('pages.home'))
 
 <x-app-layout>
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative bg-white overflow-hidden">
         <div class="max-w-7xl mx-auto">
             <div class="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -17,15 +16,6 @@
                             </div>
                         </nav>
                     </div>
-                    <!--
-                      Mobile menu, show/hide based on menu open state.
-                      Entering: "duration-150 ease-out"
-                        From: "opacity-0 scale-95"
-                        To: "opacity-100 scale-100"
-                      Leaving: "duration-100 ease-in"
-                        From: "opacity-100 scale-100"
-                        To: "opacity-0 scale-95"
-                    -->
                     <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                         <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                         </div>
@@ -33,21 +23,21 @@
                 </div>
                 <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
                     <div class="sm:text-center lg:text-left">
-                        <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                            <span class="block text-palette-2-dark-beige xl:inline">{{ __('home.main.invest-with-jinflow') }}</span>
-                            <span class="block text-palette-2-medium-blue xl:inline">{{ __('home.main.new-area') }}</span>
+                        <h1 class="tracking-tight font-extrabold text-palette-2-dark-beige text-4xl">
+                            {{ __('home.main.invest-with-jinflow') }}
                         </h1>
+                        <h1 class="tracking-tight font-extrabold text-4xl text-palette-2-medium-blue">{{ __('home.main.new-area') }}</h1>
                         <p class="mt-3 text-base text-opacity-70 text-palette sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                             {{ __('home.main.text') }}
                         </p>
                         <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                             <div class="rounded-md shadow">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                <a href="{{ route('nos-biens') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                                     {{ __('home.main.invest') }}
                                 </a>
                             </div>
                             <div class="mt-3 sm:mt-0 sm:ml-3">
-                                <a href="#" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-palette-2-light-beige bg-palette-2-dark-blue hover:bg-indigo-700 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
+                                <a href="{{ route('faq') }}" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-palette-2-light-beige bg-palette-2-dark-blue hover:bg-indigo-700 transition-all duration-150 ease-in-out md:py-4 md:text-lg md:px-10">
                                     {{ __('home.main.how-work') }}
                                 </a>
                             </div>
@@ -61,7 +51,6 @@
         </div>
     </div>
 
-        <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="bg-gradient-to-r flex flex-col items-center from-palette-2-dark-blue to-palette-2-medium-blue py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
         <div class="mx-auto grid gap-4 grid-cols-1 md:grid-cols-3 items-baseline justify-between text-center">
             <div>
@@ -77,24 +66,15 @@
                 <p class="block text-center text-white mt-2">{{ __('home.info.text-3') }}</p>
             </div>
         </div>
-        <a href="#" class="text-center mt-8 w-full inline-block mx-auto items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out sm:w-auto">
-            {{ __('home.info.understand') }}
-        </a>
     </div>
 
-    <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="relative bg-white pt-16 overflow-hidden">
         <div class="relative pb-16">
             <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
                 <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
                     <div>
-                        <div>
-                            <span class="h-12 w-12 flex items-center">
-                              <!-- Heroicon name: outline/inbox -->
-                              <svg class="h-6 w-6 text-palette-2-dark-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
-                              </svg>
-                            </span>
+                        <div class="h-12 w-12 flex items-center">
+                            <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/10.png') }}" alt="Icon">
                         </div>
                         <div>
                             <h2 class="text-3xl font-extrabold tracking-tight text-palette-2-dark-blue">
@@ -103,11 +83,6 @@
                             <p class="mt-4 text-lg text-gray-500">
                                 {!! __('home.innovation.text') !!}
                             </p>
-                            <div class="mt-6">
-                                <a href="#" class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-s bg-palette-2-dark-blue text-palette-2-light-beige hover:bg-indigo-700 transition-all duration-150 ease-in-out">
-                                    {{ __('home.innovation.get-started') }}
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -123,13 +98,8 @@
                 <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
                     <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
                         <div>
-                            <div>
-            <span class="h-12 w-12 flex items-center">
-              <!-- Heroicon name: outline/sparkles -->
-              <svg class="h-6 w-6 text-palette-2-dark-blue" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-              </svg>
-            </span>
+                            <div class="h-12 w-12 flex items-center">
+                                 <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/9.png') }}" alt="Icon">
                             </div>
                             <div>
                                 <h2 class="text-3xl font-extrabold tracking-tight text-palette-2-dark-blue">
@@ -156,13 +126,9 @@
         </div>
 
 
-        <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="relative bg-palette-2-dark-blue">
             <div class="max-w-4xl mx-auto py-12 sm:py-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8 xl:grid xl:grid-cols-2 items-center xl:grid-flow-col-dense xl:gap-x-8">
                 <div class="relative xl:col-start-1">
-                    <h2 class="text-sm font-semibold text-palette-2-dark-beige tracking-wide uppercase">
-                        {{ __('home.experiences.our-experience') }}
-                    </h2>
                     <p class="mt-3 text-3xl font-extrabold text-white">{!! __('home.experiences.text-1') !!}</p>
                     <p class="mt-5 text-lg text-gray-300">{!! __('home.experiences.text-2') !!}</p>
                 </div>
@@ -191,7 +157,6 @@
         </div>
 
 
-        <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="py-12 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="lg:text-center">
@@ -208,10 +173,7 @@
                         <div class="relative">
                             <dt>
                                 <div class="absolute flex h-12 w-12 text-palette-2-dark-blue">
-                                    <!-- Heroicon name: outline/globe-alt -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                    </svg>
+                                    <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/5.png') }}" alt="Icon">
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.investissment') }}</p>
                             </dt>
@@ -223,10 +185,7 @@
                         <div class="relative">
                             <dt>
                                 <div class="absolute flex h-12 w-12 text-palette-2-dark-blue">
-                                    <!-- Heroicon name: outline/scale -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
-                                    </svg>
+                                    <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/6.png') }}" alt="Icon">
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.possession') }}</p>
                             </dt>
@@ -238,10 +197,7 @@
                         <div class="relative">
                             <dt>
                                 <div class="absolute flex h-12 w-12 text-palette-2-dark-blue">
-                                    <!-- Heroicon name: outline/lightning-bolt -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                                    </svg>
+                                    <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/7.png') }}" alt="Icon">
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.agree') }}</p>
                             </dt>
@@ -253,10 +209,7 @@
                         <div class="relative">
                             <dt>
                                 <div class="absolute flex h-12 w-12 text-palette-2-dark-blue">
-                                    <!-- Heroicon name: outline/annotation -->
-                                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                                    </svg>
+                                    <img class="h-7 w-7 object-cover rounded-sm" src="{{ asset('images/icons/8.png') }}" alt="Icon">
                                 </div>
                                 <p class="ml-16 text-lg leading-6 font-medium text-gray-900">{{ __('home.jinflow.community') }}</p>
                             </dt>

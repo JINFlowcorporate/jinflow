@@ -12,7 +12,7 @@ return [
         'invest-with-jinflow' => 'Investir avec JINFlow',
         'new-area' => 'La nouvelle ère du Cash Flow',
         'text' => 'Investissez dans l’immobilier dès $50 et recevez des revenus locatifs chaque mois, sans frais ou gestion de biens immobiliers, grâce a des propriétés fractionnées & tokenisées.',
-        'invest' => 'INVSETIR',
+        'invest' => 'INVESTIR',
         'how-work' => 'Comment ça marche ?'
     ],
     'info' => [
@@ -31,7 +31,7 @@ return [
         'blockquote' => '"Il viendra un jour ou tout ce qu\'il y a sur notre planete sera tokenisé"',
         'quentin' => 'Quentin Riviere, Co-founder',
         'why-american' => 'Pourquoi le marché americain ?',
-        'american-text' => 'Simplement car le rendement locatif est 2 à 3 fois plus élevé que dans toute l’Europe, notamment grâce à la fiscalité qui est plus avantageuse pour notre entreprise. Nos investissements sont donc plus profitables là-bas, de 10 à 15% net, tout en offrant de fortes garanties de sécurité.<br><br>De plus, les États-Unis sont le terrain d’expertise de JINFlow, fondée par JustInvestNow créée par Justin Fontenelle et Richard Salem, présent sur le marché depuis 7 ans, ainsi que Quentin Riviera blockchain expert, Bruno Gondel expert en marketing qui possède déjà de nombreuse années d’expériences sur le marché immobilier américain. ',
+        'american-text' => 'Simplement car le rendement locatif est 2 à 3 fois plus élevé que dans toute l’Europe, notamment grâce à la fiscalité qui est plus avantageuse pour notre entreprise. Nos investissements sont donc plus profitables là-bas, de 11 à 13% net, tout en offrant de fortes garanties de sécurité.<br><br>De plus, les États-Unis sont le terrain d’expertise de JINFlow, fondée par JustInvestNow créée par Justin Fontenelle et Richard Salem, présent sur le marché depuis 7 ans, ainsi que Quentin Riviera blockchain expert, Bruno Gondel expert en marketing qui possède déjà de nombreuse années d’expériences sur le marché immobilier américain. ',
         'see-our-properties' => 'Voir nos biens'
     ],
     'experiences' => [

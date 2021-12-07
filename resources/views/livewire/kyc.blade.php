@@ -8,7 +8,7 @@
     <div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="sm:pt-5">
-                <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                <label for="cover-photo" class="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2">
                     {{ __('kyc.passport') }}
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -29,14 +29,14 @@
                 @error('passport_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($passport_file) && !empty($passport_file))
-                    <iframe class="mt-5" src="{{ $passport_file }}" width="100%" height="500px"></iframe>
+                    <embed src="{{ $passport_file }}" type="application/pdf" style="width: 100%; height: 500px;" frameborder="0">
                     <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download>{{ __('kyc.download-document') }}</a>
                     <button type="submit" wire:click.prevent="deleteFile('passport_kyc', 'passport_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
                 @endif
             </div>
 
             <div class="sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                <label for="cover-photo" class="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2">
                     {{ __('kyc.driver') }}
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">
@@ -64,7 +64,7 @@
             </div>
 
             <div class="sm:border-t sm:border-gray-200 sm:pt-5">
-                <label for="cover-photo" class="block text-sm font-medium text-gray-700 sm:mt-px sm:pt-2">
+                <label for="cover-photo" class="block text-sm font-bold text-gray-700 sm:mt-px sm:pt-2">
                     {{ __('kyc.proof') }}
                 </label>
                 <div class="mt-1 sm:mt-0 sm:col-span-2">

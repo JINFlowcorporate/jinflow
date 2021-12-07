@@ -26,12 +26,12 @@ return [
     ],
     'innovation' => [
         'title' => 'A new revolution for Investing',
-        'text' => 'The power of the blockchain makes it possible to divide a physical real estate asset into several parts, as many times as necessary, and automatically, matches to each investor\'s parts.<br><br>This makes it a real revolution for investing in Real Estate, and allows JINFlow to become the owner of real estate in the largest world, from only € 50 invested with even lower risks than traditional real estate thanks to the SmartContract system. of the blockchain.',
+        'text' => 'The power of the blockchain makes it possible to divide a physical real estate asset into several parts, as many times as necessary, and automatically, matches to each investor\'s parts.<br><br>This makes it a real revolution for investing in Real Estate, and allows JINFlow to become the owner of real estate in the largest world, from only $50 invested with even lower risks than traditional real estate thanks to the SmartContract system. of the blockchain.',
         'get-started' => 'Get started',
         'blockquote' => '"There will come a day when everything on our planet will be tokenized"',
         'quentin' => 'Quentin Riviere, Co-founder',
         'why-american' => 'Why Invest in the US Real Estate Market ?',
-        'american-text' => 'Simply because the rental yield is 2 to 3 times higher than in all of Europe, particular thanks to the taxation which is more advantageous for our company based in Belgium. Our investments are more profitable, from 10 to 15% net. While offering strong security guarantees.<br><br>In addition, the United States market is the field of expertise of JINFlow, founded by JustInvestNow. In wihich Justin Fontenelle & Richard Salem, have already been on this market for more than 7 years.',
+        'american-text' => 'Simply because the rental yield is 2 to 3 times higher than in all of Europe, particular thanks to the taxation which is more advantageous for our company based in Belgium. Our investments are more profitable, from 11 to 13% net. While offering strong security guarantees.<br><br>In addition, the United States market is the field of expertise of JINFlow, founded by JustInvestNow. In wihich Justin Fontenelle & Richard Salem, have already been on this market for more than 7 years.',
         'see-our-properties' => 'See our properties'
     ],
     'experiences' => [
@@ -68,7 +68,7 @@ return [
         'text-5' => 'By being an investor with JINFlow, you will benefit from a full support and management team available for each of your investments with us.',
     ],
     'banner' => [
-        'title' => 'Do not miss JinFlow Opportunities :',
+        'title' => 'Do not miss JINFlow Opportunities :',
         'text' => 'In order to stay abreast of our new investments and developments in JINFlow, the new era of CashFlow,',
         'email' => 'Email address',
         'notify-me' => 'Notify me',

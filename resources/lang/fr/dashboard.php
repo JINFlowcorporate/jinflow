@@ -3,8 +3,8 @@
 return [
     'routes' => [
         'home' => 'Accueil',
-        'holdings' => 'Propriétées',
-        'kyc' => 'Documents',
+        'holdings' => 'Mes investissements',
+        'kyc' => 'Valider le compte',
         'orders' => 'Commandes',
         'account-details' => 'Details du compte',
         'affiliation' => 'Affiliation'
