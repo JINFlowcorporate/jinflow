@@ -20,7 +20,7 @@ class Biens extends Component
         $bien = \App\Models\Biens::where('id', $id)->first();
         foreach (Cart::content() as $value)
         {
-            if ($value->name === $bien->name && $bien->total_tokens >= $value->qty)
+            if ($value->name === $bien->name && $bien->total_tokens <= $value->qty)
             {
                 return session()->flash('stock', __('cart.stock-limit'));
             }
