@@ -28,7 +28,6 @@ class Holdings extends Component
                 }
             }
         }
-        dd($this->biens);
     }
 
     public function render()

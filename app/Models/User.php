@@ -17,7 +17,7 @@ class User extends Authenticatable
 
     public function biens()
     {
-        return $this->belongsToMany(Biens::class, UserBien::class, 'biens_id', 'biens_id', 'id', 'id')->distinct();
+        return $this->belongsToMany(Biens::class, UserBien::class, 'biens_id', 'id')->distinct();
     }
 
     public function user_biens()
