@@ -22,10 +22,10 @@ use LaravelDocusign\Facades\DocuSign;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('docusign',[DocusignController::class, 'index'])->name('docusign');
+/*Route::get('docusign',[DocusignController::class, 'index'])->name('docusign');
 Route::get('connect-docusign',[DocusignController::class, 'connectDocusign'])->name('connect.docusign');
 Route::get('docusign/callback',[DocusignController::class,'callback'])->name('docusign.callback');
-Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');
+Route::get('sign-document',[DocusignController::class,'signDocument'])->name('docusign.sign');*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -54,16 +54,6 @@ Route::get('lang/{lang}', [\App\Http\Controllers\LanguageController::class, 'swi
 Route::get('/nos-biens/{slug}', \App\Http\Livewire\Biens::class)->name('biens');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-  /*  Route::get('/checkout', function () {
-        $biens = Cart::content();
-        $total = Cart::total();
-        $user = \Illuminate\Support\Facades\Auth::user();
-        return view('livewire.checkout', compact('biens', 'total', 'user'));
-    })->name('checkout')
-        ->middleware('EnsureCartIsNotEmpty');*/
-
-    //  Route::get('/checkout', \App\Http\Livewire\Checkout::class)->name('checkout')->middleware('EnsureCartIsNotEmpty');
-
     Route::get('/checkout', function () {
         return view('payment.checkout');
     })->name('checkout')

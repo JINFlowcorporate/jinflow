@@ -18,8 +18,8 @@ class CreateOrderProductsTable extends Migration
             $table->foreignId('order_id')->constrained()->cascadeOnDelete();
             $table->foreignId('biens_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
-            $table->integer('price_per_token');
-            $table->integer('total_price');
+            $table->double('price_per_token', 8, 2);
+            $table->double('total_price', 8, 2);
             $table->timestamps();
             $table->softDeletes();
         });

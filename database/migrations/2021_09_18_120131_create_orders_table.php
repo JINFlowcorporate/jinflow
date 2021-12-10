@@ -17,7 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->integer('quantity');
-            $table->integer('total');
+            $table->double('total', 8, 2);
             $table->timestamps();
             $table->softDeletes();
         });
