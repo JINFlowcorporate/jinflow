@@ -25,7 +25,7 @@ class Biens extends Component
                 return session()->flash('stock', __('cart.stock-limit'));
             }
         }
-        Cart::add($bien->id, $bien->name, $this->quantity, $bien->price / 100, 550);
+        Cart::add($bien->id, $bien->name, $this->quantity, $bien->tokens_price, 550);
 
         $this->emit('cart_updated');
         session()->flash('message', __('cart.added'));
