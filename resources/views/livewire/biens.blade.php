@@ -54,7 +54,7 @@
                         @if($item->total_tokens > 0)
                             <div class="flex mt-5 flex-col items-start">
                                 <label for="quantity" class="text-sm mb-4 text-gray-900 font-medium">{{ __('property.product-information.quantity') }}</label>
-                                <x-jet-input id="quantity" wire:model="quantity" type="number" min="0" max="{{ $item->total_tokens }}" value="{{ $quantity }}"></x-jet-input>
+                                <x-jet-input id="quantity" wire:model="quantity" type="number" min="1" max="{{ $item->total_tokens }}" value="{{ $quantity }}"></x-jet-input>
                             </div>
                         @endif
                     </div>
