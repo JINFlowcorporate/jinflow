@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/home/1.png') }}" alt="Home">
+            <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="{{ asset('images/home/1.jpg') }}" alt="Home">
         </div>
     </div>
 
@@ -89,7 +89,7 @@
                 <div class="mt-12 sm:mt-16 lg:mt-0">
                     <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                         <div class="w-full h-full rounded-xlring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full">
-                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full" src="{{ asset('images/home/2.png') }}" alt="Home mock">
+                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full" src="{{ asset('images/home/2.jpg') }}" alt="Home mock">
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
                         <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full" src="{{ asset('images/home/3.png') }}" alt="Customer profile user interface">
+                            <img class="w-full rounded-xl shadow-xl align-content: flex-end; ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full" src="{{ asset('images/home/3.jpg') }}" alt="Customer profile user interface">
                         </div>
                     </div>
                 </div>
