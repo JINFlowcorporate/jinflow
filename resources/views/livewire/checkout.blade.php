@@ -33,21 +33,6 @@
                         <input class="block w-full shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border-gray-300 rounded-md @error('billing_country') is-invalid @enderror" id="billing_country" wire:model="billing_country" name="billing_country" type="text" placeholder="{{ __('admin.users.country') }}" aria-label="{{ __('admin.users.country') }}">
                     </div>
                 </div>
-                {{--<div class="block mt-4">
-                    <span class="text-gray-700">Method payment</span>
-                    <div>
-                        <div class="flex">
-                            <div>
-                                <label class="block text-sm text-gray-600" for="stripe">{{ __('Stripe') }}</label>
-                                <input type="radio" class="form-radio" name="stripe" value="stripe" wire:model="payment_method" checked>
-                            </div>
-                            <div class="ml-4">
-                                <label class="block text-sm text-gray-600" for="coinbase">{{ __('Coinbase') }}</label>
-                                <input type="radio" class="form-radio" name="stripe" value="coinbase" wire:model="payment_method">
-                            </div>
-                        </div>
-                    </div>
-                </div>--}}
 
                 <b class="text-gray-800 pt-10 block">{{ __('cart.method') }}</b>
 
@@ -74,11 +59,6 @@
                     </fieldset>
                 </div>
 
-
-
-
-
-
                 <div class="mt-4">
                     <input type="hidden" name="payment_method" id="payment_method" />
                     <div id="card-element"></div>
@@ -92,7 +72,7 @@
                         @foreach($biens as $bien)
                             <li class="pb-4 flex">
                                 <div class="flex-shrink-0 border border-gray-200 rounded-md overflow-hidden" style="width: 50px;">
-                                    <img width="50" height="50" src="{{ \Illuminate\Support\Facades\URL::asset('storage/' . \App\Models\Biens::where('id', $bien->id)->first()->images[0]->image) }}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="w-full h-full object-center object-cover">
+                                    <img width="50" height="50" src="{{ \Illuminate\Support\Facades\URL::asset(/*'storage/' . */\App\Models\Biens::where('id', $bien->id)->first()->images[0]->image) }}" alt="Property image" class="w-full h-full object-center object-cover">
                                 </div>
 
                                 <div class="ml-4 flex-1 flex flex-col">
