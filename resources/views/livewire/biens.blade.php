@@ -129,7 +129,7 @@
         <h2 class="font-bold text-2xl mb-6 text-white">{{ __('property.about') }}</h2>
         <p class="text-white">{{ $item->about }}</p>
     </div>
-    <div class="xl:w-1/2 w-full">
+    <div id="maps" class="xl:w-1/2 w-full">
         @php
             echo $item->map
         @endphp

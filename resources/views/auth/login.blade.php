@@ -17,7 +17,6 @@
                     <div class="mt-6">
                         <form method="POST" action="{{ route('login') }}" class="space-y-6">
                             @csrf
-                            <x-jet-validation-errors class="mb-4" />
 
                         @if (session('status'))
                                 <div class="mb-4 font-medium text-sm text-green-600">
@@ -26,12 +25,14 @@
                             @endif
                             <div>
                                 <x-jet-label for="email" value="{{ __('account-details.email') }}" />
-                                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+                                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" autofocus />
+                                @error('email') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                             </div>
 
                             <div class="mt-4">
                                 <x-jet-label for="password" value="{{ __('account-details.password') }}" />
-                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
+                                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="current-password" />
+                                @error('password') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                             </div>
 
                             <div class="flex items-center justify-between">

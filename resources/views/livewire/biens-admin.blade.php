@@ -243,7 +243,7 @@
                 @if(!empty($images))
                     @foreach($images as $image)
                         <article class="rounded-lg shadow-lg relative" style="width: 48%">
-                            <img alt="Image" class="block h-full w-full object-cover overflow-hidden rounded-lg shadow-lg" src="{{ app('url')->asset('storage/' . $image->image) }}">
+                            <img alt="Image" class="block h-full w-full object-cover overflow-hidden rounded-lg shadow-lg" src="{{ \Illuminate\Support\Facades\URL::asset('storage/' . $image->image) }}">
                             <x-jet-danger-button style="position: absolute; top: 10px; right: 10px;" wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled">
                                 {{ __('admin.buttons.delete') }}
                             </x-jet-danger-button>

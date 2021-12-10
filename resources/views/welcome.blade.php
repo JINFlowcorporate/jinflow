@@ -54,15 +54,15 @@
     <div class="bg-gradient-to-r flex flex-col items-center from-palette-2-dark-blue to-palette-2-medium-blue py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
         <div class="mx-auto grid gap-4 grid-cols-1 md:grid-cols-3 items-baseline justify-between text-center">
             <div>
-                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-1') }}</p>
+                <p class="text-3xl text-center font-extrabold text-white block">{{ __('home.info.block-1') }}</p>
                 <p class="block text-center text-white mt-2">{{ __('home.info.text-1') }}</p>
             </div>
             <div>
-                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-2') }}</p>
+                <p class="text-3xl text-center font-extrabold text-white block">{{ __('home.info.block-2') }}</p>
                 <p class="block text-center text-white mt-2">{{ __('home.info.text-2') }}</p>
             </div>
             <div>
-                <p class="text-3xl text-center font-extrabold text-white sm:text-4xl block">{{ __('home.info.block-3') }}</p>
+                <p class="text-3xl text-center font-extrabold text-white block">{{ __('home.info.block-3') }}</p>
                 <p class="block text-center text-white mt-2">{{ __('home.info.text-3') }}</p>
             </div>
         </div>

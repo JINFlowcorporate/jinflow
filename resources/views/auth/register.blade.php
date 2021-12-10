@@ -21,13 +21,14 @@
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
                                     <x-jet-label for="lastname" value="{{ __('account-details.lastname') }}" />
-                                    <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" required autofocus autocomplete="lastname" />
-                                    @error('us_citizen') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
+                                    <x-jet-input id="lastname" class="block mt-1 w-full" type="text" name="lastname" :value="old('lastname')" autofocus autocomplete="lastname" />
+                                    @error('lastname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
 
                                 <div>
                                     <x-jet-label for="firstname" value="{{ __('account-details.firstname') }}" />
-                                    <x-jet-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" required autofocus autocomplete="firstname" />
+                                    <x-jet-input id="firstname" class="block mt-1 w-full" type="text" name="firstname" :value="old('firstname')" autofocus autocomplete="firstname" />
+                                    @error('firstname') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
@@ -35,23 +36,33 @@
                                 <div>
                                     <label class="block font-medium text-sm text-gray-700" for="username">{{ __('account-details.username') }}</label>
                                     <x-jet-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" autofocus autocomplete="username" />
+                                    @error('username') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
 
                                 <div>
                                     <x-jet-label for="email" value="{{ __('account-details.email') }}" />
-                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+                                    <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" />
+                                    @error('email') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
-                                <div>
+                                <div class="relative">
+                                    <div class="absolute right-0 top-0">
+                                        <p class="relative inline-block tooltip">
+                                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 1c6.071 0 11 4.929 11 11s-4.929 11-11 11-11-4.929-11-11 4.929-11 11-11zm.5 17h-1v-9h1v9zm-.5-12c.466 0 .845.378.845.845 0 .466-.379.844-.845.844-.466 0-.845-.378-.845-.844 0-.467.379-.845.845-.845z"/></svg>
+                                            <span class="tooltiptext bg-palette-2-dark-blue p-2">{{ __('auth.form.password-condition') }}</span>
+                                        </p>
+                                    </div>
                                     <x-jet-label for="password" value="{{ __('account-details.password') }}" />
-                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
+                                    <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" autocomplete="new-password" />
+                                    @error('password') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
 
                                 <div>
                                     <x-jet-label for="password_confirmation" value="{{ __('account-details.confirm-password') }}" />
-                                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
+                                    <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" autocomplete="new-password" />
+                                    @error('password_confirmation') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
                                 </div>
                             </div>
 
