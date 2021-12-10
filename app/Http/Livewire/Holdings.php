@@ -14,7 +14,6 @@ class Holdings extends Component
     {
         $this->biens = Auth::user()->biens;
 
-        dd($this->biens);
         foreach ($this->biens as $bien)
         {
             $user_biens = UserBien::where('user_id', Auth::id())->where('biens_id', $bien->id)->get();
