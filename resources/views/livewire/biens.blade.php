@@ -97,7 +97,7 @@
                     <h3 class="text-sm font-medium text-gray-900">{{ __('property.property-highlights.title') }}</h3>
 
                     <div class="mt-4">
-                        <ul role="list" class="pl-4 max-w-sm list-disc text-sm space-y-2">
+                        <ul role="list" class="pl-4 lg:max-w-sm max-w-none list-disc text-sm space-y-2">
                             <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.expected-yield') }}</span><span class="ml-10 text-black">{{ $item->expected_yield }}%</span></li>
 
                             <li class="flex items-center justify-between text-gray-400"><span class="text-gray-600">{{ __('property.property-highlights.rent-start-date') }}</span><span class="ml-10 text-black">{{ $item->rent_start_date }}</span></li>
@@ -115,7 +115,7 @@
                     <h2 class="text-sm font-medium text-gray-900">{{ __('property.property-type.title') }}</h2>
 
                     <div class="mt-4">
-                        <ul role="list" class="pl-4 max-w-sm list-disc text-sm space-y-2">
+                        <ul role="list" class="pl-4 lg:max-w-sm max-w-none list-disc text-sm space-y-2">
                             <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">Type</span><span class="ml-10">{{ $item->type }}</span></li>
 
                             <li class="flex items-center justify-between list-disc text-gray-400"><span class="text-gray-600">{{ __('property.property-type.beds') }}</span><span class="ml-10 text-black">{{ $item->nb_beds }}</span></li>
