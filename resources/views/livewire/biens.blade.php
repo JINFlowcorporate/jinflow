@@ -1,8 +1,10 @@
 @section('title', __('pages.biens'))
 
-<div class="bg-white">
+<div class="bg-white pt-6">
+    <div class="max-w-2xl mx-auto lg:max-w-7xl sm:px-6 lg:px-8 text-black">
+        <a href="{{ route('nos-biens') }}" class="inline-block bg-palette-2-grey p-2 border border-transparent rounded-md text-base font-medium bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">← {{ __('our-properties.back-button') }}</a>
+    </div>
     <div>
-        <!-- Image gallery -->
         <div class="hidden lg:block mt-6 max-w-2xl mx-auto lg:max-w-7xl sm:px-6 lg:px-8">
             <div class="w-full grid grid-cols-3 gap-x-8">
                 <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">

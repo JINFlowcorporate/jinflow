@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'our-properties' => 'Our properties'
+    'our-properties' => 'Our properties',
+    'back-button' => 'back to properties'
 ];
