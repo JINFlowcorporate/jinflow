@@ -14,7 +14,6 @@ class NosBiens extends Component
     {
         $biens = Biens::paginate(2);
 
-        dd($biens);
         return view('livewire.nos-biens', ['biens' => $biens]);
     }
 }
