@@ -16,7 +16,7 @@ class Biens extends Model implements TranslatableContract
 
     public function images()
     {
-        return $this->hasMany(Image::class);
+        return $this->hasMany(Image::class)->orderBy('id', 'ASC');
     }
 
     public function orders(){

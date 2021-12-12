@@ -13,7 +13,6 @@ class Biens extends Component
     public function mount($slug)
     {
         $this->item = \App\Models\Biens::where('slug', $slug)->first();
-        dd($this->item->images);
     }
 
     public function addToCart($id)
