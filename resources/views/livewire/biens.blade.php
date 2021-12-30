@@ -8,19 +8,25 @@
         <div class="hidden lg:block mt-6 max-w-2xl mx-auto lg:max-w-7xl sm:px-6 lg:px-8">
             <div class="w-full grid grid-cols-3 gap-x-8">
                 <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                    <img src="{{ URL::asset(/*'storage/' .*/ $item->images[0]->image) }}" alt="Image" class="w-full h-full object-center object-cover">
+                    <img src="{{ URL::asset(/*'storage/' .*/ $item->mainImage()) }}" alt="Image" class="w-full h-full object-center object-cover">
                 </div>
                 <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
+                    @if(!empty($item->images[1]))
                     <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
                         <img src="{{ URL::asset(/*'storage/' .*/ $item->images[1]->image) }}" alt="Image" class="w-full h-full object-center object-cover">
                     </div>
+                    @endif
+                    @if(!empty($item->images[2]))
                     <div class="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
                         <img src="{{ URL::asset(/*'storage/' .*/ $item->images[2]->image) }}" alt="Image" class="w-full h-full object-center object-cover">
                     </div>
+                    @endif
                 </div>
+                @if(!empty($item->images[3]))
                 <div class="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
                     <img src="{{ URL::asset(/*'storage/' .*/ $item->images[3]->image) }}" alt="Image" class="w-full h-full object-center object-cover">
                 </div>
+                @endif
             </div>
         </div>
         <div class="gap-3 p-2 lg:hidden w-full flex items-center overflow-y-hidden overflow-x-scroll" style="overscroll-behavior-x: contain; scroll-snap-type: x mandatory;">

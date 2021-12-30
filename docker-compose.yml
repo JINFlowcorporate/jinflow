@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+    jinflow_maria:
+        image: docker.io/bitnami/mariadb:10.2
+        environment:
+            - ALLOW_EMPTY_PASSWORD=yes
+            - MARIADB_USER=jinflow
+            - MARIADB_DATABASE=jinflow
+            - MARIADB_PASSWORD=my_password
+            - MARIADB_MASTER_PORT_NUMBER=3308
+        ports:
+            - '3307:3306'
+
+    jinflow:
+        tty: true
+        image: docker.io/bitnami/laravel:8
+        environment:
+            - DB_HOST=jinflow_maria
+            - DB_PORT=3306
+            - DB_USERNAME=jinflow
+            - DB_DATABASE=jinflow
+            - DB_PASSWORD=my_password
+            - APP_DEBUG=true
+            - APP_ENV=local
+        depends_on:
+            - jinflow_maria
+        ports:
+            - 3000:3000
+        volumes:
+            - ./:/app
+        # privileged: true # Privileged mode could be required to run this container under Windows

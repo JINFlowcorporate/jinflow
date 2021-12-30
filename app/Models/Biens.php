@@ -22,4 +22,11 @@ class Biens extends Model implements TranslatableContract
     public function orders(){
         return $this->hasMany(Order::class);
     }
+
+    public function mainImage(){
+
+        return $this->images()->firstOr(function(){
+            return new Image(['image'=> '/images/properties/1/DSC06341.jpg']);
+        });
+    }
 }
