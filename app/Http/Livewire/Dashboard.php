@@ -58,7 +58,9 @@ class Dashboard extends Component
         $this->fullname = Auth::user()->lastname . ' ' . Auth::user()->firstname;
         $this->referrer_code = Auth::user()->referrer_code;
         $this->invested = number_format(Auth::user()->invested, 2, ',', ' ');
-        $this->rent = number_format(Auth::user()->rent, 2, ',', ' ');
+
+        // somme de tout les biens de l'utilisateur
+        $this->rent = number_format(Auth::user()->getNetRentPerMonth(), 2, ',', ' ');
         $this->can_recover = Auth::user()->can_recover;
     }
 

@@ -8,7 +8,7 @@
         <div class="hidden lg:block mt-6 max-w-2xl mx-auto lg:max-w-7xl sm:px-6 lg:px-8">
             <div class="w-full grid grid-cols-3 gap-x-8">
                 <div class="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
-                    <img src="{{ URL::asset(/*'storage/' .*/ $item->mainImage()) }}" alt="Image" class="w-full h-full object-center object-cover">
+                    <img src="{{ URL::asset(/*'storage/' .*/ $item->mainImage()->image) }}" alt="Image" class="w-full h-full object-center object-cover">
                 </div>
                 <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
                     @if(!empty($item->images[1]))

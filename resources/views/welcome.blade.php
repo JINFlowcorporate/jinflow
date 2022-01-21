@@ -233,7 +233,8 @@
                     </p>
                 </div>
                 <div class="mt-8 lg:mt-0 lg:ml-8">
-                    <form class="sm:flex">
+                    <form class="sm:flex" action="{{route('newsletter.subscribe')}}" method="post">
+                        @csrf
                         <label for="emailAddress" class="sr-only">{{ __('home.banner.text') }}</label>
                         <input id="emailAddress" name="emailAddress" type="email" autocomplete="email" required class="w-full px-5 py-3 border border-transparent placeholder-gray-500 focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white sm:max-w-xs rounded-md" placeholder="{{ __('home.banner.placeholder') }}">
                         <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Image;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Livewire\Component;
@@ -52,6 +53,7 @@ class BiensAdmin extends Component
     {
         if (!empty($this->images_to_upload))
         {
+
             foreach ($this->images_to_upload as $key => $value)
             {
                 $imageName = Storage::disk('public')->put('properties/' . $id, $value);
@@ -106,6 +108,7 @@ class BiensAdmin extends Component
      */
     public function loadModel()
     {
+
         $data = \App\Models\Biens::find($this->modelId);
 
         $this->name = $data->name;
@@ -178,7 +181,7 @@ class BiensAdmin extends Component
             'insurance' => $this->insurance,
             'net_rent_year' => $this->net_rent_year,
             'net_rent_month' => $this->net_rent_month,
-            'yield_token' => $this->yield_token
+            'yield_token' => $this->yield_token,
         ];
     }
 
@@ -189,6 +192,7 @@ class BiensAdmin extends Component
      */
     public function create()
     {
+
         $this->validate();
         $bien = \App\Models\Biens::create($this->modelData());
         $this->uploadImages($bien->id);
@@ -215,9 +219,40 @@ class BiensAdmin extends Component
     {
         $this->validate();
         \App\Models\Biens::find($this->modelId)->update($this->modelData());
-        $this->uploadImages($this->modelId);
+        //$this->uploadImages($this->modelId);
+
+
+        /*foreach ($this->images_to_upload as $image){
+
+            $image->store('properties/' . $this->modelId);
+        }
+        */
         $this->modalFormVisible = false;
     }
+    public function finishUpload($fileName, $filePath)
+    {
+
+        // AA : crade mais j'ai jamais reussi à le faire marcher, plutot que de le laisser full bugger j'ai préféré la solution moche
+
+        if($this->modelId) {
+            if ( ! empty( $filePath ) ) {
+
+                foreach ( $filePath as $key => $value ) {
+                    $imagePath = 'properties/' . $this->modelId . $value;
+                    $source    = storage_path( 'app/livewire-tmp' ) . $value;
+                    $dest      = Storage::disk( 'public' )->getDriver()->getAdapter()->applyPathPrefix( $imagePath );;
+
+
+                    if ( ! File::exists( dirname( $dest ) ) ) {
+                        File::makeDirectory( dirname( $dest ), 0755, true );
+                    }
+                    File::move( $source, $dest );
+                    Image::create( [ 'image' => 'storage/' . $imagePath, 'biens_id' => $this->modelId ] );
+                }
+            }
+        }
+    }
+
 
     /**
      * The delete function.

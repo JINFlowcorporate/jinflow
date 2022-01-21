@@ -59,6 +59,7 @@ return [
         'state' => 'State',
         'zipcode' => 'Zipcode',
         'country' => 'Country',
+        'referral_rate' => '% of referral',
         'us_citizen' => 'US Citizen',
     ],
     'orders' => [

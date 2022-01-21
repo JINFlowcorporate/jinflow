@@ -36,4 +36,5 @@ class Biens extends Component
     {
         return view('livewire.biens');
     }
+
 }

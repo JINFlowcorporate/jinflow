@@ -148,6 +148,11 @@
                 @error('zipcode') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
             </div>
             <div class="mt-4">
+                <x-jet-label for="zipcode" value="{{ __('admin.users.referral_rate') }}" />
+                <x-jet-input wire:model="referral_rate" id="referral_rate" class="block mt-1 w-full" type="text" inputmode="float" />
+                @error('zipcode') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
+            </div>
+            <div class="mt-4">
                 <label>
                     <input name="us_citizen" class="form-checkbox" type="checkbox" {{ $us_citizen ? 'checked' : '' }}
                            wire:model="us_citizen"/>

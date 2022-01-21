@@ -72,7 +72,7 @@
                         @foreach($biens as $bien)
                             <li class="pb-4 flex">
                                 <div class="flex-shrink-0 border border-gray-200 rounded-md overflow-hidden" style="width: 50px;">
-                                    <img width="50" height="50" src="{{ \Illuminate\Support\Facades\URL::asset(/*'storage/' . */\App\Models\Biens::where('id', $bien->id)->first()->images[0]->image) }}" alt="Property image" class="w-full h-full object-center object-cover">
+                                    <img width="50" height="50" src="{{ \Illuminate\Support\Facades\URL::asset(/*'storage/' . */\App\Models\Biens::where('id', $bien->id)->first()->mainImage()->image) }}" alt="Property image" class="w-full h-full object-center object-cover">
                                 </div>
 
                                 <div class="ml-4 flex-1 flex flex-col">

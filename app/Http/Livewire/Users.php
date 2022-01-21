@@ -26,6 +26,7 @@ class Users extends Component
     public $city;
     public $state;
     public $zipcode;
+    public $referral_rate;
     public $us_citizen;
 
     /**
@@ -74,6 +75,7 @@ class Users extends Component
         $this->city = $data->city;
         $this->state = $data->state;
         $this->zipcode = $data->zipcode;
+        $this->referral_rate = $data->referral_rate;
         $this->us_citizen = (boolean)$data->us_citizen;
     }
 
@@ -96,6 +98,7 @@ class Users extends Component
             'city' => $this->city,
             'state' => $this->state,
             'zipcode' => $this->zipcode,
+            'referral_rate' => $this->referral_rate,
             'us_citizen' => (boolean)$this->us_citizen,
             'referrer_code' => Str::random(10)
         ];

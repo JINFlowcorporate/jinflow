@@ -106,6 +106,7 @@ class Checkout extends Component
         'cancel_url' => 'https://jinflow-preprod.herokuapp.com'
     ]);
 
+
     return redirect()->away($charge['data']['hosted_url']);
     }
 

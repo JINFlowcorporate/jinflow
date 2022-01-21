@@ -58,6 +58,7 @@ return [
         'state' => 'Etat',
         'zipcode' => 'Code postal',
         'country' => 'Pays',
+        'referral_rate' => '% de parrainage',
         'us_citizen' => 'Citoyen US',
     ],
     'orders' => [

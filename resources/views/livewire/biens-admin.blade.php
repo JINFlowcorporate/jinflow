@@ -67,6 +67,7 @@
         </x-slot>
 
         <x-slot name="content">
+        <form wire:submit.prevent="save" class="" role="form" enctype="multipart/form-data">
             <div class="mt-4">
                 <x-jet-label for="name" value="{{ __('admin.words.lastname') }}" />
                 <x-jet-input wire:model="name" id="name" class="block mt-1 w-full" type="text" />
@@ -268,6 +269,7 @@
                     {{ __('admin.buttons.create') }}
                 </x-jet-button>
             @endif
+        </form>
         </x-slot>
     </x-jet-dialog-modal>
 

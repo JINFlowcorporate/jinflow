@@ -1,11 +1,14 @@
 <?php
 
+use App\Events\OrderCompleted;
 use App\Http\Controllers\DocusignController;
 use App\Models\Biens;
 use App\Models\Order;
 use App\Models\OrderProduct;
+use App\Models\TransactionLog;
 use App\Models\User;
 use App\Models\UserBien;
+use App\Models\ReferralLog;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -35,6 +38,7 @@ Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
 
+Route::post('/newsletter/subscribe',"\\App\Http\\Controllers\\SubscriptionController@subscribe")->name('newsletter.subscribe');
 Route::get('/our-team', function () {
     $images = [];
     foreach (\Illuminate\Support\Facades\File::allFiles(public_path('/images/team')) as $image)
@@ -68,17 +72,28 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
         ->middleware('EnsureCartIsNotEmpty');
 
     Route::get('/confirmation', function () {
+        $user =   Auth::user();
         $total = Cart::total(2, '.', '');
         $cart = Cart::content();
         $cart_total = intval((int)$total);
 
         $order = new Order;
-        $order->user_id = Auth::id();
+        $order->user_id = $user->id;
         $order->quantity = $cart->count();
         $order->total = $cart_total;
         $order->save();
 
-        User::where('id', Auth::id())->update(['invested' => Auth::user()->invested + $cart_total]);
+        // refacto possible direct mettre à jour l'update avec l'utilisateur en cours
+        $user->increment('invested', $cart_total);
+
+
+        $referrer = User::where('referrer_code', $user->referred_by)->first();
+        if($referrer){
+            $referalTotal = $order->total * ( $referrer->referral_rate / 100);
+            ReferralLog::create( [ 'user_id' => $referrer->id, 'order_id' => $order->id, 'rate' => $referrer->referral_rate, 'total' => $referalTotal]);
+            TransactionLog::create( ['user_id' => $referrer->id, 'object_id' => $order->id, 'rate' => $referrer->referral_rate, 'amount' => $referalTotal,'type' => 'referral']);
+            $referrer->increment('can_recover', $referalTotal);
+        }
 
         $orders = [];
 
@@ -95,12 +110,14 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
             $bienToUpdate->total_tokens = $bienToUpdate->total_tokens - $bien->qty;
             $bienToUpdate->save();
             array_push($orders, $order_product);
-            UserBien::create(['user_id' => Auth::id(), 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
+            UserBien::create(['user_id' => $user->id, 'biens_id' => $bien->id, 'quantity' => $bien->qty, 'price_per_token' => $order_product->price_per_token, 'total_price' => $order_product->total_price]);
             //  $bien = Biens::where('id', $bien->id)->first();
             //  $authed_user->tab($bien->name, (int)$bien->qty);
         }
+        TransactionLog::create( [ 'user_id' => $user->id, 'object_id' => $order->id, 'type'=> 'order', 'amount' => $total]);
 
         Cart::destroy();
+        OrderCompleted::dispatch($order);
 
         return view('pages.confirmation', compact('order'));
     })->name('confirmation')->middleware('ConfirmationFromOrder');
@@ -150,4 +167,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum', 'verified', 
     Route::get('/orders', function () {
         return view('admin.orders-admin');
     })->name('admin.orders');
+
+    Route::get('/affiliations', function () {
+        return view('admin.affiliations-admin');
+    })->name('admin.affilations');
 });

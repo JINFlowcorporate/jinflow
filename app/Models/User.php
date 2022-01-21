@@ -41,6 +41,7 @@ class User extends Authenticatable
         'us_citizen',
         'referrer_code',
         'referred_by',
+        'referral_rate',
         'address',
         'city',
         'billing_country',
@@ -80,4 +81,25 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function referralLogs()
+    {
+        return $this->hasMany(ReferralLog::class)->orderByDesc('created_at');
+    }
+
+    public function referralCount(){
+        return User::where('referred_by', $this->referrer_code)->count();
+    }
+    public function getNetRentPerMonth(){
+        $rent = 0;
+        $userBiens = $this->userBiens()->where('active', 1)->get();
+        foreach ($userBiens as $userBien){
+            $rent+= $userBien->biens->net_rent_month * $userBien->quantity;
+        }
+        return $rent;
+    }
+    public function userBiens()
+    {
+        return $this->hasMany(UserBien::class);
+    }
 }

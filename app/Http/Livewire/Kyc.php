@@ -41,9 +41,9 @@ class Kyc extends Component
         {
             $data['passport_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/passport', $this->passport_kyc);
 
-            if (file_exists(public_path('storage/' . Auth::user()->passport_kyc)))
+            if (Storage::exists(Auth::user()->passport_kyc))
             {
-                unlink(public_path('storage/' . Auth::user()->passport_kyc));
+                Storage::delete('storage/' . Auth::user()->passport_kyc);
             }
 
             $this->passport_file = URL::asset('storage/' . $data['passport_kyc']);
@@ -53,21 +53,22 @@ class Kyc extends Component
         {
             $data['driver_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/driver', $this->driver_kyc);
 
-            if (file_exists(public_path('storage/' . Auth::user()->driver_kyc)))
+            if (Storage::exists(Auth::user()->driver_kyc))
             {
-                unlink(public_path('storage/' . Auth::user()->driver_kyc));
+                Storage::delete('storage/' . Auth::user()->driver_kyc);
             }
 
             $this->driver_file = URL::asset('storage/' . $data['driver_kyc']);
         }
 
-        if (!empty($this->proof_address_kyc))
+        if ($this->proof_address_kyc)
         {
             $data['proof_address_kyc'] = Storage::disk('public')->put('profile/' . Auth::id() . '/proof', $this->proof_address_kyc);
 
-            if (file_exists(public_path('storage/' . Auth::user()->proof_address_kyc)))
+
+            if (Storage::exists(Auth::user()->proof_address_kyc))
             {
-                unlink(public_path('storage/' . Auth::user()->proof_address_kyc));
+                Storage::delete('storage/' . Auth::user()->proof_address_kyc);
             }
 
             $this->proof_file = URL::asset('storage/' . $data['proof_address_kyc']);

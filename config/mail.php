@@ -88,6 +88,13 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'subscription' => [
+        'mailchimp' => [
+            'apiKey' => env('MAILCHIMP_APIKEY'),
+            'listId' => env('MAILCHIMP_LIST_ID'),
+            'serverPrefix' => env('MAILCHIMP_SERVER_PREFIX')
+        ]
+    ],
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
