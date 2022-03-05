@@ -3,6 +3,10 @@
 <x-app-layout>
 <div class="bg-white">
     <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
+        <div>
+
+            <iframe class="mx-auto mb-4" title="vimeo-player" src="https://player.vimeo.com/video/684667163?h=c3d5854473" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+            </div>
         <div class="lg:mx-auto lg:text-center">
             <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
                 {{ __('faq.faq') }}
