@@ -14,7 +14,7 @@
     .cookies-card {
         position: fixed;
         bottom: 2em;
-        right: 2em;
+        left: 2em;
         width: 350px;
         z-index: 9999;
         background-color: #8a817c;
