@@ -19,6 +19,7 @@
         z-index: 9999;
         background-color: #8a817c;
         padding: 1.5em;
+        border-radius: 2px;
     }
 
     .cookies-card * {
