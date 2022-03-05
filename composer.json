@@ -21,7 +21,8 @@
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
         "mailchimp/marketing": "^3.0",
-        "shakurov/coinbase": "^0.7.7"
+        "shakurov/coinbase": "^0.7.7",
+        "spatie/laravel-cookie-consent": "^3.2"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

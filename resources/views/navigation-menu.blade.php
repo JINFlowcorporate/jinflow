@@ -1,4 +1,6 @@
+
 <header class="bg-palette-2-medium-blue">
+    @include('cookie-consent::index')
     <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Top">
         <div class="w-full py-6 flex items-center justify-between border-b border-palette-2-light-beige lg:border-none">
             <div class="flex items-center">
