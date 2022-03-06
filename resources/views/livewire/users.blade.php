@@ -47,7 +47,7 @@
                                     <td class="px-6 py-2">
                                     <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Passport</p>
                                         @if($item->passport_kyc)
-                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->passport_kyc }}" download>Download</a>
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" target="_blank" href="{{  \Illuminate\Support\Facades\URL::asset('storage/'.$item->passport_kyc ) }}">Download</a>
                                         @else
                                             {{ __('admin.no') }}
                                         @endif
@@ -55,7 +55,7 @@
                                     <td class="px-6 py-2">
                                     <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Driver</p>
                                         @if($item->driver_kyc)
-                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->driver_kyc }}" download>Download</a>
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" target="_blank" href="{{ \Illuminate\Support\Facades\URL::asset('storage/'. $item->driver_kyc) }}">Download</a>
                                         @else
                                             {{ __('admin.no') }}
                                         @endif
@@ -63,7 +63,7 @@
                                     <td class="px-6 py-2">
                                     <p class="text-left text-xs leading-4 font-medium text-gray-500 uppercase">Proof</p>
                                 @if($item->proof_address_kyc)
-                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" href="{{ $item->proof_address_kyc }}" download>Download</a>
+                                            <a class="mt-2 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition" target="_blank" href="{{  \Illuminate\Support\Facades\URL::asset('storage/'.$item->proof_address_kyc )}}" >Download</a>
                                         @else
                                             {{ __('admin.no') }}
                                         @endif
