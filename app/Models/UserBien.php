@@ -11,6 +11,8 @@ class UserBien extends Model
 
 
     protected $fillable = [
+        'user_id',
+        'biens_id',
         'quantity',
         'price_per_token',
         'total_price',
