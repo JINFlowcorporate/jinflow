@@ -83,6 +83,6 @@ return [
         'question-20' => [
             'title' => '20. Que se passe-t-il si le locataire ne paie pas son loyer ?',
             'text' => 'Les investisseurs chez JINFlow ne sont payés que lorsque le loyer est perçu. Si le loyer n\'est pas perçu auprès du locataire, c’est qu\' il n\'y a pas de revenus à envoyer aux détenteurs de parts immobilières.<br><br>Si un locataire est en retard dans le paiement de son loyer, il sera expulsé de la propriété et remplacé par un autre locataire.'
-        ]
+        ],
     ]
 ];

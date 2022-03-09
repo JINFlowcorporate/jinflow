@@ -83,6 +83,10 @@ return [
         'question-20' => [
             'title' => '20. What happens if the tenant does not pay rent ?',
             'text' => 'Investors at JINFlow are only paid when the rent is collected. If the rent is not collected from the tenant, there is no income to send to the holders of real estate shares.<br><br>If a tenant is late in paying their rent, they will be evicted from the property and replaced by another tenant.'
+        ],
+        'question-21' => [
+            'title' => '21. What is the legal basis for tokenization ?',
+            'text' => '1- What taxes will I pay on my passive earnings ?<br><br>2- Does double taxation apply on earnings given that two countries are involved?<br><br>3- Are my earnings considered as financial or land capital gains ? What type of taxation applies ?<br><br> There are three major types of tokenization: payment tokenizations, utility tokenizations, and asset tokenizations. I’m not sure which he is referring to but if he is looking to tokenize a piece of property, shares, or artwork, then that’s an asset token. If he were to sell that token or any of the other tokens, then ordinary contract laws would be enforced.',
         ]
     ]
 ];
