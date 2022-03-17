@@ -80,9 +80,11 @@
                         <h2 class="uppercase font-bold text-center text-red-600 text-3xl mt-10 bg-red-100 rounded-lg p-5 border-2 border-red-600 border-solid">{{ __('pages.sold-out') }}</h2>
                     @endif
                     @if (session()->has('message'))
+                    <a href="{{ route('checkout') }}">
                         <div class="mt-4 bg-green-100 text-center border border-green-400 text-green-800 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">{{ session('message') }}</strong>
                         </div>
+                    </a>
                     @elseif(session()->has('stock'))
                         <div class="mt-4 bg-red-100 text-center border border-red-400 text-red-800 px-4 py-3 rounded relative" role="alert">
                             <strong class="font-bold">{{ session('stock') }}</strong>
