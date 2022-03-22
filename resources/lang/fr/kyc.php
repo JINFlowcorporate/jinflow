@@ -6,5 +6,6 @@ return [
     'remove-document' => 'Supprimer',
     'passport' => 'Passeport',
     'driver' => 'Permis de conduire',
-    'proof' => 'Justificatif de domicile'
+    'proof' => 'Justificatif de domicile',
+    'validate' => 'En attente de validation'
 ];
