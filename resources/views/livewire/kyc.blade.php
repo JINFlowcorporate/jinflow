@@ -29,9 +29,9 @@
                 @error('passport_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($passport_file) && !empty($passport_file))
-                    <embed src="{{ $passport_file }}" type="application/pdf" style="width: 100%; height: 500px;" frameborder="0">
-                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download>{{ __('kyc.download-document') }}</a>
-                    <button type="submit" wire:click.prevent="deleteFile('passport_kyc', 'passport_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
+                <embed src="{{ $passport_file }}" type="application/pdf" style="width: 100%; height: 500px;" frameborder="0">
+                <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $passport_file }}" download>{{ __('kyc.download-document') }}</a>
+                <button type="submit" wire:click.prevent="deleteFile('passport_kyc', 'passport_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
                 @endif
             </div>
 
@@ -57,9 +57,9 @@
                 @error('driver_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($driver_file) && !empty($driver_file))
-                    <iframe class="mt-5" src="{{ $driver_file }}" width="100%" height="500px"></iframe>
-                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $driver_file }}" download>{{ __('kyc.download-document') }}</a>
-                    <button type="submit" wire:click.prevent="deleteFile('driver_kyc', 'driver_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
+                <iframe class="mt-5" src="{{ $driver_file }}" width="100%" height="500px"></iframe>
+                <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $driver_file }}" download>{{ __('kyc.download-document') }}</a>
+                <button type="submit" wire:click.prevent="deleteFile('driver_kyc', 'driver_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
                 @endif
             </div>
 
@@ -85,18 +85,21 @@
                 @error('proof_address_kyc') <span class="text-red-600 text-xs mt-2">{{ $message }}</span> @enderror
 
                 @if(isset($proof_file) && !empty($proof_file))
-                    <iframe class="mt-5" src="{{ $proof_file }}" width="100%" height="500px"></iframe>
-                    <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $proof_file }}" download>{{ __('kyc.download-document') }}</a>
-                    <button type="submit" wire:click.prevent="deleteFile('proof_address_kyc', 'proof_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
+                <iframe class="mt-5" src="{{ $proof_file }}" width="100%" height="500px"></iframe>
+                <a class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ $proof_file }}" download>{{ __('kyc.download-document') }}</a>
+                <button type="submit" wire:click.prevent="deleteFile('proof_address_kyc', 'proof_file')" class="mt-4 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-200">{{ __('kyc.remove-document') }}</button>
                 @endif
             </div>
         </div>
     </div>
-    
+    @if (session()->has('message'))
+    <div class="mt-4 bg-red-100 text-center border border-red-400 text-red-800 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">{{ session('message') }}</strong>
+    </div>
+    @endif
     <div class="pt-5">
         <div class="flex justify-end">
-            <button type="submit"
-                    class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                 {{ __('admin.buttons.save') }}
             </button>
         </div>

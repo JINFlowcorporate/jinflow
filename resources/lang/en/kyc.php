@@ -6,5 +6,7 @@ return [
     'remove-document' => 'Remove',
     'passport' => 'Passport',
     'driver' => 'Driver\' license',
-    'proof' => 'Proof of address'
+    'proof' => 'Proof of address',
+    'validate' => 'Waiting for team confirmation',
+    'confirmate' => 'Its confirmed'
 ];

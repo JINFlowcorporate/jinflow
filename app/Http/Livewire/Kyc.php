@@ -78,7 +78,7 @@ class Kyc extends Component
         {
             User::where('id', Auth::user()->id)->update($data);
         }
-        session()->flash('message', __('cart.added'));
+      
     }
 
     public function mount()
@@ -86,6 +86,10 @@ class Kyc extends Component
         $this->passport_file = Auth::user()->passport_kyc && file_exists(public_path('storage/' . Auth::user()->passport_kyc)) ? URL::asset('storage/' . Auth::user()->passport_kyc) : '';
         $this->driver_file = Auth::user()->driver_kyc && file_exists(public_path('storage/' . Auth::user()->driver_kyc)) ? URL::asset('storage/' . Auth::user()->driver_kyc) : '';
         $this->proof_file = Auth::user()->proof_address_kyc && file_exists(public_path('storage/' . Auth::user()->proof_address_kyc)) ? URL::asset('storage/' . Auth::user()->proof_address_kyc) : '';
+        
+        if(Auth::user()->is_active === 0){
+            session()->flash('message', __('kyc.validate'));
+        } 
     }
 
     public function deleteFile($file, $kyc)
