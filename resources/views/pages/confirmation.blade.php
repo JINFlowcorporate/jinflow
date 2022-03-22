@@ -20,7 +20,7 @@
                         <p class="font-bold">Total</p>
                         <p>${{ number_format($order->total, 2, ',', ' ') }}</p>
                     </div>
-                    <a href="/" download class="text-indigo-700" style="margin-left: auto;">{{ __('orders.download-invoice') }}</a>
+                   <!-- <a href="/" download class="text-indigo-700" style="margin-left: auto;">{{ __('orders.download-invoice') }}</a> -->
                 </div>
 
                 @if($order->order_product)
