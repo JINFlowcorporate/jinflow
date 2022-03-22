@@ -1,62 +1,23 @@
-<div class="cookies-card js-cookie-consent cookie-consent ">
-    <p class="title">
-    {{ trans('cookie-consent::texts.title') }}
-    </p>
-    <p class="info">
-        {!! trans('cookie-consent::texts.message') !!}
-    </p>
-    <button class="cta js-cookie-consent-agree cookie-consent__agree">
-        {{ trans('cookie-consent::texts.agree') }}
-    </button>
+<div class="js-cookie-consent cookie-consent z-50 fixed bottom-0 inset-x-0 pb-2">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="p-2 rounded-lg bg-white shadow-inner">
+            <div class="flex items-center justify-between flex-wrap">
+                <div class="w-0 flex-1 items-center hidden md:inline">
+                    <p class="ml-3 text-palette-2-dark-blue cookie-consent__message">
+                        {!! trans('cookie-consent::texts.message') !!}
+                    </p>
+                </div>
+                <div class="mt-2 flex-shrink-0 w-full sm:mt-0 sm:w-auto">
+                    <a class="js-cookie-consent-agree cookie-consent__agree flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium text-white bg-palette-2-dark-blue hover:bg-indigo-700 transition-all duration-150 ease-in-out">
+                        {{ trans('cookie-consent::texts.agree') }}
+                    </a>
+                    @if (config('cookie-consent.refuse_enabled'))
+                        <a class="js-cookie-consent-refuse mt-1 cookie-consent__refuse flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium bg-palette-2-dark-beige text-white hover:text-palette-2-dark-blue hover:bg-indigo-50 transition-all duration-150 ease-in-out">
+                        {{ trans('cookie-consent::texts.refuse') }}
+                    </a>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<style>
-    .cookies-card {
-        position: fixed;
-        bottom: 2em;
-        left: 2em;
-        width: 350px;
-        z-index: 9999;
-        background-color: #8a817c;
-        padding: 1.5em;
-        border-radius: 2px;
-    }
-
-    .cookies-card * {
-        color: #fff;
-    }
-
-    .title {
-        font-size: 1.6em;
-        letter-spacing: 0.4px;
-        margin-bottom: 0.5em;
-    }
-
-    .info {
-        line-height: 1.4em;
-        letter-spacing: 0.4px;
-        margin-bottom: 2em;
-    }
-
-    .cta {
-        border: none;
-        outline: none;
-        padding: 0.8em 1.5em;
-        border-radius: 0.5rem
-            /* 8px */
-        ;
-        background-color: #264461;
-        font-size: 1.1em;
-        font-weight: bold;
-        cursor: pointer;
-        transition: background-color 0.4s;
-    }
-
-    .cta:hover {
-        background-color: #3c9e66;
-    }
-</style>
-
-<script>
-
-</script>

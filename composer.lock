@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ce6a4e2208cfe0f6a424e38b3d72b8d",
+    "content-hash": "dcc85f1bc651586b09f838dbc214f2bd",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4359,6 +4359,76 @@
             "time": "2021-09-25T23:10:38+00:00"
         },
         {
+            "name": "retinens/laravel-cookie-consent",
+            "version": "4.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/retinens/laravel-cookie-consent.git",
+                "reference": "4ac9380ed91c59a39b2acd6da5046179c193f0cf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/retinens/laravel-cookie-consent/zipball/4ac9380ed91c59a39b2acd6da5046179c193f0cf",
+                "reference": "4ac9380ed91c59a39b2acd6da5046179c193f0cf",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/cookie": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.6"
+            },
+            "require-dev": {
+                "fakerphp/faker": "~1.9",
+                "orchestra/testbench": "^5.0|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Retinens\\CookieConsent\\CookieConsentServiceProvider"
+                    ],
+                    "aliases": {
+                        "CookieConsent": "Retinens\\CookieConsent\\Facades\\CookieConsent"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Retinens\\CookieConsent\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lucas Houssa",
+                    "email": "lucas@retinens.com",
+                    "homepage": "https://retinens.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make your Laravel app comply with the crazy EU cookie law",
+            "homepage": "https://github.com/retinens/laravel-cookie-consent",
+            "keywords": [
+                "comply",
+                "cookie",
+                "cookie-consent",
+                "eu",
+                "laravel",
+                "law",
+                "refuse",
+                "retinens"
+            ],
+            "support": {
+                "source": "https://github.com/retinens/laravel-cookie-consent/tree/4.1.2"
+            },
+            "time": "2021-06-15T11:16:41+00:00"
+        },
+        {
             "name": "sabberworm/php-css-parser",
             "version": "8.4.0",
             "source": {
@@ -4529,94 +4599,17 @@
             "time": "2017-09-01T13:56:48+00:00"
         },
         {
-            "name": "spatie/laravel-cookie-consent",
-            "version": "3.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-cookie-consent.git",
-                "reference": "01db8a42ba379489279b849d8def306e0886c04a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/01db8a42ba379489279b849d8def306e0886c04a",
-                "reference": "01db8a42ba379489279b849d8def306e0886c04a",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/cookie": "^8.0|^9.0",
-                "illuminate/support": "^8.0|^9.0",
-                "illuminate/view": "^8.0|^9.0",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.9"
-            },
-            "require-dev": {
-                "fakerphp/faker": "^1.9",
-                "orchestra/testbench": "^6.0|^7.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\CookieConsent\\CookieConsentServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\CookieConsent\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Willem Van Bockstal",
-                    "email": "willem@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Make your Laravel app comply with the crazy EU cookie law",
-            "homepage": "https://github.com/spatie/cookie-consent",
-            "keywords": [
-                "comply",
-                "cookie",
-                "cookie-consent",
-                "eu",
-                "law",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/laravel-cookie-consent/tree/3.2.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                }
-            ],
-            "time": "2022-01-14T07:57:12+00:00"
-        },
-        {
             "name": "spatie/laravel-package-tools",
-            "version": "1.11.2",
+            "version": "1.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-package-tools.git",
-                "reference": "16a8de828e7f1f32d580c667e1de5bf2943abd6b"
+                "reference": "baeb3df0ebb3a541394fdaf8cbe6115bf4034a59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/16a8de828e7f1f32d580c667e1de5bf2943abd6b",
-                "reference": "16a8de828e7f1f32d580c667e1de5bf2943abd6b",
+                "url": "https://api.github.com/repos/spatie/laravel-package-tools/zipball/baeb3df0ebb3a541394fdaf8cbe6115bf4034a59",
+                "reference": "baeb3df0ebb3a541394fdaf8cbe6115bf4034a59",
                 "shasum": ""
             },
             "require": {
@@ -4654,7 +4647,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/laravel-package-tools/issues",
-                "source": "https://github.com/spatie/laravel-package-tools/tree/1.11.2"
+                "source": "https://github.com/spatie/laravel-package-tools/tree/1.11.3"
             },
             "funding": [
                 {
@@ -4662,7 +4655,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-02-22T08:55:13+00:00"
+            "time": "2022-03-15T20:01:36+00:00"
         },
         {
             "name": "stripe/stripe-php",
