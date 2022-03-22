@@ -78,6 +78,7 @@ class Kyc extends Component
         {
             User::where('id', Auth::user()->id)->update($data);
         }
+        session()->flash('message', __('cart.added'));
     }
 
     public function mount()
